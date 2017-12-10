@@ -1,0 +1,26 @@
+﻿@model Harvin.Models.Delivery
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Delivery</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pagamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pedidoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

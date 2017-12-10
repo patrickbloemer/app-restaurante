@@ -1,0 +1,43 @@
+﻿@model Harvin.Models.Funcionario
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <br />
+    <h2 style="text-align:center;">Login</h2>
+    <br />
+    <section>
+        <div class="container" style="width: 500px;">
+            <div class="well bs-component" style="background-color: rgba(120, 194, 173, 0.35); box-shadow: 1px 2px 1px;">
+                @using (Html.BeginForm()) {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal" style="text-align:center;">
+                        @Html.ValidationSummary(true, "", new { @class = "text-red" })
+                        <fieldset>
+                            <div class="form-group">
+                                <label>Login</label> <br />
+                                @Html.EditorFor(model => model.cpf, new { @class="form-control"})
+                            </div>
+                            <div class="form-group">
+                                <label>Senha</label> <br />
+                                @Html.PasswordFor(model => model.senha)
+                            </div>
+                            <br />
+                            <p style="color: red;">@ViewBag.Mensagem</p>
+                            <input type="submit" name="btnEntrar" value="Entrar" class="btn btn-primary" />
+                        </fieldset>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</body>
+</html>

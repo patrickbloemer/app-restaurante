@@ -1,0 +1,41 @@
+﻿@model Harvin.Models.Categoria
+
+@{
+    ViewBag.Title = "Categoria";
+}
+
+<h2>Editar informações da Categoria</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CategoriaId)
+
+        <div class="input-field col s6">
+            @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "validate" } })
+            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "validate" })
+        </div>
+
+
+        <div class="input-field col s6">
+            @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @class = "validate" } })
+            @Html.LabelFor(model => model.descricao, htmlAttributes: new { @class = "validate" })
+        </div>
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            Cadastrar
+            <i class="material-icons right">send</i>
+        </button>
+        <a href="@Url.Action("Index")" class="btn waves-effect waves-light red">
+            Cancelar
+            <i class="material-icons right">cancel</i>
+        </a>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

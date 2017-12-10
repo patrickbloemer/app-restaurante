@@ -1,0 +1,50 @@
+﻿@model Harvin.Models.Pedido
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pedido</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.horarioPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horarioPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horarioEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horarioEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pendencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pendencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pagamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pedidoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

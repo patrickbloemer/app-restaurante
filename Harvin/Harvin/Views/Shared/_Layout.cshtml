@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Harvin</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/materialize.min.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+</head>
+<body>
+    <div class="navbar-fixed">
+        <!-- NAVBAR -->
+        <nav class="z-depth-0 cordefundodomenu">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="@Url.Action("Index", "Inicial")" class="brand-logo">
+                        Harvin
+                    </a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="@Url.Action("Configuracoes", "Inicial")" class="opcaomenu">Configurações</a></li>
+                        <li><a href="@Url.Action("Index", "Produtos")" class="opcaomenu">Produtos</a></li>
+                        <li><a href="@Url.Action("Index", "Categorias")" class="opcaomenu">Categorias</a></li>
+                        <li><a href="@Url.Action("Index", "Cargos")" class="opcaomenu">Cargos</a></li>
+                        <li><a href="@Url.Action("Index", "Funcionarios")" class="opcaomenu">Funcionarios</a></li>
+                        <li><a href="@Url.Action("FazerPedido", "Pedidos")" class="opcaomenu">Pedidos</a></li>
+                    </ul>
+                    <main class="hide-on-large-only">
+                        <a class="toggle-overlay"><i class="small material-icons">menu</i></a>
+                    </main>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- MENU MOBILE -->
+    <aside>
+        <div class="outer-close toggle-overlay">
+            <a class="white-text right close"><i class="margin-clear small material-icons">clear</i></a>
+        </div>
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="@Url.Action("Configuracoes", "Inicial")" class="opcaomenu">Configurações</a></li>
+                <li><a href="@Url.Action("Index", "Produtos")" class="opcaomenu">Produtos</a></li>
+                <li><a href="@Url.Action("Index", "Categorias")" class="opcaomenu">Categorias</a></li>
+                <li><a href="@Url.Action("Index", "Cargos")" class="opcaomenu">Cargos</a></li>
+                <li><a href="@Url.Action("Index", "Funcionarios")" class="opcaomenu">Funcionarios</a></li>
+                <li><a href="@Url.Action("FazerPedido", "Pedidos")" class="opcaomenu">Pedidos</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="container body_content">
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+            $(".button-collapse").sideNav();
+            $('.toggle-overlay').click(function () {
+                $('aside').toggleClass('open');
+            });
+            $('.modal').modal();
+        });
+    </script>
+</body>
+</html>

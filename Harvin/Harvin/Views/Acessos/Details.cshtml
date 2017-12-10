@@ -1,0 +1,82 @@
+﻿@model Harvin.Models.Acesso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Acesso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.home)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.home)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.verificarConsumo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.verificarConsumo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.realizarPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.realizarPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pedidosPendentes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pedidosPendentes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reservarMesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reservarMesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.configuracoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.configuracoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.relatorios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.relatorios)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.acessoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

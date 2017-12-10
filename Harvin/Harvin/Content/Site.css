@@ -1,0 +1,122 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.acessonegado {
+    margin: 100px 0px!important;
+    text-align: center!important;
+}
+
+
+.container {
+    width: 95%!important;
+}
+
+.form-control {
+    display: block;
+}
+
+#estocavel{
+    display: block;
+    position: relative;
+    pointer-events: all;
+    opacity: 1;
+}
+
+.container .row {
+    text-align: center!important;
+}
+
+.card .card-content .card-title {
+    font-size: 15px!important;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    text-align: center;
+}
+
+.cordefundodomenu{
+    background-color: #f1592d;
+}
+/*MENU MOBILE*/
+aside {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #f1592d;
+  transition: all .5s ease;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+nav.mobile-menu {
+  text-align: center;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: none;
+  background: none;
+}
+
+.mobile-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-menu li {
+  align-items: center;
+  flex: 1;
+  line-height: 15vh;
+  float: none;
+}
+      
+.mobile-menu a {
+  color: #FFFFFF;
+  font-size: 1.5em;
+  transition: all 0.5s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.margin-clear {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.outer-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 85px;
+  height: 85px;
+  cursor: pointer;
+}
+
+
+/*BODY CONTENT*/
+.body_content{
+    padding-top: 20px;
+}
+
+.adiciona_produto {
+    margin-top: -25px!important;
+}

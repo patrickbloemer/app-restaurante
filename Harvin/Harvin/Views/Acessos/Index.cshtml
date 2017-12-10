@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Harvin.Models.Acesso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.home)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.verificarConsumo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.realizarPedido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pedidosPendentes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reservarMesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.configuracoes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.relatorios)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.home)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.verificarConsumo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.realizarPedido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pedidosPendentes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reservarMesa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.configuracoes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.relatorios)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.acessoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.acessoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.acessoId })
+        </td>
+    </tr>
+}
+
+</table>

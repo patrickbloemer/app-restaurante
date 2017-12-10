@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Harvin.Models.Categoria>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h5>Categorias Cadastradas</h5>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model) {
+        <div class="col s6 m4 l3">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://www.corpoealma.com/wp-content/uploads/2017/08/pizzabar.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => item.nome)</span>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                    <b>Categoria</b>
+                    <br />
+                    @Html.DisplayFor(modelItem => item.nome)
+                    <br />
+                    <br />
+                    <b>Descrição</b>
+                    <br />
+                    @Html.DisplayFor(modelItem => item.descricao)
+                    <br /><br />
+                    <a href="@Url.Action("Edit", new { id=item.CategoriaId})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                    <a href="@Url.Action("Delete", new { id=item.CategoriaId})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

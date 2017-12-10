@@ -1,0 +1,184 @@
+﻿@model Harvin.Models.Funcionario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Funcionario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cargo.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.home)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.home)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.verificarConsumo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.verificarConsumo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.realizarPedido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.realizarPedido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pedidosPendentes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pedidosPendentes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reservarMesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reservarMesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.configuracoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.configuracoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.relatorios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.relatorios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sobrenome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sobrenome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataDeNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataDeNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endereco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.complemento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.complemento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cidade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senha)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
