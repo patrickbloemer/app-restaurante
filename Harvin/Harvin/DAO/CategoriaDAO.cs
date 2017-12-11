@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Harvin.DAO {
     public class CategoriaDAO {
-        private static entities db = new entities();
+        private static Entities db = new Entities();
         
         public static List<Categoria> ListaCategorias() {
             try {

@@ -169,9 +169,11 @@
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
+    <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\ClienteLoginDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\FuncionarioLoginDAO.cs" />
+    <Compile Include="DAO\Singleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,13 +181,17 @@
     <Compile Include="Migrations\201712091211387_CriarBanco.Designer.cs">
       <DependentUpon>201712091211387_CriarBanco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712111242028_EntitiesAtt.cs" />
+    <Compile Include="Migrations\201712111242028_EntitiesAtt.Designer.cs">
+      <DependentUpon>201712111242028_EntitiesAtt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteLogin.cs" />
     <Compile Include="Models\Delivery.cs" />
-    <Compile Include="Models\entities.cs" />
+    <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\FormaPagamento.cs" />
     <Compile Include="Models\FuncionarioLogin.cs" />
     <Compile Include="Models\Item.cs" />
@@ -285,6 +291,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712091211387_CriarBanco.resx">
       <DependentUpon>201712091211387_CriarBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111242028_EntitiesAtt.resx">
+      <DependentUpon>201712111242028_EntitiesAtt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 namespace Harvin.Models {
-    public class entities : DbContext {
+    public class Entities : DbContext {
         public DbSet<Cargo> Cargos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Cliente> Clientes { get; set; }

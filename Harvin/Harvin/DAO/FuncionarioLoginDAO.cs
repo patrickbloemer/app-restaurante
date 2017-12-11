@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Harvin.DAO {
     public class FuncionarioLoginDAO {
-        private static entities entities = new entities();
+        private static Entities entities = new Entities();
 
         //Adicionar Funcionario Logado
         public static bool AdicionarFuncionario(Funcionario funcionario) {

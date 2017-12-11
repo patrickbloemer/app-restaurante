@@ -9,17 +9,20 @@ namespace Harvin.Models {
         [Key]
         public int id { get; set; }
         [Display(Name = "Primeiro Nome")]
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         public string nome { get; set; }
 
         [Display(Name = "Sobrenome")]
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         public string sobrenome { get; set; }
 
         [Display(Name = "CPF")]
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         public string cpf { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Data de Nasciento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime dataDeNascimento { get; set; }
 

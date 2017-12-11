@@ -13,7 +13,7 @@ namespace Harvin.Controllers
 {
     public class ClientesController : Controller
     {
-        private entities db = new entities();
+        private Entities db = new Entities();
 
         // GET: Clientes
         public ActionResult Index()
@@ -51,9 +51,23 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Clientes.Add(cliente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(ClienteDAO.BuscaClientePorCPF(cliente) == null && ClienteDAO.BuscaClientePorEmail(cliente) == null)
+                {
+                    db.Clientes.Add(cliente);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } else
+                {
+                    if (ClienteDAO.BuscaClientePorCPF(cliente) != null)
+                    {
+                        ModelState.AddModelError("", "Já existe um cliente cadastrado no sistema com esse CPF!");
+                    }
+                    if (ClienteDAO.BuscaClientePorEmail(cliente) != null)
+                    {
+                        ModelState.AddModelError("", "Já existe um cliente cadastrado no sistema com esse Email!");
+                    }
+                }
+               
             }
 
             return View(cliente);

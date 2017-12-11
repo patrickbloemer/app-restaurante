@@ -12,7 +12,7 @@ namespace Harvin.Controllers
 {
     public class DeliveriesController : Controller
     {
-        private entities db = new entities();
+        private Entities db = new Entities();
 
         // GET: Deliveries
         public ActionResult Index()

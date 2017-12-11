@@ -13,7 +13,7 @@ namespace Harvin.Controllers
 {
     public class FuncionariosController : Controller
     {
-        private entities db = new entities();
+        private Entities db = new Entities();
 
         // GET: Funcionarios
         public ActionResult Index()
@@ -53,9 +53,22 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Funcionarios.Add(funcionario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) == null && FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) == null)
+                {
+                    db.Funcionarios.Add(funcionario);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } else
+                {
+                    if(FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) != null) {
+                        ModelState.AddModelError("", "Já existe um funcionário cadastrado no sistema com esse CPF!");
+                    }
+                    if(FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) != null) {
+                        ModelState.AddModelError("", "Já existe um funcionário cadastrado no sistema com esse email!");
+                    }
+
+                }
+ 
             }
 
             ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);

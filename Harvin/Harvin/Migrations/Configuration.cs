@@ -5,14 +5,14 @@ namespace Harvin.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Harvin.Models.entities>
+    internal sealed class Configuration : DbMigrationsConfiguration<Harvin.Models.Entities>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Harvin.Models.entities context)
+        protected override void Seed(Harvin.Models.Entities context)
         {
             //  This method will be called after migrating to the latest version.
 
