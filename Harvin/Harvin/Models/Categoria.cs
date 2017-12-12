@@ -10,7 +10,13 @@ namespace Harvin.Models {
     public class Categoria {
         [Key]
         public int CategoriaId { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Nome")]
         public string nome { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Descrição")]
         public string descricao { get; set; }
     }
 }

@@ -15,5 +15,11 @@ namespace Harvin.DAO
         {
             return entities.Cargos.FirstOrDefault(x => x.nome.Equals(cargo.nome));
         }
+        
+        // Busca Cargo por ID
+        public static Cargo BuscaProdutoPorId(int id)
+        {
+            return entities.Cargos.Find(id);
+        }
     }
 }

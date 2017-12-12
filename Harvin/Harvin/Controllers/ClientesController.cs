@@ -47,7 +47,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,senha,cep,endereco,complemento,bairro,cidade")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,senha,cep,endereco,complemento,bairro,cidade")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {

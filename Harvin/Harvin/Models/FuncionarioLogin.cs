@@ -11,6 +11,8 @@ namespace Harvin.Models {
         [Key]
         public int funcionarioLoginId { get; set; }
         public Funcionario funcionario { get; set; }
+
+        [Display(Name = "Horário Login")]
         public DateTime dataHorarioLogin { get; set; }
         public string sessao { get; set; }
     }

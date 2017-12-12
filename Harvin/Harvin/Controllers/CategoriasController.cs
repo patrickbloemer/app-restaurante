@@ -89,9 +89,18 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoria).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Categoria aux = new Categoria();
+                aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
+                if(CategoriaDAO.BuscarCategoriaPorNome(categoria) == null || aux.nome == categoria.nome)
+                {
+                    db.Entry(categoria).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } else
+                {
+                    ModelState.AddModelError("", "Não podem existir duas Categorias com o mesmo nome!");
+                }
+                
             }
             return View(categoria);
         }

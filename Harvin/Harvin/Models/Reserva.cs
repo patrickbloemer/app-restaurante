@@ -10,8 +10,17 @@ namespace Harvin.Models {
     public class Reserva {
         [Key]
         public int reservaId { get; set; }
+
         public Cliente cliente { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Data da Reserva")]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
         public DateTime data { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Horário da Reserva")]
         public DateTime horario { get; set; }
 
         [Display(Name = "Quantidade de Clientes")]

@@ -191,6 +191,10 @@
     <Compile Include="Migrations\201712112232042_PedidoEPessoaAtt.Designer.cs">
       <DependentUpon>201712112232042_PedidoEPessoaAtt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712122106586_Att.cs" />
+    <Compile Include="Migrations\201712122106586_Att.Designer.cs">
+      <DependentUpon>201712122106586_Att.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712112232042_PedidoEPessoaAtt.resx">
       <DependentUpon>201712112232042_PedidoEPessoaAtt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712122106586_Att.resx">
+      <DependentUpon>201712122106586_Att.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

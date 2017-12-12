@@ -10,8 +10,12 @@ namespace Harvin.Models {
     public class ClienteLogin {
         [Key]
         public int clienteLoginId { get; set; }
+
         public Cliente cliente { get; set; }
+
+        [Display(Name = "Horário de Login")]
         public DateTime dataHorarioLogin { get; set; }
+
         public string sessao { get; set; }
     }
 }

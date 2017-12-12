@@ -14,6 +14,8 @@ namespace Harvin.Models {
         public Cliente cliente { get; set; }
         public Funcionario funcionarioEntrega { get; set; }
         public FormaPagamento formaPagamento { get; set; }
+
+        [Display(Name = "Pagamento")]
         public bool Pagamento { get; set; }
     }
 }

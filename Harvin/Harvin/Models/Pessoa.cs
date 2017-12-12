@@ -26,28 +26,34 @@ namespace Harvin.Models {
         [DataType(DataType.Date)]
         public DateTime dataDeNascimento { get; set; }
 
-
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "CEP")]
         public string cep { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Endereço")]
         public string endereco { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Complemento")]
         public string complemento { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Bairro")]
         public string bairro { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Cidade")]
         public string cidade { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "E-mail")]
         public string email { get; set; }
 
         [Display(Name = "Telefone")]
         public string telefone { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string senha { get; set; }

@@ -90,9 +90,18 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cargo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Cargo aux = new Cargo();
+                aux = CargoDAO.BuscaProdutoPorId(cargo.cargoId);
+                if(CargoDAO.BurcarCargoPorNome(cargo) == null || aux.nome == cargo.nome)
+                {
+                    db.Entry(cargo).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } else
+                {
+                    ModelState.AddModelError("", "Não podem existir dois cargos com o mesmo nome!");
+                }
+               
             }
             return View(cargo);
         }

@@ -15,5 +15,28 @@ namespace Harvin.DAO
         {
             return entities.Produtos.FirstOrDefault(x => x.nome.Equals(produto.nome));
         }
+
+        // Busca Produto por Id
+        public static Produto BuscaProdutoPorId(int id)
+        {
+            return entities.Produtos.Find(id);
+        }
+        // Verifica se Quantidade Atual Não é maior que Quantidade Máxima
+        public static bool VerificacaoDeQtdeAtualEQtdeMax(Produto produto)
+        {
+            try
+            {
+                if(produto.quantidadeAtualEstoque > produto.quantidadeMaximaEstoque)
+                {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

@@ -6,12 +6,12 @@ using System.Web;
 
 namespace Harvin.DAO {
     public class CategoriaDAO {
-        private static Entities db = Singleton.Instance.Entities;
+        private static Entities entities = Singleton.Instance.Entities;
         
         // Retorna Categorias
         public static List<Categoria> ListaCategorias() {
             try {
-                return db.Categorias.ToList();
+                return entities.Categorias.ToList();
             }
             catch (Exception e) {
                 return null;
@@ -21,7 +21,13 @@ namespace Harvin.DAO {
         // Busca Categoria Por Nome
         public static Categoria BuscarCategoriaPorNome(Categoria categoria)
         {
-            return db.Categorias.FirstOrDefault(x => x.nome.Equals(categoria.nome));
+            return entities.Categorias.FirstOrDefault(x => x.nome.Equals(categoria.nome));
+        }
+
+        // Busca Categoria por Id
+        public static Categoria BuscarCategoriaPorId(int id)
+        {
+            return entities.Categorias.Find(id);
         }
 
     }

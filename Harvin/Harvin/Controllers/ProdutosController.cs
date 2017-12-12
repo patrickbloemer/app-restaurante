@@ -53,16 +53,26 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(ProdutoDAO.BuscaProdutoPorNome(produto) == null)
+                if (ProdutoDAO.BuscaProdutoPorNome(produto) == null)
                 {
-                    db.Produtos.Add(produto);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                } else
+                    if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
+                    {
+                        ModelState.AddModelError("", "Quantidade Atual não pode ser maior que a Quantidade Máxima!");
+                        ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+                        return View(produto);
+                    }
+                    else
+                    {
+                        db.Produtos.Add(produto);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+                else
                 {
                     ModelState.AddModelError("", "Já existe um produto cadastrado com esse nome!");
                 }
-                 
+
             }
 
             ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
@@ -94,9 +104,29 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Produto aux = new Produto();
+                aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
+                if (ProdutoDAO.BuscaProdutoPorNome(produto) == null || produto.nome == aux.nome)
+                {
+                    if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
+                    {
+                        ModelState.AddModelError("", "Quantidade Atual não pode ser maior que a Quantidade Máxima!");
+                        ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+                        return View(produto);
+                    }
+                    else
+                    {
+                        db.Entry(produto).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Não podem existir dois produtos com o mesmo nome!");
+                }
+
+
             }
             ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
             return View(produto);
