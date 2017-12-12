@@ -13,6 +13,9 @@ namespace Harvin.Models {
         public Cliente cliente { get; set; }
         public DateTime data { get; set; }
         public DateTime horario { get; set; }
+
+        [Display(Name = "Quantidade de Clientes")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
         public int quantidadeClientes { get; set; }
     }
 }

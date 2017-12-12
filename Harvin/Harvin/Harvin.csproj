@@ -168,11 +168,13 @@
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
+    <Compile Include="DAO\CargoDAO.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\ClienteLoginDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="DAO\FuncionarioLoginDAO.cs" />
+    <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\Singleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +186,10 @@
     <Compile Include="Migrations\201712111242028_EntitiesAtt.cs" />
     <Compile Include="Migrations\201712111242028_EntitiesAtt.Designer.cs">
       <DependentUpon>201712111242028_EntitiesAtt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712112232042_PedidoEPessoaAtt.cs" />
+    <Compile Include="Migrations\201712112232042_PedidoEPessoaAtt.Designer.cs">
+      <DependentUpon>201712112232042_PedidoEPessoaAtt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712111242028_EntitiesAtt.resx">
       <DependentUpon>201712111242028_EntitiesAtt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712112232042_PedidoEPessoaAtt.resx">
+      <DependentUpon>201712112232042_PedidoEPessoaAtt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

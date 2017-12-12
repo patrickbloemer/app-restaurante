@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Harvin.Models;
+using Harvin.DAO;
 
 namespace Harvin.Controllers
 {
@@ -52,9 +53,16 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Produtos.Add(produto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(ProdutoDAO.BuscaProdutoPorNome(produto) == null)
+                {
+                    db.Produtos.Add(produto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } else
+                {
+                    ModelState.AddModelError("", "Já existe um produto cadastrado com esse nome!");
+                }
+                 
             }
 
             ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);

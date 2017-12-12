@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Harvin.Models;
+using Harvin.DAO;
 
 namespace Harvin.Controllers
 {
@@ -50,9 +51,15 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Categorias.Add(categoria);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if(CategoriaDAO.BuscarCategoriaPorNome(categoria) == null)
+                {
+                    db.Categorias.Add(categoria);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                } else
+                {
+                    ModelState.AddModelError("", "Já existe uma categoria cadastrada com esse nome!");
+                }
             }
 
             return View(categoria);

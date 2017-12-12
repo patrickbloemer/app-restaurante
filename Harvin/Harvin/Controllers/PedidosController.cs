@@ -38,7 +38,9 @@ namespace Harvin.Controllers
         // GET: Pedidos/Create
         public ActionResult Create()
         {
-            return View();
+            // Verificar Display Format ********************************
+            var model = new Pedido();
+            return View(model);
         }
 
         // POST: Pedidos/Create
