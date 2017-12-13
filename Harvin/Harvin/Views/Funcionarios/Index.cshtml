@@ -4,15 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Todos os Funcionários Cadastrados</h2>
+<h2>Funcionários Cadastrados</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Novo Funcionário", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.cargo.nome)
+            @Html.DisplayName("Cargo")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.home)
@@ -143,9 +143,9 @@
             @Html.DisplayFor(modelItem => item.senha)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Inativar", "Delete", new { id=item.id })
             <!-- Modal Trigger -->
         </td>
     </tr>

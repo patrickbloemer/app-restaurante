@@ -38,7 +38,8 @@ namespace Harvin.Controllers
         // GET: Reservas/Create
         public ActionResult Create()
         {
-            return View();
+            var model = new Reserva();
+            return View(model);
         }
 
         // POST: Reservas/Create

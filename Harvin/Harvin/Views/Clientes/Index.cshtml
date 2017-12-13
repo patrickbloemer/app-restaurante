@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Harvin.Models.Cliente>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clientes";
 }
 
-<h2>Index</h2>
+<h2>Clientes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cadastrar Novo Cliente", "Create")
 </p>
 <table class="table">
     <tr>
@@ -89,9 +89,9 @@
             @Html.DisplayFor(modelItem => item.cidade)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
+            @Html.ActionLink("Inativar", "Delete", new { id=item.id })
         </td>
     </tr>
 }

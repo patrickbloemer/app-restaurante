@@ -40,8 +40,14 @@ namespace Harvin.Controllers
         // GET: Funcionarios/Create
         public ActionResult Create()
         {
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome");
-            return View();
+            if(CargoDAO.VerificaExistenciaDeCargos())
+            {
+                return RedirectToAction("Create", "Cargos");
+            } else
+            {
+                ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome");
+                return View();
+            }
         }
 
         // POST: Funcionarios/Create
@@ -129,9 +135,17 @@ namespace Harvin.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Funcionario funcionario = db.Funcionarios.Find(id);
-            db.Funcionarios.Remove(funcionario);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (FuncionarioDAO.VerificaFuncionarios())
+            {
+                db.Funcionarios.Remove(funcionario);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            } else
+            {
+                ModelState.AddModelError("", "Não é possível excluir funcionário, pois só há este funcionário cadastrado!");
+                return View(funcionario);
+            }
+            
         }
 
         protected override void Dispose(bool disposing)

@@ -9,6 +9,12 @@ namespace Harvin.DAO {
 
         private static Entities entities = Singleton.Instance.Entities;
 
+        // Retorna Lista de Funcionários
+        public static List<Funcionario> RetornaFuncionarios()
+        {
+            return entities.Funcionarios.ToList();
+        }
+
         // Busca Funcionário Por CPF
         public static Funcionario BuscaFuncionarioPorCPF(Funcionario funcionario)
         {
@@ -19,6 +25,21 @@ namespace Harvin.DAO {
         public static Funcionario BuscaFuncionarioPorEmail(Funcionario funcionario)
         {
             return entities.Funcionarios.FirstOrDefault(x => x.email.Equals(funcionario.email));
+        }
+
+        // Verifica se Existe Mais de um Funcionário
+        public static bool VerificaFuncionarios()
+        {
+            List<Funcionario> listAux = new List<Funcionario>();
+            listAux = RetornaFuncionarios();
+            if(listAux.Count == 1)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+            
         }
     }
 }

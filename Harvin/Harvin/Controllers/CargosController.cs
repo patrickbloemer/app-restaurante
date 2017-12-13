@@ -39,7 +39,15 @@ namespace Harvin.Controllers
         // GET: Cargos/Create
         public ActionResult Create()
         {
-            return View();
+            if (CargoDAO.VerificaExistenciaDeCargos())
+            {
+                ViewBag.SemCargo = "É necessário ter ao menos um cargo cadastrado antes de cadastrar um funcionário!";
+                return View();
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // POST: Cargos/Create
