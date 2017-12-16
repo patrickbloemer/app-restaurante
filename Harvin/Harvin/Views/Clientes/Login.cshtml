@@ -22,45 +22,41 @@
     <div class="block center" style="width: 70%; margin: auto; height: 400px; border-radius: 85px;" class="z-depth-5">
         <div class="row" style="border-radius: 15px!important;">
             <div class="col s12 l6 esquerda z-depth-5">
-                <img style="margin-top: 50px;" src="~/Content/images/icon.png" />
+                <img style="margin-top: 20px;" src="~/Content/images/icon.png" />
                 <h1 style="margin-top: -15px;" class="white-text center">Harvin</h1>
-                <p class="white-text">Tenha acesso a uma plataforma de pedidos completa.</p>
-                <p class="white-text">Com o harvin você mesmo realiza seu pedido diretamente da tela do seu celular, computador ou tablet.</p>
-                <a href="@Url.Action("")" class="btn" style="background-color: green;">Crie sua conta</a>
-                
+                <p class="white-text">Tenha acesso a uma plataforma de pedidos compelta. <br />Com o Harvin, você realiza seus pedidos e pagamentos direto da tela do seu celular, computador ou tablet.</p>
+                <a href="@Url.Action("Create", "Clientes")" class="btn" style="background-color: green;">Crie sua conta</a>
             </div>
             <div class="col s12 l6 direita">
-                <form>
+                @using (Html.BeginForm()) {
+                    @Html.AntiForgeryToken()
                     <div class="container">
                         <div class="row">
                             <h4>Login</h4>
                             <p class="center" style="font-weight: 800;">Favor entre com seu login e senha</p>
-                            @using (Html.BeginForm()) {
-                                @Html.AntiForgeryToken()
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        @Html.EditorFor(model => model.cpf, new { @class = "validate" })
-                                        <label for="icon_prefix" style="color: white;">E-mail</label>
-                                    </div>
 
-                                    <div class="input-field col s12">
-                                        @Html.EditorFor(model => model.senha, new { @class = "validate" })
-                                        <label for="icon_prefix" style="color: white;">E-mail</label>
-                                    </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    @Html.EditorFor(model => model.cpf, new { @class = "validate" })
+                                    <label for="icon_prefix" style="color: white;">E-mail</label>
                                 </div>
 
-                                <p style="red-text">@ViewBag.Mensagem</p>
+                                <div class="input-field col s12">
+                                    @Html.EditorFor(model => model.senha, new { @class = "validate" })
+                                    <label for="icon_prefix" style="color: white;">Senha</label>
+                                </div>
+                            </div>
+                            <p class="red-text lighten-4 center">@ViewBag.Mensagem</p>
 
-                                <button class="btn waves-effect waves-light" type="submit" style="border-radius: 20px; background-color: #4242b5;">
-                                    Entrar
-                                    <i class="material-icons right">send</i>
-                                </button>
-                                <br><br>
-                                <a href="#" class="white-text" class="z-depth-5">Esqueceu seu login?</a>
-                            }
+                            <button class="btn waves-effect waves-light" type="submit" style="border-radius: 20px; background-color: #4242b5;">
+                                Entrar
+                                <i class="material-icons right">send</i>
+                            </button>
+                            <br><br>
+                            <a href="#" class="white-text" class="z-depth-5">Esqueceu seu login?</a>
                         </div>
                     </div>
-                </form>
+                }
             </div>
         </div>
     </div>

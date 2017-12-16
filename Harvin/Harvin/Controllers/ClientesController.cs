@@ -152,7 +152,6 @@ namespace Harvin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "cpf,senha")] Cliente cliente) {
-            if (ModelState.IsValid) {
                 Cliente c = new Cliente();
                 c = ClienteLoginDAO.VerificaLogin(cliente);
                 if (c != null) {
@@ -162,8 +161,6 @@ namespace Harvin.Controllers
                     ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
                     return View(cliente);
                 }
-            }
-            return View(cliente);
         }
     }
 }
