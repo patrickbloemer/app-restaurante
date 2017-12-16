@@ -128,9 +128,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\cadeado.png" />
+    <Content Include="Content\images\icon.png" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style_login_cliente.css" />
+    <Content Include="Content\style_login_funcionario.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -194,6 +197,10 @@
     <Compile Include="Migrations\201712122106586_Att.cs" />
     <Compile Include="Migrations\201712122106586_Att.Designer.cs">
       <DependentUpon>201712122106586_Att.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712161856433_update.cs" />
+    <Compile Include="Migrations\201712161856433_update.Designer.cs">
+      <DependentUpon>201712161856433_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -288,6 +295,7 @@
     <Content Include="Views\Inicial\Configuracoes.cshtml" />
     <Content Include="Views\Inicial\AcessoNegado.cshtml" />
     <Content Include="Views\Pedidos\FazerPedido.cshtml" />
+    <Content Include="Views\Clientes\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -310,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712122106586_Att.resx">
       <DependentUpon>201712122106586_Att.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712161856433_update.resx">
+      <DependentUpon>201712161856433_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

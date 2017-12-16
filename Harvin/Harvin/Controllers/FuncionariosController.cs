@@ -171,7 +171,6 @@ namespace Harvin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "cpf,senha")] Funcionario funcionario) {
-            if (ModelState.IsValid) {
                 Funcionario f = new Funcionario();
                 f = FuncionarioLoginDAO.VerificaLogin(funcionario);
                 if (f != null) {
@@ -181,8 +180,6 @@ namespace Harvin.Controllers
                     ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
                     return View(funcionario);
                 }
-            }
-            return View(funcionario);
         }
     }
 }

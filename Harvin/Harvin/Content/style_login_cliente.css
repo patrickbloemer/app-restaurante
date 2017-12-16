@@ -1,0 +1,59 @@
+﻿body{
+	text-align: center;
+	background-color: #ebece7;
+	margin-top: 100px;
+	font-family: Raleway!important;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('http://goldwallpapers.com/uploads/posts/green-forest-wallpaper-hd/green_forest_wallpaper_hd_008.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 103vh;
+}
+
+
+.direita{
+	height: 400px;
+	color: white;
+}
+
+.esquerda{
+	height: 400px;
+	background-color: black;
+	opacity: 1;
+}
+
+.block{
+	border-radius: 15px!important;
+}
+
+input{
+	font-weight: 600;
+	text-align: center;
+}
+
+.btn:hover, .btn:focus{
+	border-radius: 0px!important;
+	transition-property: all;
+	transition-duration: 0.4s;
+	background-color: green!important;
+	padding-left: 50px;
+	padding-right: 7px;
+	opacity: 1!important;
+}
+
+@media(max-width: 600px){
+	.block{
+		width: 100%!important;
+	}
+
+	body{
+		margin-top: 0px;
+	}
+
+	.esquerda{
+		height: 400px!important;
+	}
+
+	.esquerda>img{
+		margin-top: 70px!important;
+	}
+}
