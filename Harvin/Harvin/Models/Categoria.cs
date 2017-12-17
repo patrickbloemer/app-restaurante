@@ -18,5 +18,9 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Descrição")]
         public string descricao { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Link Imagem")]
+        public string imagem { get; set; }
     }
 }

@@ -20,6 +20,9 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public string cpf { get; set; }
 
+        [Display(Name = "Telefone")]
+        public string telefone { get; set; }
+
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Data de Nasciento")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -47,15 +50,18 @@ namespace Harvin.Models {
         public string cidade { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Link Imagem")]
+        public string imagem { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "E-mail")]
         public string email { get; set; }
-
-        [Display(Name = "Telefone")]
-        public string telefone { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string senha { get; set; }
+
+
     }
 }

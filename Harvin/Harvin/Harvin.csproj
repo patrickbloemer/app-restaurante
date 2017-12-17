@@ -202,6 +202,14 @@
     <Compile Include="Migrations\201712161856433_update.Designer.cs">
       <DependentUpon>201712161856433_update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712172205572_AdicionaImagem.cs" />
+    <Compile Include="Migrations\201712172205572_AdicionaImagem.Designer.cs">
+      <DependentUpon>201712172205572_AdicionaImagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712172211489_ImagemNasController.cs" />
+    <Compile Include="Migrations\201712172211489_ImagemNasController.Designer.cs">
+      <DependentUpon>201712172211489_ImagemNasController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -321,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712161856433_update.resx">
       <DependentUpon>201712161856433_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712172205572_AdicionaImagem.resx">
+      <DependentUpon>201712172205572_AdicionaImagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712172211489_ImagemNasController.resx">
+      <DependentUpon>201712172211489_ImagemNasController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

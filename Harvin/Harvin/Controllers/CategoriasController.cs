@@ -47,7 +47,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoriaId,nome,descricao")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "CategoriaId,nome,descricao, imagem")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao, imagem")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {

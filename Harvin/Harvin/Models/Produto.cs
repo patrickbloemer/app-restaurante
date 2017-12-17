@@ -45,8 +45,13 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public int categoriaId { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório!")]
+        [Display(Name = "Link Imagem")]
+        public string imagem { get; set; }
+
         [Display(Name = "Comentários")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public string comentarios { get; set; }
+
     }
 }

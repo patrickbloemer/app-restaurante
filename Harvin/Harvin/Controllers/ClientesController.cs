@@ -47,7 +47,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade, imagem")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade, imagem")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -140,27 +140,27 @@ namespace Harvin.Controllers
         }
 
 
-        // GET: Clinicas/Login
+        // GET: Clientes/Login
         public ActionResult Login() {
             //ClinicaLoginDAO.NovoGuidPraSessao();
             return View();
         }
 
-        // POST: Clinicas/Login
+        // POST: Clientes/Login
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "cpf,senha")] Cliente cliente) {
-                Cliente c = new Cliente();
-                c = ClienteLoginDAO.VerificaLogin(cliente);
-                if (c != null) {
-                    ClienteLoginDAO.AdicionarCliente(c);
-                    return RedirectToAction("Index");
-                } else {
-                    ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
-                    return View(cliente);
-                }
+            Cliente c = new Cliente();
+            c = ClienteLoginDAO.VerificaLogin(cliente);
+            if (c != null) {
+                ClienteLoginDAO.AdicionarCliente(c);
+                return RedirectToAction("Index");
+            } else {
+                ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
+                return View(cliente);
+            }
         }
     }
 }
