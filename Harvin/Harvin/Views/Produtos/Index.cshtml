@@ -2,80 +2,83 @@
 
 @{
     ViewBag.Title = "Index";
+    List<Harvin.Models.Categoria> ListaCategorias = new List<Harvin.Models.Categoria>();
+    ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
 }
 
 <h2>Produtos</h2>
 
 <p>
-    @Html.ActionLink("Cadastrar novo Produto", "Create")
+    <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.categoria.nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.valorUnitario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantidadeMinimaEstoque)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantidadeMaximaEstoque)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.quantidadeAtualEstoque)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descricao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estocavel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comentarios)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.categoria.nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.valorUnitario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantidadeMinimaEstoque)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantidadeMaximaEstoque)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantidadeAtualEstoque)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estocavel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comentarios)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
-            @Html.ActionLink("Remover", "Delete", new { id=item.id })
-        </td>
-    </tr>
+
+<!--INICIO DAS COLLAPSABLES DE CATEGORIAS QUE CONTÉM OS SEUS RESPECTIVOS PRODUTOS-->
+<ul class="collapsible" data-collapsible="accordion">
+@foreach (var categorias in ListaCategorias) {
+
+        <li>
+            <div class="collapsible-header"><img src="@categorias.imagem" />@categorias.nome</div>
+            <div class="collapsible-body">
+                <div class="row">
+                    @foreach (var produto in Model) {
+                        if (produto.categoriaId.Equals(categorias.CategoriaId)) {
+                            <div class="col s6 m4 l3">
+
+                                <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
+                                <div class="card">
+                                    <div class="card-image waves-effect waves-block waves-light">
+                                        <img class="activator" src="@produto.imagem">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
+                                    </div>
+                                    <div class="card-reveal">
+                                        <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                                        <b>Produto</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.nome)
+                                        <br />
+                                        <br />
+                                        <b>Valor</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.valorUnitario)
+                                        <br />
+                                        <br />
+                                        <b>Quantidade Atual</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.quantidadeAtualEstoque)
+                                        <br />
+                                        <br />
+                                        <b>Quantidade Mínima</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.quantidadeMinimaEstoque)
+                                        <br />
+                                        <br />
+                                        <b>Quantidade Máxima</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.quantidadeMaximaEstoque)
+                                        <br />
+                                        <br />
+                                        <b>Descrição</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.descricao)
+                                        <br />
+                                        <br />
+                                        <b>Comentários</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.comentarios)
+                                        <br /><br />
+                                        <a href="@Url.Action("Edit", new { id = produto.id })" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                                        <a href="@Url.Action("Delete", new { id = produto.id })" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+    </li>
 }
-
-</table>
+</ul>

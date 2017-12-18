@@ -87,8 +87,6 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao, imagem")] Categoria categoria)
         {
-            if (ModelState.IsValid)
-            {
                 Categoria aux = new Categoria();
                 aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
                 if(CategoriaDAO.BuscarCategoriaPorNome(categoria) == null || aux.nome == categoria.nome)
@@ -101,7 +99,7 @@ namespace Harvin.Controllers
                     ModelState.AddModelError("", "Não podem existir duas Categorias com o mesmo nome!");
                 }
                 
-            }
+            
             return View(categoria);
         }
 

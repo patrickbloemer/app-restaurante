@@ -120,3 +120,18 @@ nav.mobile-menu {
 .adiciona_produto {
     margin-top: -25px!important;
 }
+
+.card .card-image img{
+    height: 200px;
+}
+
+.collapsible-header img{
+    width: 50px!important;
+    height: 50px!important;
+}
+
+@media(max-width: 600px){
+    .card .card-image img{
+        height: 150px!important;
+    }
+}

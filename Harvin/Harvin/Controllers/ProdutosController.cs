@@ -51,8 +51,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentarios, imagem")] Produto produto)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+           // {
                 if (ProdutoDAO.BuscaProdutoPorNome(produto) == null)
                 {
                     if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
@@ -73,7 +73,7 @@ namespace Harvin.Controllers
                     ModelState.AddModelError("", "Já existe um produto cadastrado com esse nome!");
                 }
 
-            }
+            //}
 
             ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
             return View(produto);
