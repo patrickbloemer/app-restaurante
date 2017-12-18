@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Harvin.Models.Produto>
+
+@{
+    ViewBag.Title = "Todos";
+}
+
+<h4>Lista de Produtos</h4>
+<p>Aqui você pode conferir informações sobre todos os produtos de uma só vez.</p>
+
+<p>
+    <blockquote><i class="material-icons">add</i> Novo produto</blockquote>
+    <blockquote><i class="material-icons">dns</i> Produtos por categoria</blockquote>
+</p>
+
+<p style="margin: 30px;">
+    <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a href="@Url.Action("Index")" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">dns</i></a>
+</p>
+<table class="table striped centered responsive-table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.categoria.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valorUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantidadeMinimaEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantidadeMaximaEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantidadeAtualEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estocavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoria.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.valorUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantidadeMinimaEstoque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantidadeMaximaEstoque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantidadeAtualEstoque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estocavel)
+        </td>
+        <td>
+            <img src="@item.imagem" style="width: 45px!important; height: 45px!important;"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comentarios)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

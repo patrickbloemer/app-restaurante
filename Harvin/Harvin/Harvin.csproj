@@ -266,7 +266,6 @@
     <Content Include="Views\Mesas\Delete.cshtml" />
     <Content Include="Views\Mesas\Details.cshtml" />
     <Content Include="Views\Mesas\Edit.cshtml" />
-    <Content Include="Views\Mesas\Index.cshtml" />
     <Content Include="Views\Pedidos\Create.cshtml" />
     <Content Include="Views\Pedidos\Delete.cshtml" />
     <Content Include="Views\Pedidos\Details.cshtml" />
@@ -276,7 +275,6 @@
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\Details.cshtml" />
     <Content Include="Views\Produtos\Edit.cshtml" />
-    <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Reservas\Create.cshtml" />
     <Content Include="Views\Reservas\Delete.cshtml" />
     <Content Include="Views\Reservas\Details.cshtml" />
@@ -304,6 +302,8 @@
     <Content Include="Views\Inicial\AcessoNegado.cshtml" />
     <Content Include="Views\Pedidos\FazerPedido.cshtml" />
     <Content Include="Views\Clientes\Login.cshtml" />
+    <Content Include="Views\Produtos\Todos.cshtml" />
+    <Content Include="Views\Produtos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

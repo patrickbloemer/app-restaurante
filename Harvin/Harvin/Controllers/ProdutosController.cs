@@ -15,9 +15,15 @@ namespace Harvin.Controllers
     {
         private Entities db = new Entities();
 
-        // GET: Produtos
+        // GET: Produtos-Categorias
         public ActionResult Index()
         {
+            var produtos = db.Produtos.Include(p => p.categoria);
+            return View(produtos.ToList());
+        }
+
+        // GET: Produtos-Lista
+        public ActionResult Todos() {
             var produtos = db.Produtos.Include(p => p.categoria);
             return View(produtos.ToList());
         }

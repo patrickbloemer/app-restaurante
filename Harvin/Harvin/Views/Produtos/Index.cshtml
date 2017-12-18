@@ -6,16 +6,23 @@
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
 }
 
-<h2>Produtos</h2>
+<h4>Produtos</h4>
+<p>Aqui você terá acesso a todos os produtos dividos por categorias, para uma melhor organização. Clicando nelas, você terá acesso somente a seus produtos, tal como clicando nos produtos, onde terão suas atuais informações.</p>
 
 <p>
+    <blockquote><i class="material-icons">add</i> Novo produto</blockquote>
+    <blockquote><i class="material-icons">assignment</i> Lista de Produtos</blockquote>
+</p>
+
+<p style="margin: 30px;">
     <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a href="@Url.Action("Todos")" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">assignment</i></a>
 </p>
 
 
 <!--INICIO DAS COLLAPSABLES DE CATEGORIAS QUE CONTÉM OS SEUS RESPECTIVOS PRODUTOS-->
 <ul class="collapsible" data-collapsible="accordion">
-@foreach (var categorias in ListaCategorias) {
+    @foreach (var categorias in ListaCategorias) {
 
         <li>
             <div class="collapsible-header"><img src="@categorias.imagem" />@categorias.nome</div>
@@ -79,6 +86,6 @@
                 </div>
 
             </div>
-    </li>
-}
+        </li>
+    }
 </ul>
