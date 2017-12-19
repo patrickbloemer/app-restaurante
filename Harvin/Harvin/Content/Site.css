@@ -122,12 +122,21 @@ nav.mobile-menu {
 }
 
 .card .card-image img{
-    height: 200px;
+    height: 250px!important;
 }
 
 .collapsible-header img{
     width: 50px!important;
     height: 50px!important;
+}
+
+.collapsible-header.active {
+    background-color: rgba(241,89,45, 0.2);
+}
+
+.collapsible-body {
+    border: 2px solid rgba(249,89,41, 0.3);
+    border-top: none;
 }
 
 @media(max-width: 600px){
