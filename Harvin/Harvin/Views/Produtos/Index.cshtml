@@ -4,6 +4,8 @@
     ViewBag.Title = "Index";
     List<Harvin.Models.Categoria> ListaCategorias = new List<Harvin.Models.Categoria>();
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
+    float porcentagem = 0;
+    float mediaEstoque = 0;
 }
 
 <h4>Produtos</h4>
@@ -23,9 +25,29 @@
 <!--INICIO DAS COLLAPSABLES DE CATEGORIAS QUE CONTÉM OS SEUS RESPECTIVOS PRODUTOS-->
 <ul class="collapsible" data-collapsible="accordion">
     @foreach (var categorias in ListaCategorias) {
-
+        mediaEstoque = 0;
+        int totalProdutos = 0;
         <li>
-            <div class="collapsible-header"><img src="@categorias.imagem" />@categorias.nome</div>
+            @foreach (var produto in Model) {
+                if (produto.categoriaId.Equals(categorias.CategoriaId)) {
+                    totalProdutos++;
+                    mediaEstoque = mediaEstoque + Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto);
+                }
+            }
+
+            @{ 
+                mediaEstoque = mediaEstoque / totalProdutos;
+            }
+
+            <div class="collapsible-header"><img src="@categorias.imagem" />@categorias.nome
+                @if (mediaEstoque > 70) {
+                    <span class="badge">@totalProdutos produto(s)<br />Estoque: <b class="green-text">@mediaEstoque%</b></span>
+                } else if (mediaEstoque > 40) {
+                    <span class="badge">@totalProdutos produto(s)<br />Estoque: <b class="orange-text">@mediaEstoque%</b></span>
+                } else {
+                    <span class="badge">@totalProdutos produto(s)<br />Estoque: <b class="red-text">@mediaEstoque%</b></span>
+                }
+            </div>
             <div class="collapsible-body">
                 <div class="row">
                     @foreach (var produto in Model) {
@@ -66,6 +88,28 @@
                                         <br />
                                         @Html.DisplayFor(modelItem => produto.quantidadeMaximaEstoque)
                                         <br />
+                                        <br />
+                                        <b>Situação do Estoque</b>
+                                        <!--CALCULA PORCENTAGEM DO ESTOQUE-->
+                                        @if (produto.quantidadeAtualEstoque == produto.quantidadeMaximaEstoque) {
+                                            <p class="green-text"><b>COMPLETO</b></p>
+                                            <p>@Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%</p>
+                                            <div class="progress">
+                                                <div class="determinate green" style="width: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
+                                            </div>
+                                        } else if (produto.quantidadeAtualEstoque > produto.quantidadeMinimaEstoque) {
+                                            <p class="green-text"><b>BOM</b></p>
+                                            <p>@Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%</p>
+                                            <div class="progress">
+                                                <div class="determinate green" style="width: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
+                                            </div>
+                                        } else {
+                                            <p class="red-text"><b>CRÍTICO</b></p>
+                                            <p>@Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%</p>
+                                            <div class="progress">
+                                                <div class="determinate red" style="width: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
+                                            </div>
+                                        }
                                         <br />
                                         <b>Descrição</b>
                                         <br />

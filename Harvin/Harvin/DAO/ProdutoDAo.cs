@@ -38,5 +38,20 @@ namespace Harvin.DAO
                 return false;
             }
         }
+
+
+        //CALCULA SITUAÇÃO DO ESTOQUE
+        public static float VerificaSituacaoEstoque(Produto produto) {
+            try {
+                float porcentagem;
+
+                porcentagem = (produto.quantidadeAtualEstoque * 100) / produto.quantidadeMaximaEstoque;
+
+                return porcentagem;
+            }
+            catch (Exception e) {
+                return 0;
+            }
+        }
     }
 }
