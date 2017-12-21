@@ -136,7 +136,19 @@ nav.mobile-menu {
 
 .collapsible-body {
     border: 2px solid rgba(249,89,41, 0.3);
-    border-top: none;
+}
+
+.dropdown-content {
+    top: 64px!important;
+    background-color: rgb(241, 89, 45)!important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: white!important;
+}
+
+nav ul a:hover{
+    background-color: rgb(217, 80, 40)!important;
 }
 
 @media(max-width: 600px){

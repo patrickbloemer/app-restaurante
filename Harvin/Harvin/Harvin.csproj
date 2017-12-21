@@ -304,6 +304,7 @@
     <Content Include="Views\Clientes\Login.cshtml" />
     <Content Include="Views\Produtos\Todos.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
+    <Content Include="Views\Funcionarios\Todos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

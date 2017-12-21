@@ -29,15 +29,12 @@ namespace Harvin.DAO
         }
 
         // Verifica se existem Cargos Cadastrados
-        public static bool VerificaExistenciaDeCargos()
-        {
+        public static bool VerificaExistenciaDeCargos() {
             List<Cargo> listAux = new List<Cargo>();
             listAux = CargoDAO.RetornaCargos();
-            if (listAux.Count == 0)
-            {
+            if (listAux.Count == 0) {
                 return true;
-            } else
-            {
+            } else {
                 return false;
             }
         }

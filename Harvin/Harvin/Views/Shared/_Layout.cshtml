@@ -13,6 +13,11 @@
 <body>
     <div class="navbar-fixed">
         <!-- NAVBAR -->
+        <ul id="funcionarios" class="dropdown-content">
+            <li><a href="@Url.Action("Create", "Funcionarios")"><i class="material-icons">add</i>Novo</a></li>
+            <li><a href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">account_circle</i>Detalhes</a></li>
+            <li><a href="@Url.Action("Todos", "Funcionarios")"><i class="material-icons">list</i>Lista</a></li>
+        </ul>
         <nav class="z-depth-0 cordefundodomenu">
             <div class="container">
                 <div class="nav-wrapper">
@@ -24,7 +29,7 @@
                         <li><a href="@Url.Action("Index", "Produtos")" class="opcaomenu">Produtos</a></li>
                         <li><a href="@Url.Action("Index", "Categorias")" class="opcaomenu">Categorias</a></li>
                         <li><a href="@Url.Action("Index", "Cargos")" class="opcaomenu">Cargos</a></li>
-                        <li><a href="@Url.Action("Index", "Funcionarios")" class="opcaomenu">Funcionarios</a></li>
+                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
                         <li><a href="@Url.Action("FazerPedido", "Pedidos")" class="opcaomenu">Pedidos</a></li>
                     </ul>
                     <main class="hide-on-large-only">

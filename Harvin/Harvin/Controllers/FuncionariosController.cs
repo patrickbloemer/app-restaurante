@@ -16,8 +16,13 @@ namespace Harvin.Controllers
         private Entities db = new Entities();
 
         // GET: Funcionarios
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            var funcionarios = db.Funcionarios.Include(f => f.cargo);
+            return View(funcionarios.ToList());
+        }
+
+        // GET: Funcionarios/Todos
+        public ActionResult Todos() {
             var funcionarios = db.Funcionarios.Include(f => f.cargo);
             return View(funcionarios.ToList());
         }
@@ -57,8 +62,7 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,cargoId,home,verificarConsumo,realizarPedido,pedidosPendentes,clientes,reservarMesa,configuracoes,relatorios,nome,sobrenome,cpf,dataDeNascimento,cep,endereco,complemento,bairro,cidade,email,telefone,senha, imagem")] Funcionario funcionario)
         {
-            if (ModelState.IsValid)
-            {
+            
                 if(FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) == null && FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) == null)
                 {
                     db.Funcionarios.Add(funcionario);
@@ -75,7 +79,7 @@ namespace Harvin.Controllers
 
                 }
  
-            }
+            
 
             ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);
             return View(funcionario);
