@@ -24,22 +24,22 @@
         <!--PRODUTOS-->
         <ul id="produtos" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Produtos")"><i class="material-icons">add</i>Novo</a></li>
-            <li><a href="@Url.Action("Index", "Produtos")"><i class="material-icons">account_circle</i>Detalhes</a></li>
+            <li><a href="@Url.Action("Index", "Produtos")"><i class="material-icons">local_pizza</i>Detalhes</a></li>
             <li><a href="@Url.Action("Todos", "Produtos")"><i class="material-icons">list</i>Lista</a></li>
         </ul>
 
-        <!--CATEGORIAS-->
-        <ul id="categorias" class="dropdown-content" style="width: 150px!important;">
-            <li><a href="@Url.Action("Create", "Categorias")"><i class="material-icons">add</i>Novo</a></li>
-            <li><a href="@Url.Action("Index", "Categorias")"><i class="material-icons">account_circle</i>Detalhes</a></li>
-            <li><a href="@Url.Action("Todos", "Categorias")"><i class="material-icons">list</i>Lista</a></li>
+        <!--PEDIDOS-->
+        <ul id="pedidos" class="dropdown-content" style="width: 150px!important;">
+            <li><a href="@Url.Action("Create", "Pedidos")"><i class="material-icons">add</i>Novo</a></li>
+            <li><a href="@Url.Action("Index", "Pedidos")"><i class="material-icons">restaurant_menu</i>Abertos</a></li>
+            <li><a href="@Url.Action("Todos", "Pedidos")"><i class="material-icons">list</i>Lista</a></li>
         </ul>
 
-        <!--CLIENTES-->
-        <ul id="produtos" class="dropdown-content" style="width: 150px!important;">
-            <li><a href="@Url.Action("Create", "Clientes")"><i class="material-icons">add</i>Novo</a></li>
-            <li><a href="@Url.Action("Index", "Clientes")"><i class="material-icons">account_circle</i>Detalhes</a></li>
-            <li><a href="@Url.Action("Todos", "Clientes")"><i class="material-icons">list</i>Lista</a></li>
+        <!--USUARIOS-->
+        <ul id="usuario" class="dropdown-content" style="width: 150px!important;">
+            <li><a href="@Url.Action("Create", "Pedidos")"><i class="material-icons">settings</i>Editar</a></li>
+            <li><a href="@Url.Action("Index", "Pedidos")"><i class="material-icons">info</i>Infos</a></li>
+            <li style="background-color: darkred;"><a href="@Url.Action("Todos", "Pedidos")"><i class="material-icons">highlight_off</i>Sair</a></li>
         </ul>
 
         <!-- NAVBAR -->
@@ -50,12 +50,10 @@
                         Harvin
                     </a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="@Url.Action("Configuracoes", "Inicial")" class="opcaomenu">Configurações</a></li>
+                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="pedidos">Pedidos<i class="material-icons right">arrow_drop_down</i></a></li>
                         <li><a class="dropdown-button opcaomenu" href="#!" data-activates="produtos">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="categorias">Categorias<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a href="@Url.Action("Index", "Cargos")" class="opcaomenu">Cargos</a></li>
                         <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a href="@Url.Action("FazerPedido", "Pedidos")" class="opcaomenu">Pedidos</a></li>
+                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="usuario"><i class="material-icons left">account_circle</i>Patrick</a></li>
                     </ul>
                     <main class="hide-on-large-only">
                         <a class="toggle-overlay"><i class="small material-icons">menu</i></a>
