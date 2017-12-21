@@ -12,12 +12,37 @@
 </head>
 <body>
     <div class="navbar-fixed">
-        <!-- NAVBAR -->
-        <ul id="funcionarios" class="dropdown-content">
+        <!--DROPDOWNS DO MENU PARA COMPUTADORES-->
+
+        <!--FUNCIONÁRIOS-->
+        <ul id="funcionarios" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Funcionarios")"><i class="material-icons">add</i>Novo</a></li>
             <li><a href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">account_circle</i>Detalhes</a></li>
             <li><a href="@Url.Action("Todos", "Funcionarios")"><i class="material-icons">list</i>Lista</a></li>
         </ul>
+
+        <!--PRODUTOS-->
+        <ul id="produtos" class="dropdown-content" style="width: 150px!important;">
+            <li><a href="@Url.Action("Create", "Produtos")"><i class="material-icons">add</i>Novo</a></li>
+            <li><a href="@Url.Action("Index", "Produtos")"><i class="material-icons">account_circle</i>Detalhes</a></li>
+            <li><a href="@Url.Action("Todos", "Produtos")"><i class="material-icons">list</i>Lista</a></li>
+        </ul>
+
+        <!--CATEGORIAS-->
+        <ul id="categorias" class="dropdown-content" style="width: 150px!important;">
+            <li><a href="@Url.Action("Create", "Categorias")"><i class="material-icons">add</i>Novo</a></li>
+            <li><a href="@Url.Action("Index", "Categorias")"><i class="material-icons">account_circle</i>Detalhes</a></li>
+            <li><a href="@Url.Action("Todos", "Categorias")"><i class="material-icons">list</i>Lista</a></li>
+        </ul>
+
+        <!--CLIENTES-->
+        <ul id="produtos" class="dropdown-content" style="width: 150px!important;">
+            <li><a href="@Url.Action("Create", "Clientes")"><i class="material-icons">add</i>Novo</a></li>
+            <li><a href="@Url.Action("Index", "Clientes")"><i class="material-icons">account_circle</i>Detalhes</a></li>
+            <li><a href="@Url.Action("Todos", "Clientes")"><i class="material-icons">list</i>Lista</a></li>
+        </ul>
+
+        <!-- NAVBAR -->
         <nav class="z-depth-0 cordefundodomenu">
             <div class="container">
                 <div class="nav-wrapper">
@@ -26,8 +51,8 @@
                     </a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="@Url.Action("Configuracoes", "Inicial")" class="opcaomenu">Configurações</a></li>
-                        <li><a href="@Url.Action("Index", "Produtos")" class="opcaomenu">Produtos</a></li>
-                        <li><a href="@Url.Action("Index", "Categorias")" class="opcaomenu">Categorias</a></li>
+                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="produtos">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="categorias">Categorias<i class="material-icons right">arrow_drop_down</i></a></li>
                         <li><a href="@Url.Action("Index", "Cargos")" class="opcaomenu">Cargos</a></li>
                         <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
                         <li><a href="@Url.Action("FazerPedido", "Pedidos")" class="opcaomenu">Pedidos</a></li>

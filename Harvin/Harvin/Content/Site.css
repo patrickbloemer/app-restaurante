@@ -151,6 +151,10 @@ nav ul a:hover{
     background-color: rgb(217, 80, 40)!important;
 }
 
+.dropdown-content li>a, .dropdown-content li>span {
+    padding: 14px 5px!important;
+}
+
 @media(max-width: 600px){
     .card .card-image img{
         height: 150px!important;
