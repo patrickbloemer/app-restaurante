@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="~/Content/materialize.min.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 
 </head>
 <body>
@@ -26,6 +27,7 @@
             <li><a href="@Url.Action("Create", "Produtos")"><i class="material-icons">add</i>Novo</a></li>
             <li><a href="@Url.Action("Index", "Produtos")"><i class="material-icons">local_pizza</i>Detalhes</a></li>
             <li><a href="@Url.Action("Todos", "Produtos")"><i class="material-icons">list</i>Lista</a></li>
+            <li><a href="@Url.Action("Index", "Categorias")"><i class="material-icons">dns</i>Categoria</a></li>
         </ul>
 
         <!--PEDIDOS-->
@@ -93,6 +95,7 @@
                 $('aside').toggleClass('open');
             });
             $('.modal').modal();
+            $('select').material_select();
         });
     </script>
 </body>

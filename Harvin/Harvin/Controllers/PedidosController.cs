@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Harvin.Models;
+using Harvin.DAO;
 
 namespace Harvin.Controllers
 {
@@ -38,9 +39,7 @@ namespace Harvin.Controllers
         // GET: Pedidos/Create
         public ActionResult Create()
         {
-            // Verificar Display Format ********************************
-            var model = new Pedido();
-            return View(model);
+            return View(db.Produtos.ToList());
         }
 
         // POST: Pedidos/Create
@@ -48,16 +47,17 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "pedidoId,horarioPedido,horarioEntrega,pendencia,pagamento")] Pedido pedido)
+        public ActionResult Create([Bind(Include = "id")] Produto produto, int quantidade)
         {
-            if (ModelState.IsValid)
-            {
-                db.Pedidos.Add(pedido);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            string nome = "";
+            foreach (var list in db.Produtos.ToList()) {
+                if (list.id.Equals(produto.id)) {
+                    nome = list.nome;
+                    
+                    PedidosDAO.AdicionaProduto(list, quantidade);
+                }
             }
-
-            return View(pedido);
+            return RedirectToAction("Create");
         }
 
         // GET: Pedidos/Edit/5

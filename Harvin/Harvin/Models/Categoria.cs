@@ -12,7 +12,7 @@ namespace Harvin.Models {
         public int CategoriaId { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        [Display(Name = "Nome")]
+        [Display(Name = "Categoria")]
         public string nome { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]

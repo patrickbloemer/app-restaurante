@@ -11,5 +11,6 @@ namespace Harvin.Models {
         [Key]
         public int itemId { get; set; }
         public Produto produto { get; set; }
+        public int quantidade { get; set; }
     }
 }

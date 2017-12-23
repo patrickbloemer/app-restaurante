@@ -2,6 +2,8 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    font-family: 'Lato'!important;
+    font-weight: 300!important;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -155,8 +157,24 @@ nav ul a:hover{
     padding: 14px 5px!important;
 }
 
+.input-field>select {
+    display: block!important;
+    position: absolute!important;
+    width: 100%!important;
+    text-align: center!important;
+    pointer-events: all!important;
+    height: 50px!important;
+    opacity: 1!important;
+    margin-top: -20px!important;
+}
+
+.adicionar {
+    margin-top: 30px!important;
+}
+
 @media(max-width: 600px){
     .card .card-image img{
         height: 150px!important;
     }
 }
+

@@ -18,12 +18,12 @@
 
     @foreach (var item in ListaCategorias) {
         modalName = modalName + 1;
-        <div class="col s6 m4">
+        <div class="col s6 m4 l3">
             <a class="modal-trigger" href="#modal_@modalName">
                 <!--CABEÇALHO DE CADA COLLAPSABLE-->
                 <div class="card">
                     <div class="card-image">
-                        <img class="activator" src="http://www.corpoealma.com/wp-content/uploads/2017/08/pizzabar.jpg">
+                        <img class="activator" src="@item.imagem">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">@item.nome</span>
