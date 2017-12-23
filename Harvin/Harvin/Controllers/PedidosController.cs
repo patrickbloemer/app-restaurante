@@ -139,6 +139,13 @@ namespace Harvin.Controllers
         }
 
 
+        //TESTE PAGINA DE ADICIONAR PRODUTO COM QUANTIDADE AO CARRINHO DO CLIENTE
+        // GET: Pedidos/Adicionar
+        public ActionResult Adicionar([Bind(Include = "produtoid, ")] Pedido pedido) {
+            return null;
+        }
+
+
 
 
 

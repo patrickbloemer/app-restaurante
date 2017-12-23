@@ -6,7 +6,10 @@
     //LISTA DE CATEGORIAS PARA SEPARAÇÃO DOS PRODUTOS
     List<Harvin.Models.Categoria> ListaCategorias = new List<Harvin.Models.Categoria>();
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
-    int i = 0;
+    int modalName = 0;
+
+    Harvin.Models.Produto adicionarProduto = new Harvin.Models.Produto();
+
 }
 
 <h5 style="text-align: center; margin: 25px 0;">Realizar Pedido - Módulo Funcionario</h5>
@@ -14,8 +17,9 @@
 
 
     @foreach (var item in ListaCategorias) {
-        <div class="col s6 m3">
-            <a class="modal-trigger" href="#modal1">
+        modalName = modalName + 1;
+        <div class="col s6 m4">
+            <a class="modal-trigger" href="#modal_@modalName">
                 <!--CABEÇALHO DE CADA COLLAPSABLE-->
                 <div class="card">
                     <div class="card-image">
@@ -26,30 +30,59 @@
                     </div>
                 </div>
             </a>
-
-
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
+            <div id="modal_@modalName" class="modal">
                 <div class="modal-content">
                     <h5>Selecione os produtos que deseja</h5>
                     <p>Precione o botão '+' para adicionar o produto. Pressione repetidas vezes para adicionar mais de uma unidade.</p>
-                    @foreach (var produto in Model) {
-                        if (produto.categoriaId == item.CategoriaId){
-                            <div class="row">
-                                <div class="col s6 m4 l3">
-                                    <div class="card produto_selecao">
-                                        <div class="card-image">
-                                            <img class="activator" src="https://superprix.vteximg.com.br/arquivos/ids/169462-600-600/Refrigerante-Coca-Cola-350ml--Lata-.jpg?v=636094509665170000">
+                    <div class="row">
+                        @foreach (var produto in Model) {
+                            if (produto.categoriaId == item.CategoriaId) {
+                                <div class="col s6 m4">
+                                    <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
+                                    <div class="card z-depth-3">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <img class="activator" src="@produto.imagem">
                                         </div>
                                         <div class="card-content">
-                                            <span class="card-title activator grey-text text-darken-4">@produto.nome</span>
+                                            <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
                                         </div>
-                                        <a class="btn-floating btn-large waves-effect waves-light red right adiciona_produto" onclick="Materialize.toast('Produto adicionado a lista', 4000)"><i class="material-icons">add</i>!</a>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                                            <b>Produto</b>
+                                            <br />
+                                            @Html.DisplayFor(modelItem => produto.nome)
+                                            <br />
+                                            <br />
+                                            <b>Valor</b>
+                                            <br />
+                                            @Html.DisplayFor(modelItem => produto.valorUnitario)
+                                            <br />
+                                            <br />
+                                            <b>Descrição</b>
+                                            <br />
+                                            @Html.DisplayFor(modelItem => produto.descricao)
+                                            <br />
+                                            <br />
+                                            @using (Html.BeginForm()) {
+                                                @Html.AntiForgeryToken()
+                                                    <div class="row">
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <input type="number" name="quantidadeProduto" class="validate"/>
+                                                                <label for="icon_prefix" style="color: white;">E-mail</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <a href="@Url.Action("Adicionar", "Pedidos", new { id= @produto.id})"></a>
+                                                    </div>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            }
                         }
-                    }
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
