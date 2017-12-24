@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201712231656579_AdicionaQuantidadeAosItens.Designer.cs">
       <DependentUpon>201712231656579_AdicionaQuantidadeAosItens.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs" />
+    <Compile Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.Designer.cs">
+      <DependentUpon>201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -310,6 +314,7 @@
     <Content Include="Views\Produtos\Todos.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Funcionarios\Todos.cshtml" />
+    <Content Include="Views\Pedidos\Finalizar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -344,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712231656579_AdicionaQuantidadeAosItens.resx">
       <DependentUpon>201712231656579_AdicionaQuantidadeAosItens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.resx">
+      <DependentUpon>201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

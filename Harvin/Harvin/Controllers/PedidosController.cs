@@ -21,6 +21,40 @@ namespace Harvin.Controllers
             return View(db.Pedidos.ToList());
         }
 
+        // GET: Pedidos
+        public ActionResult Finalizar() {
+
+
+            Pedido pedido = new Pedido();
+            //ADICIONA ITENS DA LISTA NOS ITENS DO PEDIDO
+            foreach (var Itens in PedidosDAO.RetornaLista()) {
+                pedido.itens.Add(Itens);
+            }
+
+            pedido.horarioPedido = DateTime.Now;
+            pedido.horarioEntrega = DateTime.Now;
+            pedido.pagamento = false;
+            pedido.pendencia = false;
+
+            try {
+                db.Pedidos.Add(pedido);
+                db.SaveChanges();
+            }
+            catch (Exception e) {
+
+            }
+
+
+
+            if (PedidosDAO.FinalizarPedido()) {
+                return View();
+            }else {
+                ViewBag.Mensagem = "Ocorreu um erro ao finalizar este pedido. Por favor, tente novamente.";
+                return RedirectToAction("Create");
+            }
+
+        }
+
         // GET: Pedidos/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,14 +83,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id")] Produto produto, int quantidade)
         {
-            string nome = "";
-            foreach (var list in db.Produtos.ToList()) {
-                if (list.id.Equals(produto.id)) {
-                    nome = list.nome;
-                    
-                    PedidosDAO.AdicionaProduto(list, quantidade);
-                }
-            }
+            produto = db.Produtos.Find(produto.id);
+            PedidosDAO.AdicionaProduto(produto, quantidade);
             return RedirectToAction("Create");
         }
 

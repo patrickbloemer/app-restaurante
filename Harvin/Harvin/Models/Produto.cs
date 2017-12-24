@@ -39,8 +39,6 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public bool estocavel { get; set; }
 
-        public Categoria categoria { get; set; }
-
         [Display(Name = "Categoria")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public int categoriaId { get; set; }

@@ -42,12 +42,23 @@ textarea {
     font-size: 15px!important;
 }
 
-h1, h2, h3, h4, h5, h6, p{
+h1, h2, h3, h4, h5, h6, p, table{
     text-align: center;
+    font-family: Lato;
+    text-transform: uppercase!important;
 }
 
 .cordefundodomenu{
-    background-color: #f1592d;
+    background-color: rgba(0,0,0,0.6);
+}
+
+nav{
+    font-family: 'Lato';
+    font-weight: 100;
+}
+
+nav ul{
+    text-transform: uppercase;
 }
 /*MENU MOBILE*/
 aside {
@@ -142,15 +153,15 @@ nav.mobile-menu {
 
 .dropdown-content {
     top: 64px!important;
-    background-color: rgb(241, 89, 45)!important;
+    background-color: rgba(0,0,0,0.8)!important;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: white!important;
 }
 
-nav ul a:hover{
-    background-color: rgb(217, 80, 40)!important;
+nav ul a:hover, nav ul a:focus{
+    background-color: rgba(0,0,0,0.8)!important;
 }
 
 .dropdown-content li>a, .dropdown-content li>span {
@@ -170,6 +181,44 @@ nav ul a:hover{
 
 .adicionar {
     margin-top: 30px!important;
+}
+
+.cabecalho {
+    width: 100%;
+    height: 200px;
+    background-color: #f1592d;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://lot66.ca/wp-content/uploads/2014/06/pizza.jpg');
+    background-size: cover;
+    margin-top: -96px;
+}
+
+.cabecalho > h5{
+    padding-top: 125px;
+    color: white;
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 50px;
+    font-family: 'Lato';
+    font-weight: 100;
+}
+
+.cabecalho hr{
+    color: white;
+    border: none;
+    width: 200px;
+    background-color: white;
+    height: 1px;
+    float: left;
+    margin-left: 50px;
+}
+
+img.activator.categoria{
+    height: 150px!important;
+}
+
+.bodytop_message{
+    margin: 50px;
+    font-size: 18px;
 }
 
 @media(max-width: 600px){
