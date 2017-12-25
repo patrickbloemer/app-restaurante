@@ -16,43 +16,8 @@ namespace Harvin.Controllers
         private Entities db = new Entities();
 
         // GET: Pedidos
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
             return View(db.Pedidos.ToList());
-        }
-
-        // GET: Pedidos
-        public ActionResult Finalizar() {
-
-
-            Pedido pedido = new Pedido();
-            //ADICIONA ITENS DA LISTA NOS ITENS DO PEDIDO
-            foreach (var Itens in PedidosDAO.RetornaLista()) {
-                pedido.itens.Add(Itens);
-            }
-
-            pedido.horarioPedido = DateTime.Now;
-            pedido.horarioEntrega = DateTime.Now;
-            pedido.pagamento = false;
-            pedido.pendencia = false;
-
-            try {
-                db.Pedidos.Add(pedido);
-                db.SaveChanges();
-            }
-            catch (Exception e) {
-
-            }
-
-
-
-            if (PedidosDAO.FinalizarPedido()) {
-                return View();
-            }else {
-                ViewBag.Mensagem = "Ocorreu um erro ao finalizar este pedido. Por favor, tente novamente.";
-                return RedirectToAction("Create");
-            }
-
         }
 
         // GET: Pedidos/Details/5
@@ -83,8 +48,12 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id")] Produto produto, int quantidade)
         {
-            produto = db.Produtos.Find(produto.id);
-            PedidosDAO.AdicionaProduto(produto, quantidade);
+            Item item = new Item();
+            item.produto = db.Produtos.Find(produto.id);
+            item.quantidade = quantidade;
+            db.Itens.Add(item);
+            db.SaveChanges();
+            PedidosDAO.AdicionaProduto(item);
             return RedirectToAction("Create");
         }
 
@@ -144,38 +113,6 @@ namespace Harvin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //TESTE PAGINA DE CRIAÇÃO DE PEDIDO TEMPORÁRIA
-        // GET: Pedidos/Create
-        public ActionResult FazerPedido() {
-            return View(db.Produtos.ToList());
-        }
-
-        // POST: Pedidos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Fazer_Pedido([Bind(Include = "pedidoId,horarioPedido,horarioEntrega,pendencia,pagamento")] Pedido pedido) {
-            if (ModelState.IsValid) {
-                db.Pedidos.Add(pedido);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(pedido);
-        }
-
-
-        //TESTE PAGINA DE ADICIONAR PRODUTO COM QUANTIDADE AO CARRINHO DO CLIENTE
-        // GET: Pedidos/Adicionar
-        public ActionResult Adicionar([Bind(Include = "produtoid, ")] Pedido pedido) {
-            return null;
-        }
-
-
-
-
 
         protected override void Dispose(bool disposing)
         {

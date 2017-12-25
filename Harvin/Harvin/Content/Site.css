@@ -221,6 +221,17 @@ img.activator.categoria{
     font-size: 18px;
 }
 
+.button-collapse-funcionario {
+    float: right!important;
+    display: block!important;
+}
+
+.side-nav > li > div > .background > img{
+    width: 100%;
+    height: 100%;
+}
+
+
 @media(max-width: 600px){
     .card .card-image img{
         height: 150px!important;

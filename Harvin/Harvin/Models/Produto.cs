@@ -8,6 +8,7 @@ using System.Web;
 namespace Harvin.Models {
     [Table("Produtos")]
     public class Produto {
+
         [Key]
         public int id { get; set; }
         
@@ -42,6 +43,8 @@ namespace Harvin.Models {
         [Display(Name = "Categoria")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public int categoriaId { get; set; }
+
+        public Categoria categoria { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Link Imagem")]

@@ -128,7 +128,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\cadeado.png" />
+    <Content Include="Content\images\funcionario.jpg" />
     <Content Include="Content\images\icon.png" />
+    <Content Include="Content\images\wallpaper.jpg" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\Site.css" />
@@ -218,6 +220,10 @@
     <Compile Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs" />
     <Compile Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.Designer.cs">
       <DependentUpon>201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712242131567_categoriaNoProduto.cs" />
+    <Compile Include="Migrations\201712242131567_categoriaNoProduto.Designer.cs">
+      <DependentUpon>201712242131567_categoriaNoProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.resx">
       <DependentUpon>201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712242131567_categoriaNoProduto.resx">
+      <DependentUpon>201712242131567_categoriaNoProduto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,13 +18,13 @@ namespace Harvin.Controllers
         // GET: Produtos-Categorias
         public ActionResult Index()
         {
-            var produtos = db.Produtos;
+            var produtos = db.Produtos.Include(p => p.categoria);
             return View(produtos.ToList());
         }
 
         // GET: Produtos-Lista
         public ActionResult Todos() {
-            var produtos = db.Produtos;
+            var produtos = db.Produtos.Include(p => p.categoria);
             return View(produtos.ToList());
         }
 

@@ -6,15 +6,13 @@
     <title>@ViewBag.Title - Harvin</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="~/Content/materialize.min.css" rel="stylesheet" />
+    <link href="~/Content/materialize.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
 
 </head>
 <body>
-    <div class="navbar-fixed">
         <!--DROPDOWNS DO MENU PARA COMPUTADORES-->
-
         <!--FUNCIONÁRIOS-->
         <ul id="funcionarios" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Funcionarios")"><i class="material-icons">add</i>Novo</a></li>
@@ -44,49 +42,117 @@
             <li style="background-color: darkred;"><a href="@Url.Action("Todos", "Pedidos")"><i class="material-icons">highlight_off</i>Sair</a></li>
         </ul>
 
-        <!-- NAVBAR -->
-        <nav class="z-depth-0 cordefundodomenu">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a href="@Url.Action("Index", "Inicial")" class="brand-logo">
-                        Harvin
-                    </a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="pedidos">Pedidos<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="produtos">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
-                        <li><a class="dropdown-button opcaomenu" href="#!" data-activates="usuario"><i class="material-icons left">account_circle</i>Patrick</a></li>
-                    </ul>
-                    <main class="hide-on-large-only">
-                        <a class="toggle-overlay"><i class="small material-icons">menu</i></a>
-                    </main>
+        <!--FUNCIONÁRIOS MENU SIDEBAR-->
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
+                    </div>
+                    <img class="circle" src="~/Content/images/funcionario.jpg">
+                    <span class="white-text name">Patrick Cardoso</span>
+                    <span class="white-text email">pbloemer59@gmail.com</span>
                 </div>
+            </li>
+            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul>
+
+        <!--BARRA DE NAVEGAÇÃO-->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="dropdown-button opcaomenu" href="#!" data-activates="pedidos">Pedidos<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button opcaomenu" href="#!" data-activates="produtos">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>Patrick</a></li>
+
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <!--SIDENAV DO FUNCIONÁRIO-->
+                    <li>
+                        <div class="user-view">
+                            <div class="background">
+                                <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
+                            </div>
+                            <img class="circle" src="~/Content/images/funcionario.jpg">
+                            <span class="white-text name">Patrick Cardoso</span>
+                            <span class="white-text email">pbloemer59@gmail.com</span>
+                        </div>
+                    </li>
+                    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                    <li><a href="#!">Second Link</a></li>
+                    <li><div class="divider"></div></li>
+                    <!--DIVISOR OPÇÕES DO MENU-->
+                    <li><a class="subheader">Opções</a></li>
+                    <!--PEDIDOS-->
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header">Pedidos<i class="material-icons">arrow_drop_down</i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="#!">First</a></li>
+                                        <li><a href="#!">Second</a></li>
+                                        <li><a href="#!">Third</a></li>
+                                        <li><a href="#!">Fourth</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--PRODUTOS-->
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header">Produtos<i class="material-icons">arrow_drop_down</i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="#!">First</a></li>
+                                        <li><a href="#!">Second</a></li>
+                                        <li><a href="#!">Third</a></li>
+                                        <li><a href="#!">Fourth</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--FUNCIONÁRIOS-->
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li>
+                                <a class="collapsible-header">Funcionários<i class="material-icons">arrow_drop_down</i></a>
+                                <div class="collapsible-body">
+                                    <ul>
+                                        <li><a href="#!">First</a></li>
+                                        <li><a href="#!">Second</a></li>
+                                        <li><a href="#!">Third</a></li>
+                                        <li><a href="#!">Fourth</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
-    </div>
-    <!-- MENU MOBILE -->
-    <aside>
-        <div class="outer-close toggle-overlay">
-            <a class="white-text right close"><i class="margin-clear small material-icons">clear</i></a>
-        </div>
-        <nav class="mobile-menu">
-            <ul>
-                <li><a href="@Url.Action("Configuracoes", "Inicial")" class="opcaomenu">Configurações</a></li>
-                <li><a href="@Url.Action("Index", "Produtos")" class="opcaomenu">Produtos</a></li>
-                <li><a href="@Url.Action("Index", "Categorias")" class="opcaomenu">Categorias</a></li>
-                <li><a href="@Url.Action("Index", "Cargos")" class="opcaomenu">Cargos</a></li>
-                <li><a href="@Url.Action("Index", "Funcionarios")" class="opcaomenu">Funcionarios</a></li>
-                <li><a href="@Url.Action("FazerPedido", "Pedidos")" class="opcaomenu">Pedidos</a></li>
-            </ul>
-        </nav>
-    </aside>
 
-    <div class="body_content">
+    <!--BODY-->
+    <div class="cabecalho">
+        <h5>@ViewBag.Title</h5>
+        <hr>
+    </div>
+    <div class="container body_content">
         @RenderBody()
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/scripts/materialize.min.js"></script>
+    <script src="~/scripts/materialize.js"></script>
     <script>
         $(document).ready(function () {
             $('.collapsible').collapsible();

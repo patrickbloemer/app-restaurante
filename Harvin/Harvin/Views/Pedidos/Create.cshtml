@@ -1,7 +1,7 @@
 ﻿@model List<Harvin.Models.Produto>
 
 @{
-    ViewBag.Title = "Realizar Pedido - Módulo Funcionário";
+    ViewBag.Title = "Novo Pedido";
     //LISTA DE CATEGORIAS PARA SEPARAÇÃO DOS PRODUTOS
     List<Harvin.Models.Categoria> ListaCategorias = new List<Harvin.Models.Categoria>();
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
@@ -12,11 +12,6 @@
     double total = 0;
     Harvin.Models.Produto adicionarProduto = new Harvin.Models.Produto();
 }
-
-<div class="cabecalho">
-    <h5>Novo Pedido</h5>
-    <hr>
-</div>
 
 <div class="container">
     <p class="bodytop_message">Selecione a categoria desejada</p>
@@ -114,6 +109,7 @@
             <th>Valor</th>
             <th>Quantidade</th>
             <th>Total</th>
+            <th>Total</th>
             </thead>
             <tbody>
                 @foreach (var itens in Harvin.DAO.PedidosDAO.RetornaLista()) {
@@ -124,11 +120,11 @@
                         <td>@itens.produto.valorUnitario.ToString("C2")</td>
                         <td>@itens.quantidade</td>
                         <td>@totalProduto.ToString("C2")</td>
+                        <td><a href="@Url.Action("RemoverItem", "Pedidos", new { id=itens.itemId})"><i class="material-icons red-text">delete</i></a></td>
                     </tr>
                 }
             </tbody>
         </table>
-
     } else {
         <h5 style="margin: 50px;">Sua Lista de produtos está vazia</h5>
     }

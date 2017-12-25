@@ -4,11 +4,21 @@
     ViewBag.Title = "Cargos";
 }
 
-<h2>Cargos</h2>
+<p>Aqui você pode gerenciar os Cargos de cada funcionário</p>
 
 <p>
-    @Html.ActionLink("Cadastrar novo Cargo", "Create")
+    <blockquote><i class="material-icons">add</i> Novo Funcionário</blockquote>
+    <blockquote><i class="material-icons">assignment</i> Lista de Funcionários</blockquote>
 </p>
+
+<p style="margin: 30px;">
+    <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+    <a href="@Url.Action("Create", "Funcionários")" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">account_circle</i></a>
+</p>
+
+<hr />
+
+
 <table class="table">
     <tr>
         <th>
@@ -37,3 +47,4 @@
 }
 
 </table>
+

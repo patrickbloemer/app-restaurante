@@ -4951,7 +4951,7 @@ if (Vel) {
       $newSelect.after(options);
       // Check if section element is disabled
       if (!$select.is(':disabled')) {
-        $newSelect.dropdown({ 'hover': false });
+        $newSelect.dropdown({ 'hover': true });
       }
 
       // Copy tabindex
@@ -5001,7 +5001,7 @@ if (Vel) {
       options.hover(function () {
         optionsHover = true;
       }, function () {
-        optionsHover = false;
+        optionsHover = true;
       });
 
       // Add initial multiple selections.

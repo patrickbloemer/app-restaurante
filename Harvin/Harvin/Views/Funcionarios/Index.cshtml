@@ -6,18 +6,7 @@
     ListaCargos = Harvin.DAO.CargoDAO.RetornaCargos();
 }
 
-<h4>funcionários</h4>
 <p>Aqui você consegue consultar toda relação de funcionários do estabelecimento, tal como suas informações pessoais e dados referentes aos seus respectivos acessos a este sistema.</p>
-
-<p>
-    <blockquote><i class="material-icons">add</i> Novo Funcionário</blockquote>
-    <blockquote><i class="material-icons">assignment</i> Lista de Funcionários</blockquote>
-</p>
-
-<p style="margin: 30px;">
-    <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-    <a href="@Url.Action("Todos")" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">assignment</i></a>
-</p>
 
 <hr />
 
@@ -89,3 +78,16 @@
         </div>
     }
 </div>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Funcionário"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Lista de Funcionários"><i class="material-icons">assignment</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo"><i class="material-icons">assignment_ind</i></a></li>
+    </ul>
+</div>
+
+
