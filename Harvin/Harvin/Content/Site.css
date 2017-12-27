@@ -158,6 +158,8 @@ nav.mobile-menu {
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: white!important;
+    letter-spacing: 3px;
+    font-size: 12px;
 }
 
 nav ul a:hover, nav ul a:focus{
@@ -166,6 +168,8 @@ nav ul a:hover, nav ul a:focus{
 
 .dropdown-content li>a, .dropdown-content li>span {
     padding: 14px 5px!important;
+    letter-spacing: 3px;
+    font-size: 12px;
 }
 
 .input-field>select {
@@ -233,6 +237,10 @@ img.activator.categoria{
     height: 100%;
 }
 
+nav ul a {
+    letter-spacing: 3px;
+    font-size: 12px!important;
+}
 
 @media(max-width: 600px){
     .card .card-image img{

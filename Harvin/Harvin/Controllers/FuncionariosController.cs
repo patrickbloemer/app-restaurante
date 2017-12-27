@@ -165,7 +165,9 @@ namespace Harvin.Controllers
 
         // GET: Clinicas/Login
         public ActionResult Login() {
-            //ClinicaLoginDAO.NovoGuidPraSessao();
+            string mensagem;
+            mensagem = ViewBag.Mensagem;
+            ViewBag.Mensagem = mensagem;
             return View();
         }
 
