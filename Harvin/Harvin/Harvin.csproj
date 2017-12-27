@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201712242131567_categoriaNoProduto.Designer.cs">
       <DependentUpon>201712242131567_categoriaNoProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.cs" />
+    <Compile Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.Designer.cs">
+      <DependentUpon>201712271229436_AdicionadoAtributoDeInatividade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
@@ -361,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712242131567_categoriaNoProduto.resx">
       <DependentUpon>201712242131567_categoriaNoProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.resx">
+      <DependentUpon>201712271229436_AdicionadoAtributoDeInatividade.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

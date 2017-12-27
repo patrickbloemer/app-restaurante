@@ -18,5 +18,8 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Descrição")]
         public string descricao { get; set; }
+
+        [Display(Name = "Inativo")]
+        public bool inativo { get; set; }
     }
 }

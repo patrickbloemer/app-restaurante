@@ -62,6 +62,8 @@ namespace Harvin.Models {
         [Display(Name = "Senha")]
         public string senha { get; set; }
 
+        [Display(Name = "Inativo")]
+        public bool inativo { get; set; }
 
     }
 }

@@ -22,5 +22,9 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Link Imagem")]
         public string imagem { get; set; }
+
+        [Display(Name = "Inativo")]
+        public bool inativo { get; set; }
+
     }
 }

@@ -54,5 +54,8 @@ namespace Harvin.Models {
         [Required(ErrorMessage = "Campo Obrigatório!")]
         public string comentarios { get; set; }
 
+        [Display(Name = "Inativo")]
+        public bool inativo { get; set; }
+
     }
 }
