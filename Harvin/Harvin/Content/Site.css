@@ -21,6 +21,7 @@ textarea {
 
 .container {
     width: 95%!important;
+    text-align: center!important;
 }
 
 .form-control {
@@ -242,9 +243,58 @@ nav ul a {
     font-size: 12px!important;
 }
 
+table{
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.body_content > hr{
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    width: 200px!important;
+    margin-top: -10px!important;
+    margin-bottom: 50px!important;
+}
+
+td, th{
+    border-radius: 0px!important;
+    text-align: center!important;
+    border: 1px solid grey!important;
+    width: 10%!important;
+}
+
 @media(max-width: 600px){
     .card .card-image img{
         height: 150px!important;
     }
+
+    td, th{
+        border-radius: 0px!important;
+        text-align: center!important;
+        border: 0px solid grey!important;
+    }
 }
+
+@media(max-width: 992px){
+    td, th{
+        border-radius: 0px!important;
+        text-align: center!important;
+        border: 0px solid grey!important;
+    }
+
+    .cabecalho > h5 {
+        text-align: center;
+        margin: 0px 20px;
+    }
+
+    .cabecalho hr {
+        float: none;
+        margin-left: auto;
+    }
+}
+
+
+
+
 

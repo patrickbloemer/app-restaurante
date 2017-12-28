@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Harvin.Models.Produto>
+
+@{
+    ViewBag.Title = "Lista de Produtos";
+}
+
+<p style="margin: 30px;">Produtos cadastrados no sistema em situação de Ativos</p>
+<hr />
+<a href="@Url.Action("Todos")" class="btn center" style="margin-bottom: 30px;">Incluir Inativos</a>
+<table class="table striped centered responsive-table">
+    <tr style="background-color: lightgrey;">
+        <th>
+            @Html.DisplayNameFor(model => model.categoria.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valorUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantidadeMinimaEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantidadeMaximaEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantidadeAtualEstoque)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estocavel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        if (!item.inativo) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.categoria.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valorUnitario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantidadeMinimaEstoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantidadeMaximaEstoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantidadeAtualEstoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descricao)
+                </td>
+                <td>
+                    @if (item.estocavel) {
+                        <p>Sim</p>
+                    } else {
+                        <p>Nao</p>
+                    }
+                </td>
+                <td>
+                    <img src="@item.imagem" style="width: 45px!important; height: 45px!important;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comentarios)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.id })
+                    @Html.ActionLink("Inativar", "Inativar", new { id = item.id })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+<div class="fixed-action-btn toolbar">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">menu</i>
+    </a>
+    <ul>
+        <li class="waves-effect waves-light green"><a href="@Url.Action("Create")">Novo Produto</a></li>
+        <li class="waves-effect waves-light"><a href="@Url.Action("Index")">Produtos/Categoria</a></li>
+    </ul>
+</div>

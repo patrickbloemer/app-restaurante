@@ -1,0 +1,104 @@
+﻿@model Harvin.Models.Produto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Remover</h2>
+
+<h3>Você tem certeza de que deseja inativar este produto?</h3>
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoria.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.categoria.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valorUnitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valorUnitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidadeMinimaEstoque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantidadeMinimaEstoque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidadeMaximaEstoque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantidadeMaximaEstoque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidadeAtualEstoque)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantidadeAtualEstoque)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estocavel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estocavel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comentarios)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.comentarios, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.comentarios, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Inativar" class="btn btn-default" /> |
+            @Html.ActionLink("Cancelar", "Index")
+        </div>
+    }
+</div>

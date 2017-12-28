@@ -325,6 +325,8 @@
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Funcionarios\Todos.cshtml" />
     <Content Include="Views\Pedidos\Finalizar.cshtml" />
+    <Content Include="Views\Produtos\Inativar.cshtml" />
+    <Content Include="Views\Produtos\Lista.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

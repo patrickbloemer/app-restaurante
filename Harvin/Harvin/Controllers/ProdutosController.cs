@@ -28,6 +28,12 @@ namespace Harvin.Controllers
             return View(produtos.ToList());
         }
 
+        // GET: Produtos-Lista
+        public ActionResult Lista() {
+            var produtos = db.Produtos.Include(p => p.categoria);
+            return View(produtos.ToList());
+        }
+
         // GET: Produtos/Details/5
         public ActionResult Details(int? id)
         {
@@ -171,6 +177,37 @@ namespace Harvin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+
+        //INATIVAR PRODUTO
+        // GET: Produtos/Inativar
+        public ActionResult Inativar(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = db.Produtos.Find(id);
+            if (produto == null) {
+                return HttpNotFound();
+            }
+            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+            return View(produto);
+        }
+
+        // POST: Produtos/Inativar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Inativar([Bind(Include = "id, comentarios")] Produto produto) {
+            Produto aux = new Produto();
+            aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
+            aux.inativo = true;
+            aux.comentarios = produto.comentarios;
+            db.Entry(aux).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");            
         }
     }
 }

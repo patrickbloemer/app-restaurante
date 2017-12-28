@@ -17,7 +17,7 @@
         int totalProdutos = 0;
         <li>
             @foreach (var produto in Model) {
-                if (produto.categoriaId.Equals(categorias.CategoriaId)) {
+                if (produto.categoriaId.Equals(categorias.CategoriaId) && !produto.inativo) {
                     totalProdutos++;
                     mediaEstoque = mediaEstoque + Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto);
                 }
@@ -39,7 +39,7 @@
             <div class="collapsible-body">
                 <div class="row">
                     @foreach (var produto in Model) {
-                        if (produto.categoriaId.Equals(categorias.CategoriaId)) {
+                        if (produto.categoriaId.Equals(categorias.CategoriaId) && !produto.inativo) {
                             <div class="col s6 m4 l3">
 
                                 <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
@@ -121,3 +121,15 @@
         </li>
     }
 </ul>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Produto" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Lista de Produtos" href="@Url.Action("Todos")"><i class="material-icons">assignment</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Categorias" href="@Url.Action("Index", "Categorias")"><i class="material-icons">assignment_ind</i></a></li>
+    </ul>
+</div>
+
