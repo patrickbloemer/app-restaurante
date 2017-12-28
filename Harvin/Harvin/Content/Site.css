@@ -7,11 +7,6 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
 .acessonegado {
     margin: 100px 0px!important;
@@ -167,8 +162,8 @@ nav ul a:hover, nav ul a:focus{
     background-color: rgba(0,0,0,0.8)!important;
 }
 
-.dropdown-content li>a, .dropdown-content li>span {
-    padding: 14px 5px!important;
+.dropdown-content li > a, .dropdown-content li > span {
+    padding: 14px 5px !important;
     letter-spacing: 3px;
     font-size: 12px;
 }
@@ -182,6 +177,10 @@ nav ul a:hover, nav ul a:focus{
     height: 50px!important;
     opacity: 1!important;
     margin-top: -20px!important;
+}
+
+.select-wrapper input.select-dropdown {
+    display: none!important;
 }
 
 .adicionar {
@@ -264,17 +263,18 @@ td, th{
     width: 10%!important;
 }
 
-@media(max-width: 600px){
-    .card .card-image img{
-        height: 150px!important;
+@media(max-width: 600px) {
+    .card .card-image img {
+        height: 150px !important;
     }
 
-    td, th{
-        border-radius: 0px!important;
-        text-align: center!important;
-        border: 0px solid grey!important;
+    td, th {
+        border-radius: 0px !important;
+        text-align: center !important;
+        border: 0px solid grey !important;
     }
 }
+
 
 @media(max-width: 992px){
     td, th{
