@@ -163,7 +163,7 @@ namespace Harvin.Controllers
 
 
 
-        // GET: Clinicas/Login
+        // GET: Funcionarios/Login
         public ActionResult Login() {
             string mensagem;
             mensagem = ViewBag.Mensagem;
@@ -171,7 +171,6 @@ namespace Harvin.Controllers
             return View();
         }
 
-        // POST: Clinicas/Login
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -186,6 +185,14 @@ namespace Harvin.Controllers
                     ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
                     return View(funcionario);
                 }
+        }
+
+
+
+        // GET: Logoff
+        public ActionResult Logoff() {
+            FuncionarioLoginDAO.NovaSessao();
+            return View("Login");
         }
     }
 }

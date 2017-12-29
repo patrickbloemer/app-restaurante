@@ -5,12 +5,16 @@
 }
 
 <div class="cadastro">
-    <p style="margin: 30px;">Preencha o formulário com as informações do novo produto</p>
-    <hr />
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
         <div class="row">
+
+            <div class="col s12 form_block">
+                <p>Informações básicas</p>
+                <hr />
+            </div>
+
             <!--NOME-->
             <div class="input-field col s12 m6">
                 @Html.EditorFor(model => model.nome, new { @class = "validate" })
@@ -23,58 +27,106 @@
                 <label for="icon_prefix">Valor</label>
             </div>
 
-            <!--QUANTIDADE MÍNIMA-->
-            <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.quantidadeMinimaEstoque, new { @class = "validate" })
-                <label for="icon_prefix">Quantidade Mínima</label>
-            </div>
-
-            <!--QUANTIDADE MÁXIMA-->
-            <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.quantidadeMaximaEstoque, new { @class = "validate" })
-                <label for="icon_prefix">Quantidade Máxima</label>
-            </div>
-
-            <!--QUANTIDADE ATUAL-->
-            <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.quantidadeAtualEstoque, new { @class = "validate" })
-                <label for="icon_prefix">Quantidade Atual</label>
-            </div>
-
             <!--DESCRIÇÃO-->
             <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.descricao, new { @class = "validate" })
+                @Html.TextAreaFor(model => model.descricao, new { @class = "materialize-textarea" })
                 <label for="icon_prefix">Descrição</label>
+            </div>  
+
+            <!--COMENTÁRIOS-->
+            <div class="input-field col s12 m6">
+                @Html.TextAreaFor(model => model.comentarios, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Comentários</label>
+            </div>
+
+
+
+            <!--ESTOQUE-->
+            <div class="col s12 form_block">
+                <p>Informações sobre Estoque</p>
+                <hr />
             </div>
 
             <!--ESTOCÁVEL-->
             <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.estocavel, new { id = "estoque" })
-                <label for="estoque">Estocável?</label>
+                <i class="material-icons grey-text">help</i><span class="grey-text">Marque <b>SIM</b> caso seja possível armazenar este produto.</span>
+                <div style="display: none;">
+                    @Html.EditorFor(model => model.estocavel, new { id = "estocavel" })
+                </div>
+
+                <p>
+                    <input name="estoque" type="radio" id="sim" class="sim" />
+                    <label for="sim">Sim</label>
+                </p>
+                <p>
+                    <input name="estoque" type="radio" id="nao" class="nao" />
+                    <label for="nao">Não</label>
+                </p>
             </div>
 
-            <!--CATEGORIA-->
-            <div class="input-field col s12 m6">
-                @Html.DropDownList("categoriaId", null, htmlAttributes: new { @class = "form-control" })
-                <label for="icon_prefix">Categoria</label>
+            <div class="col s12 oculta" style="margin-top: 30px;">
+                <!--QUANTIDADE MÍNIMA-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.quantidadeMinimaEstoque, new { @class = "validate" })
+                    <label for="icon_prefix">Quantidade Mínima</label>
+                </div>
+
+                <!--QUANTIDADE MÁXIMA-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.quantidadeMaximaEstoque, new { @class = "validate" })
+                    <label for="icon_prefix">Quantidade Máxima</label>
+                </div>
+
+                <!--QUANTIDADE ATUAL-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.quantidadeAtualEstoque, new { @class = "validate" })
+                    <label for="icon_prefix">Quantidade Atual</label>
+                </div>
             </div>
 
-            <!--COMENTÁRIOS-->
-            <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.comentarios, new { @class = "validate" })
-                <label for="icon_prefix">Comentários</label>
-            </div>
 
-            <!--LINK IMAGEM-->
-            <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.imagem, new { @class = "validate" })
-                <label for="icon_prefix">URL Imagem</label>
+
+            <!--INFORMAÇÕES VISUAIS-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Informações Visuais</p>
+                <hr />
             </div>
 
             <!--LINK IMAGEM-->
             <div class="input-field col s12">
-                <input type="submit" value="Cadastrar" class="btn btn-default" />
+                @Html.EditorFor(model => model.imagem, new { @class = "validate" })
+                <label for="icon_prefix">URL Imagem</label>
             </div>
+            
+            <!--INFORMAÇÕES SOBRE CATEGORIA-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Categoria do Produto</p>
+                <hr />
+            </div>
+
+            <!--CATEGORIA-->
+            <div class="input-field col s12 m6">
+                <div style="margin: 20px; text-align: left!important;">
+                    <a href="@Url.Action("Create", "Categorias")" class="btn-floating tooltipped" data-position="right" data-delay="50" data-tooltip="Nova categoria" target="_blank"><i class="material-icons">add</i></a>
+                </div>
+                @Html.DropDownList("categoriaId", null, htmlAttributes: new { @class = "form-control" })
+                <label for="icon_prefix">Categoria</label>
+            </div>
+
+
+            <!--INFORMAÇÕES SOBRE CATEGORIA-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Finalizar Cadastro</p>
+                <hr />
+            </div>
+
+            <!--CADASTRAR-->
+            <div class="input-field col s12" style="text-align: left;">
+                <input type="submit" value="Cadastrar" class="btn green" />
+                <a href="@Url.Action("Index")" class="btn red">Cancelar</a>
+            </div>
+
+
         </div>
     }
 </div>
@@ -82,3 +134,22 @@
 <div>
     @Html.ActionLink("Cancelar", "Index")
 </div>
+
+  <!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red modal-trigger pulse" href="#modal1">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="text-transform: none!important;">
+    <div class="modal-content">
+        <h5 >Ajuda - Cadastro de produto</h5>
+        <p>Abaixo uma explicação de cada campo</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+

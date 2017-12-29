@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    Harvin.Models.Funcionario funcionario = new Harvin.Models.Funcionario();
+    Harvin.Models.FuncionarioLogin logado = Harvin.DAO.FuncionarioLoginDAO.RetornarFuncionarioLogado();
+    if (logado == null) {
+        Response.Redirect("~/Funcionarios/Login");
+    }else {
+        funcionario = logado.funcionario;
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,9 +16,11 @@
     <title>@ViewBag.Title - Harvin</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="~/Content/materialize.css" rel="stylesheet" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico" />
 </head>
 <body>
         <!--DROPDOWNS DO MENU PARA COMPUTADORES-->
@@ -49,15 +61,15 @@
                     <div class="background">
                         <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
                     </div>
-                    <img class="circle" src="~/Content/images/funcionario.jpg">
-                    <span class="white-text name">Patrick Cardoso</span>
-                    <span class="white-text email">pbloemer59@gmail.com</span>
+                    <img class="circle" src="@funcionario.imagem">
+                    <span class="white-text name">@funcionario.nome @funcionario.sobrenome</span>
+                    <span class="white-text email">@funcionario.email</span>
                 </div>
             </li>
-            <li><a href="#!"><i class="material-icons">settings</i>Configurações</a></li>
+            <li><a href="@Url.Action("~/Funcionarios/Configuracoes")"><i class="material-icons">settings</i>Configurações</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">Opções</a></li>
-            <li class="red darken-4"><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">forward</i>Sair</a></li>
+            <li class="red darken-4"><a class="waves-effect white-text" href="@Url.Action("Logoff", "Funcionarios")"><i class="material-icons white-text">forward</i>Sair</a></li>
         </ul>
 
         <!--BARRA DE NAVEGAÇÃO-->
@@ -69,26 +81,25 @@
                     <li><a class="dropdown-button opcaomenu" href="#!" data-activates="pedidos">Pedidos<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button opcaomenu" href="#!" data-activates="produtos">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>Patrick</a></li>
+                    <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>@funcionario.nome</a></li>
 
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <!--SIDENAV DO FUNCIONÁRIO-->
+                    <!--Mobile navbar-->
                     <li>
                         <div class="user-view">
                             <div class="background">
                                 <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
                             </div>
-                            <img class="circle" src="~/Content/images/funcionario.jpg">
-                            <span class="white-text name">Patrick Cardoso</span>
-                            <span class="white-text email">pbloemer59@gmail.com</span>
+                            <img class="circle" src="@funcionario.imagem">
+                            <span class="white-text name">@funcionario.nome @funcionario.sobrenome</span>
+                            <span class="white-text email">@funcionario.email</span>
                         </div>
                     </li>
-                    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                    <li><a href="#!">Second Link</a></li>
+                    <li><a href="@Url.Action("~/Funcionarios/Configuracoes")"><i class="material-icons">settings</i>Configurações</a></li>
                     <li><div class="divider"></div></li>
                     <!--DIVISOR OPÇÕES DO MENU-->
-                    <li><a class="subheader">Opções</a></li>
+                    <li><a class="subheader">Menu</a></li>
                     <!--PEDIDOS-->
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
@@ -96,10 +107,9 @@
                                 <a class="collapsible-header">Pedidos<i class="material-icons">arrow_drop_down</i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="#!">First</a></li>
-                                        <li><a href="#!">Second</a></li>
-                                        <li><a href="#!">Third</a></li>
-                                        <li><a href="#!">Fourth</a></li>
+                                        <li><a href="@Url.Action("Create", "Pedidos")"><i class="material-icons">add</i>Novo</a></li>
+                                        <li><a href="@Url.Action("Index", "Pedidos")"><i class="material-icons">restaurant_menu</i>Abertos</a></li>
+                                        <li><a href="@Url.Action("Todos", "Pedidos")"><i class="material-icons">list</i>Lista</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -112,10 +122,11 @@
                                 <a class="collapsible-header">Produtos<i class="material-icons">arrow_drop_down</i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="#!">First</a></li>
-                                        <li><a href="#!">Second</a></li>
-                                        <li><a href="#!">Third</a></li>
-                                        <li><a href="#!">Fourth</a></li>
+                                        <li><a href="@Url.Action("Create", "Produtos")"><i class="material-icons">add</i>Novo</a></li>
+                                        <li><a href="@Url.Action("Index", "Produtos")"><i class="material-icons">local_pizza</i>Detalhes</a></li>
+                                        <li><a href="@Url.Action("Lista", "Produtos")"><i class="material-icons">list</i>Lista</a></li>
+                                        <li><a href="@Url.Action("Todos", "Produtos")"><i class="material-icons">format_align_justify</i>Todos</a></li>
+                                        <li><a href="@Url.Action("Index", "Categorias")"><i class="material-icons">dns</i>Categoria</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -128,17 +139,16 @@
                                 <a class="collapsible-header">Funcionários<i class="material-icons">arrow_drop_down</i></a>
                                 <div class="collapsible-body">
                                     <ul>
-                                        <li><a href="#!">First</a></li>
-                                        <li><a href="#!">Second</a></li>
-                                        <li><a href="#!">Third</a></li>
-                                        <li><a href="#!">Fourth</a></li>
+                                        <li><a href="@Url.Action("Create", "Funcionarios")"><i class="material-icons">add</i>Novo</a></li>
+                                        <li><a href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">account_circle</i>Detalhes</a></li>
+                                        <li><a href="@Url.Action("Todos", "Funcionarios")"><i class="material-icons">list</i>Lista</a></li>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <!--SAIR-->
-                    <li class="red darken-4"><a class="waves-effect white-text" href="#!"><i class="material-icons white-text">forward</i>Sair</a></li>
+                    <li class="red darken-4"><a class="waves-effect white-text" href="@Url.Action("Funcionarios/Logoff")"><i class="material-icons white-text">forward</i>Sair</a></li>
                 </ul>
             </div>
         </nav>
@@ -163,6 +173,18 @@
             });
             $('.modal').modal();
             $('select').material_select();
+
+            $('.sim').prop('checked', true);
+            $('.sim').click(function () {
+                $('.oculta').css('display', 'block');
+                $('#estocavel').prop('checked', true);
+            });
+
+            $('.nao').click(function () {
+                $('.oculta').css('display', 'none');
+                $('#estocavel').prop('checked', false);
+            });
+
         });
     </script>
 </body>

@@ -6529,12 +6529,12 @@ textarea.materialize-textarea.validate + label:not(.label-icon).active {
 
 /* Radio Buttons
    ========================================================================== */
-[type="radio"]:not(:checked),
+/*[type="radio"]:not(:checked),
 [type="radio"]:checked {
   position: absolute;
   opacity: 0;
   pointer-events: none;
-}
+}*/
 
 [type="radio"]:not(:checked) + label,
 [type="radio"]:checked + label {

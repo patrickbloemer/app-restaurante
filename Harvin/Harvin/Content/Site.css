@@ -160,6 +160,7 @@ nav.mobile-menu {
 
 nav ul a:hover, nav ul a:focus{
     background-color: rgba(0,0,0,0.8)!important;
+    color: white!important;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
@@ -263,6 +264,10 @@ td, th{
     width: 10%!important;
 }
 
+nav .collapsible-header a:hover{
+    background-color: red!important;
+}
+
 @media(max-width: 600px) {
     .card .card-image img {
         height: 150px !important;
@@ -273,6 +278,26 @@ td, th{
         text-align: center !important;
         border: 0px solid grey !important;
     }
+}
+
+.cadastro {
+    width: 95%;
+    margin: auto;
+}
+
+.form_block hr {
+    width: 200px;
+    text-align: left!important;
+    float: left;
+    background-color: black;
+    height: 1px;
+    margin-top: -5px;
+    border: none;
+}
+
+.form_block{
+    text-align: left;
+    margin-top: 30px;
 }
 
 
