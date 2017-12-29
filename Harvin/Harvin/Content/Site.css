@@ -309,6 +309,10 @@ dt{
     font-weight: 600;
 }
 
+.acessos {
+    text-align: left!important;
+}
+
 
 @media(max-width: 992px){
     td, th{

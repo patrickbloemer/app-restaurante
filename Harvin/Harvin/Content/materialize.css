@@ -6665,9 +6665,9 @@ form p:last-child {
 /* Remove default checkbox */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
-  position: absolute;
+/*  position: absolute;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none;*/
 }
 
 [type="checkbox"] {
