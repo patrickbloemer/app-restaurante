@@ -34,21 +34,6 @@ namespace Harvin.Controllers
             return View(produtos.ToList());
         }
 
-        // GET: Produtos/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Produto produto = db.Produtos.Find(id);
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produto);
-        }
-
         // GET: Produtos/Create
         public ActionResult Create()
         {
