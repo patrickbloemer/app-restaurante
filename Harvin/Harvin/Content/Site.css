@@ -300,6 +300,15 @@ nav .collapsible-header a:hover{
     margin-top: 30px;
 }
 
+dd {
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+dt{
+    font-weight: 600;
+}
+
 
 @media(max-width: 992px){
     td, th{

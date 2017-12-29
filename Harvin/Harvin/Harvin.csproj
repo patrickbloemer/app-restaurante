@@ -292,7 +292,6 @@
     <Content Include="Views\Pedidos\Edit.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
     <Content Include="Views\Produtos\Create.cshtml" />
-    <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\Details.cshtml" />
     <Content Include="Views\Produtos\Edit.cshtml" />
     <Content Include="Views\Reservas\Create.cshtml" />

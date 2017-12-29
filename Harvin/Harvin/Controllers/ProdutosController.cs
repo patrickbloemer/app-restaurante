@@ -75,6 +75,7 @@ namespace Harvin.Controllers
                     }
                     else
                     {
+                        produto.categoria = CategoriaDAO.BuscarCategoriaPorId(produto.categoriaId);
                         db.Produtos.Add(produto);
                         db.SaveChanges();
                         return RedirectToAction("Index");
@@ -144,32 +145,6 @@ namespace Harvin.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Produto produto = db.Produtos.Find(id);
-            if (produto == null)
-            {
-                return HttpNotFound();
-            }
-            return View(produto);
-        }
-
-        // POST: Produtos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Produto produto = db.Produtos.Find(id);
-            db.Produtos.Remove(produto);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -204,7 +179,6 @@ namespace Harvin.Controllers
             Produto aux = new Produto();
             aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
             aux.inativo = true;
-            aux.comentarios = produto.comentarios;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");            
