@@ -1,112 +1,157 @@
 ﻿@model Harvin.Models.Produto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Produto";
 }
 
-<h2>Editar</h2>
+<div class="cadastro">
+    <i class="material-icons red-text">help</i><span class="grey-text">Produto selecionado para edição: @Model.nome</span>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Produto</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="row">
+
+            <div class="col s12 form_block">
+                <p>Informações básicas</p>
+                <hr />
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.valorUnitario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.valorUnitario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.valorUnitario, "", new { @class = "text-danger" })
+            <!--NOME-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.nome, new { @class = "validate" })
+                <label for="icon_prefix">Nome</label>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.quantidadeMinimaEstoque, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.quantidadeMinimaEstoque, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.quantidadeMinimaEstoque, "", new { @class = "text-danger" })
+            <!--VALOR UNITÁRIO-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.valorUnitario, new { @class = "validate" })
+                <label for="icon_prefix">Valor</label>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.quantidadeMaximaEstoque, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.quantidadeMaximaEstoque, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.quantidadeMaximaEstoque, "", new { @class = "text-danger" })
+            <!--DESCRIÇÃO-->
+            <div class="input-field col s12 m6">
+                @Html.TextAreaFor(model => model.descricao, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Descrição</label>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.quantidadeAtualEstoque, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.quantidadeAtualEstoque, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.quantidadeAtualEstoque, "", new { @class = "text-danger" })
+            <!--COMENTÁRIOS-->
+            <div class="input-field col s12 m6">
+                @Html.TextAreaFor(model => model.comentarios, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Comentários</label>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.descricao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
+
+
+            <!--ESTOQUE-->
+            <div class="col s12 form_block">
+                <p>Informações sobre Estoque</p>
+                <hr />
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.estocavel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.estocavel)
-                    @Html.ValidationMessageFor(model => model.estocavel, "", new { @class = "text-danger" })
+            <!--ESTOCÁVEL-->
+            <div class="input-field col s12 m6">
+                <i class="material-icons grey-text">help</i><span class="grey-text">Marque <b>SIM</b> caso seja possível armazenar este produto.</span>
+                <div>
+                    @Html.EditorFor(model => model.estocavel, new { id = "estocavel" })
+                </div>
+
+                <p>
+                    <input name="estoque" type="radio" id="sim" class="sim" />
+                    <label for="sim">Sim</label>
+                </p>
+                <p>
+                    <input name="estoque" type="radio" id="nao" class="nao" />
+                    <label for="nao">Não</label>
+                </p>
+            </div>
+
+            <div class="col s12 oculta" style="margin-top: 30px;">
+                <!--QUANTIDADE MÍNIMA-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.quantidadeMinimaEstoque, new { @class = "validate" })
+                    <label for="icon_prefix">Quantidade Mínima</label>
+                </div>
+
+                <!--QUANTIDADE MÁXIMA-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.quantidadeMaximaEstoque, new { @class = "validate" })
+                    <label for="icon_prefix">Quantidade Máxima</label>
+                </div>
+
+                <!--QUANTIDADE ATUAL-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.quantidadeAtualEstoque, new { @class = "validate" })
+                    <label for="icon_prefix">Quantidade Atual</label>
                 </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.categoriaId, "categoriaId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+
+
+            <!--INFORMAÇÕES VISUAIS-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Informações Visuais</p>
+                <hr />
+            </div>
+
+            <!--LINK IMAGEM-->
+            <div class="input-field col s12">
+                @Html.EditorFor(model => model.imagem, new { @class = "validate" })
+                <label for="icon_prefix">URL Imagem</label>
+            </div>
+
+            <!--INFORMAÇÕES SOBRE CATEGORIA-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Categoria do Produto</p>
+                <hr />
+            </div>
+
+            <!--CATEGORIA-->
+            <div class="input-field col s12 m6">
+                <div style="margin: 20px; text-align: left!important;">
+                    <a href="@Url.Action("Create", "Categorias")" class="btn-floating tooltipped" data-position="right" data-delay="50" data-tooltip="Nova categoria" target="_blank"><i class="material-icons">add</i></a>
+                </div>
                 @Html.DropDownList("categoriaId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.categoriaId, "", new { @class = "text-danger" })
+                <label for="icon_prefix">Categoria</label>
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.comentarios, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.comentarios, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.comentarios, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.imagem, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.imagem, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.imagem, "", new { @class = "text-danger" })
+            <!--INFORMAÇÕES SOBRE CATEGORIA-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Finalizar Cadastro</p>
+                <hr />
             </div>
-        </div>
 
-        <div>
-            <div>
-                <input type="submit" value="Salvar" class="btn btn-default" />
-                <a href="@Url.Action("Index")" class="btn red">Cancelar <i class="material-icons">cancel</i></a>
+            <!--Editar-->
+            <div class="input-field col s12" style="text-align: left;">
+                <input type="submit" value="Confirmar Edição    " class="btn green" />
+                <a href="@Url.Action("Index")" class="btn red">Cancelar</a>
             </div>
+
+
         </div>
-    </div>
-}
+    }
+</div>
 
 <div>
     @Html.ActionLink("Cancelar", "Index")
 </div>
+
+<!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red modal-trigger pulse" href="#modal1">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="text-transform: none!important;">
+    <div class="modal-content">
+        <h5>Ajuda - Cadastro de produto</h5>
+        <p>Abaixo uma explicação de cada campo</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+
