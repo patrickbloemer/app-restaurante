@@ -262,8 +262,6 @@
     <Content Include="Views\Cargos\Edit.cshtml" />
     <Content Include="Views\Cargos\Index.cshtml" />
     <Content Include="Views\Categorias\Create.cshtml" />
-    <Content Include="Views\Categorias\Delete.cshtml" />
-    <Content Include="Views\Categorias\Details.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
