@@ -264,6 +264,10 @@ td, th{
     width: 10%!important;
 }
 
+th{
+    background-color: lightgrey;
+}
+
 nav .collapsible-header a:hover{
     background-color: red!important;
 }
