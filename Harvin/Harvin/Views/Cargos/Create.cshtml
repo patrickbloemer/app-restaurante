@@ -1,50 +1,56 @@
 ﻿@model Harvin.Models.Cargo
 
 @{
-    ViewBag.Title = "Cadastrar";
+    ViewBag.Title = "Cadastrar Cargo";
 }
 
-<h2>Cadastro</h2>
+<div class="cadastro">
 
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="row">
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Cargo</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <h6 style="color:darkred;">@ViewBag.SemCargo</h6>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+            <div class="col s12 form_block">
+                <p>Informações básicas</p>
+                <hr />
             </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.descricao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.descricao, "", new { @class = "text-danger" })
+            <!--NOME-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.nome, new { @class = "validate" })
+                <label for="icon_prefix">Nome</label>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar" class="btn btn-default" />
+            <!--DESCRIÇÃO-->
+            <div class="input-field col s12 m6">
+                @Html.TextAreaFor(model => model.descricao, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Descrição</label>
             </div>
+
+            <div class="input-field col s12">
+                <input type="submit" name="Cadastar" value="Cadastrar" class="btn green" />
+                <a href="@Url.Action("Index")" class="btn red">Cancelar</a>
+            </div>
+
         </div>
-    </div>
-}
-<div>
-    @Html.ActionLink("Cancelar", "Index")
+    }
 </div>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red modal-trigger pulse" href="#modal1">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="text-transform: none!important;">
+    <div class="modal-content">
+        <h5>Ajuda - Cadastro de Cargo</h5>
+        <p>Abaixo uma explicação de cada campo</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+
