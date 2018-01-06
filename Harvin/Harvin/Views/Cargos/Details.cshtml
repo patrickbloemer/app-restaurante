@@ -1,13 +1,11 @@
 ﻿@model Harvin.Models.Cargo
 
 @{
-    ViewBag.Title = "Detalhes";
+    ViewBag.Title = "Detalhes do Cargo";
 }
 
-<h2>Detalhes</h2>
-
 <div>
-    <h4>Cargo</h4>
+    <h4>@Html.DisplayFor(model => model.nome)</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -28,7 +26,9 @@
 
     </dl>
 </div>
+
+<hr />
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.cargoId }) |
-    @Html.ActionLink("Retornar para Lista", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.cargoId }, new { @class="btn green"}) |
+    @Html.ActionLink("Retornar para Lista", "Index", "", new { @class = "btn orange" })
 </p>
