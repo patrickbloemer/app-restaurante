@@ -16,8 +16,12 @@ namespace Harvin.Controllers
         private Entities db = new Entities();
 
         // GET: Categorias
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            return View(db.Categorias.ToList());
+        }
+
+        // GET: Categorias
+        public ActionResult Todos() {
             return View(db.Categorias.ToList());
         }
 

@@ -5,10 +5,37 @@
 }
 
 <p>Estas são categorias de produtos cadastradas no sistema. Clique em cada uma para ter acesso a suas informações individuais</p>
+<p>Os itens em vermelho correspondem as categorias inativadas.</p>
+<br />
 
 <div class="row">
     @foreach (var item in Model) {
-        if (!item.inativo) {
+        if (item.inativo) {
+            <div class="col s6 m4 l3">
+                <div class="card red white-text">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@item.imagem">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator white-text">@Html.DisplayFor(modelItem => item.nome)</span>
+                    </div>
+                    <div class="card-reveal red white-text">
+                        <span class="card-title text-darken-4"><i class="material-icons">close</i></span>
+                        <b>Categoria</b>
+                        <br />
+                        @Html.DisplayFor(modelItem => item.nome)
+                        <br />
+                        <br />
+                        <b>Descrição</b>
+                        <br />
+                        @Html.DisplayFor(modelItem => item.descricao)
+                        <br /><br />
+                        <a href="@Url.Action("Edit", new { id=item.CategoriaId})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Delete", new { id=item.CategoriaId})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+        } else {
             <div class="col s6 m4 l3">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
@@ -44,6 +71,6 @@
     <ul>
         <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Nova Categoria" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
         <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Produtos Cadastrados" href="@Url.Action("Index", "Produtos")"><i class="material-icons">local_pizza</i></a></li>
-        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Adicinonar Inativos a Lista" href="@Url.Action("Todos", "Categorias")"><i class="material-icons red-text">do_not_disturb_on</i></a></li>
+        <li><a class="btn-floating yellow tooltipped" data-position="left" data-delay="0" data-tooltip="Remover Inativos a Lista" href="@Url.Action("Index", "Categorias")"><i class="material-icons red-text">do_not_disturb_off</i></a></li>
     </ul>
 </div>
