@@ -323,6 +323,7 @@
     <Content Include="Views\Cargos\Inativar.cshtml" />
     <Content Include="Views\Cargos\Todos.cshtml" />
     <Content Include="Views\Categorias\Todos.cshtml" />
+    <Content Include="Views\Categorias\Inativar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

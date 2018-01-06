@@ -141,5 +141,35 @@ namespace Harvin.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //INATIVAR CATEGORIA
+        // GET: Produtos/Inativar
+        public ActionResult Inativar(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Categoria categoria = db.Categorias.Find(id);
+            if (categoria == null) {
+                return HttpNotFound();
+            }
+            return View(categoria);
+        }
+
+        // POST: CATEGORIA/Inativar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Inativar([Bind(Include = "id")] Categoria categoria) {
+            Categoria aux = new Categoria();
+            aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
+            aux.inativo = true;
+            db.Entry(aux).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
