@@ -298,11 +298,6 @@
     <Content Include="Views\Reservas\Details.cshtml" />
     <Content Include="Views\Reservas\Edit.cshtml" />
     <Content Include="Views\Reservas\Index.cshtml" />
-    <Content Include="Views\Acessos\Create.cshtml" />
-    <Content Include="Views\Acessos\Delete.cshtml" />
-    <Content Include="Views\Acessos\Details.cshtml" />
-    <Content Include="Views\Acessos\Edit.cshtml" />
-    <Content Include="Views\Acessos\Index.cshtml" />
     <Content Include="Views\Funcionarios\Create.cshtml" />
     <Content Include="Views\Funcionarios\Delete.cshtml" />
     <Content Include="Views\Funcionarios\Details.cshtml" />
