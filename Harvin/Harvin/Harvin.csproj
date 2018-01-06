@@ -320,6 +320,7 @@
     <Content Include="Views\Categorias\Inativar.cshtml" />
     <Content Include="Views\FormasDePagamento\Inativar.cshtml" />
     <Content Include="Views\FormasDePagamento\Todos.cshtml" />
+    <Content Include="Views\Funcionarios\Inativar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

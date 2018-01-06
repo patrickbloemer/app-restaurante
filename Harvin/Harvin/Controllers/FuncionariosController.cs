@@ -194,5 +194,35 @@ namespace Harvin.Controllers
             FuncionarioLoginDAO.NovaSessao();
             return View("Login");
         }
+
+
+
+        //INATIVAR CARGO
+        // GET: Produtos/Inativar
+        public ActionResult Inativar(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Funcionario funcionario = db.Funcionarios.Find(id);
+            if (funcionario == null) {
+                return HttpNotFound();
+            }
+            return View(funcionario);
+        }
+
+        // POST: Produtos/Inativar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Inativar([Bind(Include = "id")] Funcionario funcionario) {
+            Funcionario aux = new Funcionario();
+            aux = db.Funcionarios.Find(funcionario.id);
+            aux.inativo = true;
+            db.Entry(aux).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
