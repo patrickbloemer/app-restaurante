@@ -1,45 +1,64 @@
 ﻿@model Harvin.Models.Categoria
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Cadastrar Categoria";
 }
 
-<h5>Cadastrar nova categoria</h5>
+<div class="cadastro">
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="row">
+
+            <div class="col s12 form_block">
+                <p>Informações básicas</p>
+                <hr />
+            </div>
+
+            <!--NOME-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.nome, new { @class = "validate" })
+                <label for="icon_prefix">Nome</label>
+            </div>
+
+            <!--IMAGEM URL-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.imagem, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Imagem</label>
+            </div>
+
+            <!--DESCRIÇÃO-->
+            <div class="input-field col s12">
+                @Html.TextAreaFor(model => model.descricao, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Descrição</label>
+            </div>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
+            <div class="input-field col s12">
+                <input type="submit" name="Cadastar" value="Cadastrar" class="btn green" />
+                <a href="@Url.Action("Index")" class="btn red">Cancelar</a>
+            </div>
 
-
-        <div class="input-field col s6">
-            @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "validate" } })
-            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "validate" })
         </div>
+    }
+</div>
 
+<!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red modal-trigger pulse" href="#modal1">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
 
-        <div class="input-field col s6">
-            @Html.EditorFor(model => model.descricao, new { htmlAttributes = new { @class = "validate" } })
-            @Html.LabelFor(model => model.descricao, htmlAttributes: new { @class = "validate" })
-        </div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="text-transform: none!important;">
+    <div class="modal-content">
+        <h5>Ajuda - Cadastro de Categoria</h5>
+        <p>Abaixo uma explicação de cada campo</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
 
-        <div class="input-field col s6">
-            @Html.EditorFor(model => model.imagem, new { htmlAttributes = new { @class = "validate" } })
-            @Html.LabelFor(model => model.imagem, htmlAttributes: new { @class = "validate" })
-        </div>
-
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            Cadastrar
-            <i class="material-icons right">send</i>
-        </button>
-        <a href="@Url.Action("Index")" class="btn waves-effect waves-light red">
-            Cancelar
-            <i class="material-icons right">cancel</i>
-        </a>
-}
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
