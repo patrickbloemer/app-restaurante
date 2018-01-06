@@ -22,8 +22,23 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    if (!item.inativo) {
+    @foreach (var item in Model) {
+        if (item.inativo) {
+            <tr style="background-color: rgba(255,0,0,0.5)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descricao)
+                </td>
+                <td>
+
+                    <a href="@Url.Action("Edit", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
+                    <a href="@Url.Action("Details", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
+                    <a href="@Url.Action("Inativar", "cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
+                </td>
+            </tr>
+        }
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.nome)
@@ -39,7 +54,6 @@
             </td>
         </tr>
     }
-}
 
 </table>
 

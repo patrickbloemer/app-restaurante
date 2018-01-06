@@ -321,6 +321,7 @@
     <Content Include="Views\Produtos\Inativar.cshtml" />
     <Content Include="Views\Produtos\Lista.cshtml" />
     <Content Include="Views\Cargos\Inativar.cshtml" />
+    <Content Include="Views\Cargos\Todos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
