@@ -1,0 +1,40 @@
+﻿@model Harvin.Models.Cargo
+
+@{
+    ViewBag.Title = "Inativar Cargo";
+}
+
+<div>
+    <h4>@Html.DisplayFor(model => model.nome)</h4>
+    <h6 class="red-text"><i class="material-icons">delete</i> <br />Você realmente deseja inativar este cargo?</h6>
+    <p>Esta ação pode ser desfeita mais tarde. </p>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+
+    </dl>
+</div>
+
+<hr />
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Inativar" class="btn red darken-4" /> |
+        <a href="@Url.Action("Index")" class="red btn">Cancelar</a>
+    </div>
+}

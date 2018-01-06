@@ -99,7 +99,7 @@ namespace Harvin.Controllers
             if (ModelState.IsValid)
             {
                 Cargo aux = new Cargo();
-                aux = CargoDAO.BuscaProdutoPorId(cargo.cargoId);
+                aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
                 if(CargoDAO.BurcarCargoPorNome(cargo) == null || aux.nome == cargo.nome)
                 {
                     db.Entry(cargo).State = EntityState.Modified;
@@ -147,6 +147,34 @@ namespace Harvin.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+        //INATIVAR CARGO
+        // GET: Produtos/Inativar
+        public ActionResult Inativar(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Cargo cargo = db.Cargos.Find(id);
+            if (cargo == null) {
+                return HttpNotFound();
+            }
+            return View(cargo);
+        }
+
+        // POST: Produtos/Inativar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Inativar([Bind(Include = "id")] Cargo cargo) {
+            Cargo aux = new Cargo();
+            aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
+            aux.inativo = true;
+            db.Entry(aux).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

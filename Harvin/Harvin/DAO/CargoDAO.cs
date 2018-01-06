@@ -23,7 +23,7 @@ namespace Harvin.DAO
         }
 
         // Busca Cargo por ID
-        public static Cargo BuscaProdutoPorId(int id)
+        public static Cargo BuscaCargoPorId(int id)
         {
             return entities.Cargos.Find(id);
         }
