@@ -1,169 +1,158 @@
 ﻿@model IEnumerable<Harvin.Models.Funcionario>
 
 @{
-    ViewBag.Title = "Todos";
+    ViewBag.Title = "Funcionários";
+    List<Harvin.Models.Cargo> ListaCargos = new List<Harvin.Models.Cargo>();
+    ListaCargos = Harvin.DAO.CargoDAO.RetornaCargos();
 }
 
-<h4>funcionários</h4>
 <p>Aqui você consegue consultar toda relação de funcionários do estabelecimento, tal como suas informações pessoais e dados referentes aos seus respectivos acessos a este sistema.</p>
-
-<p>
-    <blockquote><i class="material-icons">add</i> Novo Funcionário</blockquote>
-    <blockquote><i class="material-icons">assignment</i> Lista de Funcionários</blockquote>
-</p>
-
-<p style="margin: 30px;">
-    <a href="@Url.Action("Create")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-    <a href="@Url.Action("Todos")" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">assignment</i></a>
-</p>
 
 <hr />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.cargo.nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.home)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.verificarConsumo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.realizarPedido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pedidosPendentes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.clientes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.reservarMesa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.configuracoes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.relatorios)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sobrenome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cpf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dataDeNascimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endereco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.complemento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.cidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.imagem)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.senha)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    @foreach (var item in Model) {
+        if (!item.inativo) {
+            <div class="col s6 m4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@item.imagem">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">@item.nome @item.sobrenome</span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                        <b>Nome Completo</b>
+                        <br />
+                        @item.nome @item.sobrenome
+                        <br />
+                        <br />
+                        <b>Cargo</b>
+                        <br />
+                        @item.cargo.nome
+                        <br />
+                        <br />
+                        <b>CPF</b>
+                        <br />
+                        @item.cpf
+                        <br />
+                        <br />
+                        <b>Telefone</b>
+                        <br />
+                        @item.telefone
+                        <br />
+                        <br />
+                        <b>Data de Nascimento</b>
+                        <br />
+                        @item.dataDeNascimento
+                        <br />
+                        <br />
+                        <b>Endereço</b>
+                        <br />
+                        @item.endereco
+                        <br />
+                        <br />
+                        <b>CEP</b>
+                        <br />
+                        @item.cep
+                        <br />
+                        <br />
+                        <b>Bairro</b>
+                        <br />
+                        @item.bairro
+                        <br />
+                        <br />
+                        <b>Cidade</b>
+                        <br />
+                        @item.cidade
+                        <br />
+                        <br />
+                        <b>E-mail</b>
+                        <br />
+                        @item.email
+                        <br /><br />
+                        <a href="@Url.Action("Edit", new { id=item.id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Delete", new { id=item.id})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+        } else {
+            <div class="col s6 m4">
+                <div class="card red">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@item.imagem">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator white-text text-darken-4">@item.nome @item.sobrenome</span>
+                    </div>
+                    <div class="card-reveal red white-text">
+                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
+                        <b>Nome Completo</b>
+                        <br />
+                        @item.nome @item.sobrenome
+                        <br />
+                        <br />
+                        <b>Cargo</b>
+                        <br />
+                        @item.cargo.nome
+                        <br />
+                        <br />
+                        <b>CPF</b>
+                        <br />
+                        @item.cpf
+                        <br />
+                        <br />
+                        <b>Telefone</b>
+                        <br />
+                        @item.telefone
+                        <br />
+                        <br />
+                        <b>Data de Nascimento</b>
+                        <br />
+                        @item.dataDeNascimento
+                        <br />
+                        <br />
+                        <b>Endereço</b>
+                        <br />
+                        @item.endereco
+                        <br />
+                        <br />
+                        <b>CEP</b>
+                        <br />
+                        @item.cep
+                        <br />
+                        <br />
+                        <b>Bairro</b>
+                        <br />
+                        @item.bairro
+                        <br />
+                        <br />
+                        <b>Cidade</b>
+                        <br />
+                        @item.cidade
+                        <br />
+                        <br />
+                        <b>E-mail</b>
+                        <br />
+                        @item.email
+                        <br /><br />
+                        <a href="@Url.Action("Edit", new { id=item.id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Delete", new { id=item.id})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.cargo.nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.home)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.verificarConsumo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.realizarPedido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pedidosPendentes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clientes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.reservarMesa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.configuracoes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.relatorios)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sobrenome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cpf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dataDeNascimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.endereco)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.complemento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.imagem)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.senha)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Funcionário"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Lista de Funcionários"><i class="material-icons">assignment</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo"><i class="material-icons">assignment_ind</i></a></li>
+    </ul>
+</div>
