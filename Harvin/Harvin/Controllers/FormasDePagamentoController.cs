@@ -15,8 +15,12 @@ namespace Harvin.Controllers
         private Entities db = new Entities();
 
         // GET: FormasDePagamento
-        public ActionResult Index()
-        {
+        public ActionResult Index() {
+            return View(db.FormaPagamentos.ToList());
+        }
+
+        // GET: FormasDePagamento
+        public ActionResult Todos() {
             return View(db.FormaPagamentos.ToList());
         }
 
