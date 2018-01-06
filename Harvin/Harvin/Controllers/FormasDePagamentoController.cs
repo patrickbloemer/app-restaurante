@@ -123,5 +123,34 @@ namespace Harvin.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+
+        //INATIVAR FORMAS DE PAGAMETO
+        // GET: Produtos/Inativar
+        public ActionResult Inativar(int? id) {
+            if (id == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            FormaPagamento forma = db.FormaPagamentos.Find(id);
+            if (forma == null) {
+                return HttpNotFound();
+            }
+            return View(forma);
+        }
+
+        // POST: FORMASDEPAGAMENTO/Inativar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Inativar([Bind(Include = "id")] FormaPagamento forma) {
+            FormaPagamento aux = new FormaPagamento();
+            aux = db.FormaPagamentos.Find(forma.formaPagamentoId);
+            aux.inativo = true;
+            db.Entry(aux).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
