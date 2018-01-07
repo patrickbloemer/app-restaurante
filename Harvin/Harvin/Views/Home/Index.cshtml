@@ -1,11 +1,76 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{ 
     Layout = null;
 }
 
-<h2>Home</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cantina Dona Bella - Powered By Harvin Tecnologia</title>
+    <style media="screen">
+        body {
+            font-family: 'Raleway';
+            text-align: center;
+        }
 
-@Html.ActionLink("Empresa", "Login", "Funcionarios")
-@Html.ActionLink("Cliente", "Login", "Clientes")
+        .preload {
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            background-color: #fff;
+            background-image: url('https://i.pinimg.com/originals/ee/1d/08/ee1d081c5bdf966b058c1a6588e73e8a.gif');
+            background-size: 600px 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
 
+<body>
+    <div id="preload" class="preload"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h4>Aqui ficará o novo site oficial da Cantina Dona Bella</h4><br><br>
+                <i class="material-icons red-text">info</i><br>Site e Sistema Harvin ainda em Desenvolvimento
+            </div>
+        </div>
+        <div class="row" style="margin-top: 50px" ;>
+            <div class="col s12">
+                <h5 class="grey-text">Desenvolvedor, acesse o módulo desejado</h5>
+            </div>
+            <div class="col s12 m6">
+                <h5>Cliente</h5>
+                <a href="@Url.Action("Login", "Clientes")" class="btn blue">Entrar</a>
+            </div>
+            <div class="col s12 m6">
+                <h5>Funcionário</h5>
+                <a href="@Url.Action("Login", "Funcionarios")" class="btn green">Entrar</a>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br>
+    <hr style="width: 300px;">
+    <p>
+        Powered by Harvin Tecnologia
+    </p>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            setTimeout('$("#preload").fadeOut(700)', 2750);
+        });
+    </script>
+</body>
+</html>
