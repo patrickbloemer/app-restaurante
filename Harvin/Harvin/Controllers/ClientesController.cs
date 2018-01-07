@@ -49,27 +49,22 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade, imagem")] Cliente cliente)
         {
-            if (ModelState.IsValid)
+            if(ClienteDAO.BuscaClientePorCPF(cliente) == null && ClienteDAO.BuscaClientePorEmail(cliente) == null)
             {
-                if(ClienteDAO.BuscaClientePorCPF(cliente) == null && ClienteDAO.BuscaClientePorEmail(cliente) == null)
+                db.Clientes.Add(cliente);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            } else
+            {
+                if (ClienteDAO.BuscaClientePorCPF(cliente) != null)
                 {
-                    db.Clientes.Add(cliente);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                } else
-                {
-                    if (ClienteDAO.BuscaClientePorCPF(cliente) != null)
-                    {
-                        ModelState.AddModelError("", "Já existe um cliente cadastrado no sistema com esse CPF!");
-                    }
-                    if (ClienteDAO.BuscaClientePorEmail(cliente) != null)
-                    {
-                        ModelState.AddModelError("", "Já existe um cliente cadastrado no sistema com esse Email!");
-                    }
+                    ModelState.AddModelError("", "Já existe um cliente cadastrado no sistema com esse CPF!");
                 }
-               
+                if (ClienteDAO.BuscaClientePorEmail(cliente) != null)
+                {
+                    ModelState.AddModelError("", "Já existe um cliente cadastrado no sistema com esse Email!");
+                }
             }
-
             return View(cliente);
         }
 
