@@ -122,5 +122,28 @@ namespace Harvin.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        //DESTINADO AO CLIENTE
+        //COM PAYPAL
+        // GET: Pedidos/FAZER PEDIDO
+        public ActionResult Fazerpedido() {
+            return View(db.Produtos.ToList());
+        }
+
+        // POST: Pedidos/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Fazerpedido([Bind(Include = "id")] Produto produto, int quantidade) {
+            Item item = new Item();
+            item.produto = db.Produtos.Find(produto.id);
+            item.quantidade = quantidade;
+            db.Itens.Add(item);
+            db.SaveChanges();
+            PedidosDAO.AdicionaProduto(item);
+            return RedirectToAction("Fazerpedido");
+        }
     }
 }

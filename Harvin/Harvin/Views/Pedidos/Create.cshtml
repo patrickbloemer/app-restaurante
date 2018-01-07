@@ -19,7 +19,7 @@
     <div class="row">
         @foreach (var item in ListaCategorias) {
             modalName = modalName + 1;
-            <div class="col s6 m3 l2">
+            <div class="col s6 m3">
                 <a class="modal-trigger" href="#modal_@modalName">
                     <!--CABEÇALHO DE CADA CATEGORIA-->
                     <div class="card">
@@ -70,8 +70,8 @@
                                                         <div class="input-field col s12" style="display: none;">
                                                             @Html.EditorFor(modelItem => produto.id, new { @class = "invisible" })
                                                         </div>
-                                                        <div class="input-field col s12">
-                                                            <select name="quantidade" required="required">
+                                                        <div class="col s12">
+                                                            <select name="quantidade" required="required" class="quantidade">
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
