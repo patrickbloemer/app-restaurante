@@ -2,15 +2,93 @@
     ViewBag.Title = "Index";
 }
 
-<h4>Bem Vindo Patrick Cardoso></h4>
-<h4>Painel Principal - Inicio</h4>
-
+<div id="preload" class="preload"></div>
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3">
-        <a href="@Url.Action("Configuracoes", "Inicial")">
-            <div>
-                <p>Configurações</p>
+
+    <!--PAINEL LATERAL ESQUERDO - METRÔ-->
+    <div class="col s12 m9 lateral_direito">
+        <div class="row">
+            <div class="col m12 l6">
+                <div class="row">
+                    <a href="#" class="col m12 l6 green tile">
+                        <i class="material-icons">face</i>
+                        <h5>Clientes</h5>
+                    </a>
+                    <a href="#" class="col m12 l6 blue tile">
+                        <i class="material-icons">perm_identity</i>
+                        <h5>Funcionarios</h5>
+                    </a>
+                    <a href="#" class="col s6 m12 red tile">
+                        <i class="material-icons">edit</i>
+                        <h5>Pedidos</h5>
+                    </a>
+                </div>
             </div>
-        </a>
+
+
+            <div class="col m12 l6">
+                <div class="row">
+                    <a href="#" class="col m12 purple tile">
+                        <i class="material-icons">settings</i>
+                        <h5>Configuracoes</h5>
+                    </a>
+                    <a href="#" class="col m12 l6 orange tile">
+                        <i class="material-icons">local_pizza</i>
+                        <h5>Produtos</h5>
+                    </a>
+                    <a href="#" class="col m12 l6 grey tile">
+                        <i class="material-icons">pie_chart</i>
+                        <h5>Dados (BI)</h5>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!--PAINEL LATERAL DIREITO - INFORMAÇÕES-->
+    <div class="col s12 m3 lateral_esquerdo">
+        <i class="material-icons">alarm_on</i>
+        <div id="relogio">
+
+        </div>
+        <hr>
+        <div>
+            <h5>Situação do Estoque</h5>
+            <p class="porcentagem">
+                <i class="material-icons">check</i>
+                87% - Bom
+            </p>
+        </div>
+    </div>
+
 </div>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+            setTimeout('$("#preload").fadeOut(700)', 0);
+        });
+</script>
+
+<!--RELÓGIO-->
+<script type="text/javascript">
+      function relogio(){
+        var data = new Date();
+        var horas = data.getHours();
+        var minutos = data.getMinutes();
+        var segundos = data.getSeconds();
+
+        if(horas < 10){
+          horas = "0" + horas;
+        }
+        if(minutos < 10){
+          minutos = "0"+ minutos;
+        }
+        if(segundos < 10){
+          segundos = "0" + segundos;
+        }
+        document.getElementById("relogio").innerHTML=horas+":"+minutos+":"+segundos;
+      }
+      window.setInterval("relogio()", 1000);
+</script>

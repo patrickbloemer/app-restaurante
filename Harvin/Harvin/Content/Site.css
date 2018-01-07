@@ -344,3 +344,48 @@ dt{
 
 
 
+/*TELA INICIAL*/
+      .lateral_esquerdo{
+        background-color: #35353f;
+        height: 100%;
+        color: white;
+      }
+
+      .tile{
+        height: 100px;
+        border: 1px solid white;
+        color: white;
+      }
+
+      .tile > .material-icons{
+        margin-top: 10px;
+      }
+
+      .title > h5{
+          text-transform: none!important;
+          font-size: 15px;
+      }
+
+      #relogio{
+        font-size: 20px!important;
+        font-family: Arial;
+      }
+
+      .lateral_esquerdo hr{
+        margin: 50px 0;
+      }
+
+      .lateral_esquerdo > .material-icons{
+        margin-top: 50px;
+        font-size: 40px!important;
+      }
+
+      .porcentagem{
+        color: lightgreen;
+        font-size: 20px;
+        font-family: Roboto;
+      }
+
+      .lateral_direito{
+        margin-top: 50px;
+      }
