@@ -1,0 +1,249 @@
+﻿.preload{
+    position: fixed;
+    z-index:99999;
+    top:0; left:0;
+    width:100%; height:100%;
+    opacity:1;
+    background-color:#fff;
+    background-image:url('https://i.pinimg.com/originals/ee/1d/08/ee1d081c5bdf966b058c1a6588e73e8a.gif');
+    background-size:600px 500px;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+body{
+  font-family: Raleway;
+}
+
+h1{
+  font-size: 30px;
+  margin-top: 75px;
+  font-weight: 300;
+}
+
+hr{
+  width: 200px;
+  height: 2px;
+  border: none;
+  background-color: darkorange;
+  margin-bottom: 75px;
+  text-align: center!important;
+}
+
+.container{
+  width: 90%!important;
+}
+
+.header-home{
+  height: 100vh;
+}
+
+nav{
+  position: absolute;
+  background-color: transparent;
+  z-index: 99999!important;
+  box-shadow: none;
+}
+
+.slider .slides li .caption{
+  left: 8%!important;
+  top: 25%!important;
+}
+
+.slider h3, .slider h5{
+	font-weight: 100;
+}
+
+.slider .btn{
+  background-color: white;
+  color: black;
+  left: 20%;
+  border: 1px solid white;
+  font-weight: 300;
+}
+
+.slider .indicators .indicator-item.active{
+  background-color: darkorange;
+}
+
+/*BEM VINDO*/
+#bemvindo{
+  text-align: center;
+  margin-bottom: 75px;
+}
+
+#bemvindo hr{
+	margin-bottom: 0px;
+}
+
+#bemvindo p{
+  height: 100px;
+}
+
+#bemvindo img{
+  width: 100px;
+  margin-top: 75px;
+}
+
+#bemvindo .btn{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+#bemvindo .btn:hover,
+#bemvindo .btn:focus{
+  background-color: darkorange;
+  color: white;
+}
+
+
+/*DELIVERY*/
+#empresa{
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), url('http://cantinadonabella.com.br/site/wp-content/gallery/teste2/600872_346645645461968_1964756754_n.jpg');
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+}
+
+#empresa h3{
+  margin-top: 75px;
+  font-weight: 100;
+}
+
+#empresa .btn{
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+#empresa .btn:hover{
+  background-color: white;
+  width: 50%;
+  transition-property: all;
+  transition-duration: 0.5s;
+  color: black;
+}
+
+
+/*CARDÁPIO*/
+#cardapio{
+  text-align: center;
+
+}
+
+#cardapio hr{
+  margin-bottom: 25px!important;
+}
+
+#cardapio span{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#cardapio p{
+  margin-left: 35px;
+  margin-top: -5px;
+}
+
+#cardapio .prato{
+  margin-top: 25px;
+}
+
+/*PIZZAS - VEGAS SLIDES*/
+.pizzas{
+  height: 400px;
+}
+
+/*DELIVERY*/
+#delivery{
+  text-align: center;
+  margin-top: 50px;
+}
+
+#delivery .btn{
+  background-color: transparent;
+  border: 1px solid black;
+  color: black
+}
+
+#delivery .btn:hover{
+  background-color: darkorange;
+  transition-property: all;
+  transition-duration: 0.5s;
+  color: white;
+  border: none;
+}
+
+/*RESERVA DE MESA*/
+#reserva {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/images/reserva.jpg');
+    height: 400px;
+    margin-top: 75px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    ;
+    font-size: 18px;
+    background-attachment: fixed;
+}
+
+#reserva{
+  color: white;
+  text-align: center;
+}
+
+#reserva h3{
+  font-weight: 100;
+  margin-top: 75px;
+}
+
+#reserva .btn{
+  background-color: transparent;;
+  border: 1px solid white;
+  color: white;
+}
+
+/*ENCONTRO*/
+#encontro{
+  text-align: center;
+}
+
+#encontro img{
+  margin-top: 75px;
+}
+
+#encontro p{
+  margin-top: -50px;
+}
+
+#encontro .btn{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  margin-bottom: 50px;
+}
+
+/*FOOTER*/
+#footer {
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('images/images/footer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+}
+
+#footer h1{
+  font-weight: 100;
+  color: white;
+}
+
+.copyright{
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-family: roboto;
+}

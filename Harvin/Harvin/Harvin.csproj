@@ -131,10 +131,33 @@
     <Content Include="Content\images\cadeado.png" />
     <Content Include="Content\images\funcionario.jpg" />
     <Content Include="Content\images\icon.png" />
+    <Content Include="Content\images\images\background5.jpg" />
+    <Content Include="Content\images\images\background6 - Copy.jpg" />
+    <Content Include="Content\images\images\background6.jpg" />
+    <Content Include="Content\images\images\backgrounds\empresa.jpg" />
+    <Content Include="Content\images\images\delivery.jpg" />
+    <Content Include="Content\images\images\delivery.png" />
+    <Content Include="Content\images\images\facebook.png" />
+    <Content Include="Content\images\images\fatia.png" />
+    <Content Include="Content\images\images\footer.jpg" />
+    <Content Include="Content\images\images\gif\pizza.gif" />
+    <Content Include="Content\images\images\icons\chat.png" />
+    <Content Include="Content\images\images\icons\cupcake.png" />
+    <Content Include="Content\images\images\icons\drink.png" />
+    <Content Include="Content\images\images\icons\marmita.png" />
+    <Content Include="Content\images\images\icons\pig.png" />
+    <Content Include="Content\images\images\icons\pizza.png" />
+    <Content Include="Content\images\images\icons\pizza_slice.png" />
+    <Content Include="Content\images\images\icons\plate.png" />
+    <Content Include="Content\images\images\icons\potato.png" />
+    <Content Include="Content\images\images\icons\salad.png" />
+    <Content Include="Content\images\images\icons\table.png" />
+    <Content Include="Content\images\images\reserva.jpg" />
     <Content Include="Content\images\wallpaper.jpg" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\style_login_cliente.css" />
     <Content Include="Content\style_login_funcionario.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -157,6 +180,19 @@
     <Content Include="scripts\materialize.js" />
     <Content Include="scripts\materialize.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\vegas\overlays\01.png" />
+    <Content Include="scripts\vegas\overlays\02.png" />
+    <Content Include="scripts\vegas\overlays\03.png" />
+    <Content Include="scripts\vegas\overlays\04.png" />
+    <Content Include="scripts\vegas\overlays\05.png" />
+    <Content Include="scripts\vegas\overlays\06.png" />
+    <Content Include="scripts\vegas\overlays\07.png" />
+    <Content Include="scripts\vegas\overlays\08.png" />
+    <Content Include="scripts\vegas\overlays\09.png" />
+    <Content Include="scripts\vegas\vegas.css" />
+    <Content Include="scripts\vegas\vegas.js" />
+    <Content Include="scripts\vegas\vegas.min.css" />
+    <Content Include="scripts\vegas\vegas.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +357,8 @@
     <Content Include="Views\FormasDePagamento\Inativar.cshtml" />
     <Content Include="Views\FormasDePagamento\Todos.cshtml" />
     <Content Include="Views\Funcionarios\Inativar.cshtml" />
+    <Content Include="scripts\vegas\vegas.min.css.map" />
+    <Content Include="scripts\vegas\vegas.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -8,68 +8,391 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="~/Content/materialize.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="~/scripts/vegas/vegas.min.css" rel="stylesheet" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cantina Dona Bella - Powered By Harvin Tecnologia</title>
-    <style media="screen">
-        body {
-            font-family: 'Raleway';
-            text-align: center;
-        }
-
-        .preload {
-            position: fixed;
-            z-index: 99999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 1;
-            background-color: #fff;
-            background-image: url('https://i.pinimg.com/originals/ee/1d/08/ee1d081c5bdf966b058c1a6588e73e8a.gif');
-            background-size: 600px 500px;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-    </style>
 </head>
 
 <body>
     <div id="preload" class="preload"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <h4>Aqui ficará o novo site oficial da Cantina Dona Bella</h4><br><br>
-                <i class="material-icons red-text">info</i><br>Site e Sistema Harvin ainda em Desenvolvimento
+    <!--SLIDE MATERIALIZE-->
+    <section id="home">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Dona Bella</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#bemvindo">Sobre</a></li>
+                    <li><a href="#empresa">Conheça</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#reserva">Reserva</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="#bemvindo">Sobre</a></li>
+                    <li><a href="#empresa">Conheça</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#reserva">Reserva</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="~/Content/images/images/background5.jpg" />
+                    <div class="caption left-align">
+                        <h3>Cantina Dona Bella</h3>
+                        <h5 class="light grey-text text-lighten-3">A melhor pizzaria de SJP</h5>
+                        <a href="#bemvindo" class="btn">Conheça</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/images/images/background6.jpg" />
+                    <div class="caption left-align">
+                        <h3>Várias opções de Pizzas</h3>
+                        <h5 class="light grey-text text-lighten-3">Porções, bebidas e pastéis</h5>
+                        <a href="bemvindo" class="btn">Conheça</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/images/images/delivery.jpg" />
+                    <div class="caption left-align">
+                        <h3>Aproveite em casa</h3>
+                        <h5 class="light grey-text text-lighten-3">Faça agora sua encomenda</h5>
+                        <a href="bemvindo" class="btn">Fazer Pedido</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!--SECTION BEM VINDO A PIZZARIA DONA BELLA-->
+    <section class="" id="bemvindo">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h1>Bem Vindo a Cantina Dona Bella</h1>
+                    <hr>
+                </div>
+                <div class="col s12 m4">
+                    <img src="~/Content/images/images/icons/pizza.png" />
+                    <h5>Variedade de Pratos</h5>
+                    <p>
+                        A Cantina Dona Bella possui uma grande variedade de pratos, como pizzas, lanches, pastéis, porções e buffet.
+                    </p>
+                    <a href="#" class="btn">Conheça Nosso Cardápio</a>
+                </div>
+                <div class="col s12 m4">
+                    <img src="~/Content/images/images/icons/table.png" />
+                    <h5>Ambiente Aconchegante</h5>
+                    <p>
+                        Possuimos uma estrutura confortável que proporciona a nossos clientes um ambiente agradável, com TV, WiFi e espaço seguro para as crianças.
+                    </p>
+                    <a href="#" class="btn">Conheça Nossa Estrutura</a>
+                </div>
+                <div class="col s12 m4">
+                    <img src="~/Content/images/images/icons/chat.png" />
+                    <h5>Compromisso</h5>
+                    <p>
+                        A Cantina Dona Bella possui um compromisso com a satisfação do cliente, oferecendo sempre serviços e produtos de qualidade.
+                    </p>
+                    <a href="#" class="btn">Deixe sua Opinião</a>
+                </div>
             </div>
         </div>
-        <div class="row" style="margin-top: 50px" ;>
-            <div class="col s12">
-                <h5 class="grey-text">Desenvolvedor, acesse o módulo desejado</h5>
-            </div>
-            <div class="col s12 m6">
-                <h5>Cliente</h5>
-                <a href="@Url.Action("Login", "Clientes")" class="btn blue">Entrar</a>
-            </div>
-            <div class="col s12 m6">
-                <h5>Funcionário</h5>
-                <a href="@Url.Action("Login", "Funcionarios")" class="btn green">Entrar</a>
+    </section>
+
+    <section id="empresa">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h3>Conheça a Pizzaria</h3>
+                    <p>
+                        Veja nossa galeria de fotos e um pouco mais sobre nossa história
+                    </p>
+                    <a href="sobrenos.html" class="btn">Conheça</a>
+                </div>
             </div>
         </div>
-    </div>
-    <br><br><br><br><br>
-    <hr style="width: 300px;">
-    <p>
+    </section>
+
+    <section id="cardapio">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h1>Cardápio</h1>
+                    <hr>
+                    <p>
+                        Possuimos uma grande variedade de produtos. Confira!
+                    </p>
+                </div>
+                <div class="col s12 m6">
+                    <div class="row">
+                        <div class="col s12">
+                            <h1>Nossos almoços</h1>
+                            <hr>
+                        </div>
+                        <div class="col s6 prato">
+                            <img src="~/Content/images/images/icons/plate.png" /> <br/>
+                            8 pratos quentes
+                        </div>
+                        <div class="col s6 prato">
+                            <img src="~/Content/images/images/icons/salad.png" /> <br />
+                            6 tipos de saladas
+                        </div>
+                        <div class="col s6 prato">
+                            <img src="~/Content/images/images/icons/cupcake.png" /> <br />
+                            2 sobremesas
+                        </div>
+                        <div class="col s6 prato">
+                            <img src="~/Content/images/images/icons/pig.png" /> <br />
+                            6 tipos de carnes
+                        </div>
+                        <div class="col s6 prato">
+                            <img src="~/Content/images/images/icons/marmita.png" /> <br />
+                            marmitas
+                        </div>
+                        <div class="col s6 prato">
+                            <img src="~/Content/images/images/icons/pizza_slice.png" /> <br />
+                            Vários sabores de pizza (noite)
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="col s12">
+                        <h1>Nossas Noites</h1>
+                        <hr>
+                    </div>
+                    <ul class="collapsible" data-collapsible="accordion" style="margin-top: 175px!important;">
+                        <li>
+                            <div class="collapsible-header"><img src="~/Content/images/images/icons/pizza_slice.png" />Pizzas</div>
+                            <div class="collapsible-body">
+                                <h4>Pizzas</h4>
+                                <ul style="text-align: left;">
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Calabresa</span>
+
+                                        <p>
+                                            Calabresa, mussarela e orégano.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Da Casa</span>
+
+                                        <p>
+                                            Calabresa, mussarela, orégano, batata palha, azeitona, palmito e frango.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Portuguesa</span>
+
+                                        <p>
+                                            Cebola, mussarela, bacon, calabresa e peru.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><img src="~/Content/images/images/icons/drink.png" />Bebidas</div>
+                            <div class="collapsible-body">
+                                <h4>Bebidas</h4>
+                                <ul style="text-align: left;">
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Suco de Manga</span>
+
+                                        <p>
+                                            Com água ou leite, 300 ou 500ml, com ou sem gelo, com ou sem açúcar.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Coca Cola</span>
+
+                                        <p>
+                                            250ml, 600ml, 1L ou 2L.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Vinho</span>
+
+                                        <p>
+                                            Taça ou garrafa, tinto ou suave, branco ou tinto.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><img src="~/Content/images/images/icons/potato.png" />Porçoes</div>
+                            <div class="collapsible-body">
+                                <h4>Porções</h4>
+                                <ul style="text-align: left;">
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Batata Frita</span>
+
+                                        <p>
+                                            Pequena, média ou grande.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Calabresa</span>
+
+                                        <p>
+                                            Pequena, média ou grade.
+                                        </p>
+                                    </li>
+
+                                    <li>
+                                        <span><i class="material-icons">keyboard_arrow_right</i>Frango a Passarinho</span>
+
+                                        <p>
+                                            Média ou grande.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pizzas" class="pizzas">
+        <!-- SLIDE VEGAS - PIZZAS -->
+    </section>
+
+    <section id="delivery">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <img src="~/Content/images/images/delivery.png" class="responsive-img" />
+                </div>
+                <div class="col s12 m6">
+                    <h1>Gostou do nosso Cardápio?</h1>
+                    <hr>
+                    <p style="margin-top: -50px!important;">
+                        Venha nos visitar!
+                        <br> <br>
+                        Ou faça um pedido agora mesmo pelo próprio site e receba em casa
+                        <br><br>Atendemos São Marcos e Região* <br>
+                        Consulte as taxas de entrega
+                    </p>
+                    <a href="#" class="btn">Faça seu Pedido</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reserva">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h3>Reserve sua mesa</h3>
+                    <p>
+                        Quer aproveitar um momento especial em grupo? Um aniversário? Uma comemoração? Reserve sua mesa de maneira fácil pelo próprio site!
+                    </p>
+                    <a href="#" class="btn">Reserve</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="encontro">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <img src="~/Content/images/images/fatia.png" />
+                </div>
+                <div class="col s12 m6">
+                    <h1>Ponto de encontro das famiiares e amigos</h1>
+                    <hr>
+                    <p>
+                        Venha conhecer a Cantina Dona Bella <br><br>
+                        Endereço: R. Pedro Scripe, 251 - São Marcos, São José dos Pinhais
+                        Telefone: (41) 3382-4036
+                    </p>
+                    <a href="#" class="btn">Veja o mapa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4">
+                    <h1>Sobre nós</h1>
+                    <hr>
+                    <p>
+                        Somos uma pizzaria e restaurante com mais de 20 anos de mercado, atuando no bairro São Marcos em São José dos Pingais.
+                    </p>
+                </div>
+                <div class="col s12 m4">
+                    <h1>Contato</h1>
+                    <hr>
+                    <p>
+                        (41) 3382-4036
+                    </p>
+                </div>
+                <div class="col s12 m4">
+                    <h1>Facebook</h1>
+                    <hr>
+                    <a href="#"><img src="~/Content/images/images/facebook.png" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
         Powered by Harvin Tecnologia
-    </p>
+    </div>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="~/scripts/vegas/vegas.min.js"></script>
+    <script src="~/scripts/materialize.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.slider').slider({
+          transition: 1000,
+          interval: 4500,
+        });
+        $('.scrollspy').scrollSpy();
+        $('.collapsible').collapsible();
+        $('.carousel').carousel();
+        $(".button-collapse").sideNav();
+      });
+    </script>
+
+    <!--VEGAS-->
+    <script type="text/javascript">
+      $(".pizzas").vegas({
+        timer:false,
+        delay:2000,
+        slides: [
+        { src: "http://cantinadonabella.com.br/site/wp-content/gallery/teste2/600872_346645645461968_1964756754_n.jpg" },
+        { src: "http://cantinadonabella.com.br/site/wp-content/gallery/teste2/601084_346645668795299_1027732145_n.jpg" },
+        { src: "http://cantinadonabella.com.br/site/wp-content/gallery/teste2/935925_346645268795339_862419964_n.jpg" },
+        { src: "http://cantinadonabella.com.br/site/wp-content/gallery/teste2/945877_346645272128672_1122767044_n.jpg" },
+        { src: "http://cantinadonabella.com.br/site/wp-content/gallery/teste2/968858_346646425461890_2137634785_n.jpg" },
+        ],
+        overlay: '~/scripts/vegas/overlays/01.png',
+      });
+    </script>
+
+    <!-- GIF PAGE LOADING -->
     <script type="text/javascript">
         $(document).ready(function(){
-            setTimeout('$("#preload").fadeOut(700)', 2750);
+            setTimeout('$("#preload").fadeOut(700)', 3500);
         });
     </script>
 </body>
