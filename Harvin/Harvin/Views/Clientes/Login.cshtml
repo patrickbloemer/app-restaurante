@@ -1,10 +1,8 @@
 ﻿@model Harvin.Models.Cliente
-
 @{
     ViewBag.Title = "Login";
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,42 +10,35 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link href="~/Content/style_login_cliente.css" rel="stylesheet" />
+    <link href="~/Content/style_login_funcionario.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cliente - Harvin</title>
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico" />
 </head>
 <body>
-    <div class="block center" style="width: 70%; margin: auto; height: 400px; border-radius: 85px;" class="z-depth-5">
+    <div class="block center" style="width: 90%; margin: auto; height: 400px; border-radius: 85px;" class="z-depth-5">
         <div class="row" style="border-radius: 15px!important;">
-            <div class="col s12 l6 esquerda z-depth-5">
-                <img style="margin-top: 20px;" src="~/Content/images/icon.png" />
-                <h1 style="margin-top: -15px;" class="white-text center">Harvin</h1>
-                <p class="white-text">Tenha acesso a uma plataforma de pedidos compelta. <br />Com o Harvin, você realiza seus pedidos e pagamentos direto da tela do seu celular, computador ou tablet.</p>
-                <a href="@Url.Action("Create", "Clientes")" class="btn" style="background-color: green;">Crie sua conta</a>
-            </div>
             <div class="col s12 l6 direita">
                 @using (Html.BeginForm()) {
                     @Html.AntiForgeryToken()
                     <div class="container">
                         <div class="row">
-                            <h4>Login</h4>
-                            <p class="center" style="font-weight: 800;">Favor entre com seu login e senha</p>
-
+                            <h4>Harvin - Cliente</h4>
+                            <p class="center red-text">O Login para Clientes está temporariamente indisponível.</p>
                             <div class="row">
                                 <div class="input-field col s12">
                                     @Html.EditorFor(model => model.cpf, new { @class = "validate" })
                                     <label for="icon_prefix" style="color: white;">E-mail</label>
                                 </div>
-
                                 <div class="input-field col s12">
                                     @Html.EditorFor(model => model.senha, new { @class = "validate" })
                                     <label for="icon_prefix" style="color: white;">Senha</label>
                                 </div>
                             </div>
                             <p class="red-text lighten-4 center">@ViewBag.Mensagem</p>
-
                             <button class="btn waves-effect waves-light" type="submit" style="border-radius: 20px; background-color: #4242b5;">
                                 Entrar
                                 <i class="material-icons right">send</i>

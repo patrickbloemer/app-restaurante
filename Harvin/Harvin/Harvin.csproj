@@ -153,6 +153,8 @@
     <Content Include="Content\images\images\icons\salad.png" />
     <Content Include="Content\images\images\icons\table.png" />
     <Content Include="Content\images\images\reserva.jpg" />
+    <Content Include="Content\images\login_background.jpg" />
+    <Content Include="Content\images\slide-harvin.jpg" />
     <Content Include="Content\images\wallpaper.jpg" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
@@ -265,6 +267,10 @@
     <Compile Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.cs" />
     <Compile Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.Designer.cs">
       <DependentUpon>201712271229436_AdicionadoAtributoDeInatividade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801190714354_CriarBanco2.cs" />
+    <Compile Include="Migrations\201801190714354_CriarBanco2.Designer.cs">
+      <DependentUpon>201801190714354_CriarBanco2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.resx">
       <DependentUpon>201712271229436_AdicionadoAtributoDeInatividade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801190714354_CriarBanco2.resx">
+      <DependentUpon>201801190714354_CriarBanco2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

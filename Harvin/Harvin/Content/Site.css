@@ -56,6 +56,7 @@ nav{
 nav ul{
     text-transform: uppercase;
 }
+
 /*MENU MOBILE*/
 aside {
   position: fixed;
@@ -154,7 +155,7 @@ nav.mobile-menu {
 
 .dropdown-content li > a, .dropdown-content li > span {
     color: white!important;
-    letter-spacing: 3px;
+    letter-spacing: 1px!important;
     font-size: 12px;
 }
 
@@ -165,7 +166,7 @@ nav ul a:hover, nav ul a:focus{
 
 .dropdown-content li > a, .dropdown-content li > span {
     padding: 14px 5px !important;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     font-size: 12px;
 }
 
@@ -243,7 +244,7 @@ img.activator.categoria{
 }
 
 nav ul a {
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     font-size: 12px!important;
 }
 
@@ -355,6 +356,7 @@ dt{
         height: 100px;
         border: 1px solid white;
         color: white;
+        background-color: #3f3f47;
       }
 
       .tile > .material-icons{
@@ -389,3 +391,10 @@ dt{
       .lateral_direito{
         margin-top: 50px;
       }
+
+      #sidenav-overlay {
+        background-image: url('images/wallpaper.jpg')!important;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+      
