@@ -19,5 +19,6 @@ namespace Harvin.Models {
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<HistoricoDeAtividade> HistoricoDeAtividades { get; set; }
     }
 }
