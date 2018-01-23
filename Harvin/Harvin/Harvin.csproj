@@ -281,6 +281,7 @@
     <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\FormaPagamento.cs" />
     <Compile Include="Models\FuncionarioLogin.cs" />
+    <Compile Include="Models\HistoricoDeAtividade.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\Mesa.cs" />
     <Compile Include="Models\Funcionario.cs" />
