@@ -172,7 +172,8 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "id")] Cargo cargo) {
+        public ActionResult Inativar([Bind(Include = "cargoId")] Cargo cargo) {
+
             Cargo aux = new Cargo();
             aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
             aux.inativo = true;

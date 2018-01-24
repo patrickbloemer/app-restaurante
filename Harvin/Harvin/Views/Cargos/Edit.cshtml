@@ -17,6 +17,11 @@
                 <hr />
             </div>
 
+            <!--ID-->
+            <div>
+                @Html.HiddenFor(model => model.cargoId)
+            </div>
+
             <!--NOME-->
             <div class="input-field col s12 m6">
                 @Html.EditorFor(model => model.nome, new { @class = "validate" })
