@@ -1,55 +1,49 @@
 ﻿@model Harvin.Models.Reserva
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Reservar Mesa";
 }
 
-<h2>Criar nova Reserva</h2>
-
-
-@using (Html.BeginForm()) 
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Reserva</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.data, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
-            </div>
+    <div class="row">
+
+        <!--INFORMAÇÕES BÁSICAS-->
+        <div class="col s12 form_block" style="margin-top: 50px;">
+            <p>Informações Básicas</p>
+            <hr />
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.horario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.horario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.horario, "", new { @class = "text-danger" })
-            </div>
+        <!--Data-->
+        <div class="input-field col s12 m6">
+            <input type="text" class="datepicker">
+            <label for="icon_prefix">Data</label>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.quantidadeClientes, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.quantidadeClientes, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.quantidadeClientes, "", new { @class = "text-danger" })
-            </div>
+        <!--HORÁRIO-->
+        <div class="input-field col s12 m6">
+            <input type="text" class="timepicker">
+            <label for="icon_prefix">Horário</label>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Criar" class="btn btn-default" />
-            </div>
+        <!--NÚMERO DE PESSOAS-->
+        <div class="input-field col s12 m6">
+            @Html.EditorFor(model => model.quantidadeClientes, new { @class = "validate" })
+            <label for="icon_prefix">Quantidade de Pessoas</label>
         </div>
+
+        <!--FINALIZAR CADASTRO-->
+        <div class="col s12 form_block" style="margin-top: 50px;">
+            <p>Finalizar Cadastro</p>
+            <hr />
+        </div>
+
+
+
     </div>
-}
+   }
 
-<div>
-    @Html.ActionLink("Cancelar", "Index")
-</div>
+
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
