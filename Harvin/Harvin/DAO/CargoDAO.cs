@@ -53,5 +53,22 @@ namespace Harvin.DAO
 
             return false;
         }
+
+        // Lista Funcionários no Cargo
+        public static List<Funcionario> RetornaFuncionariosCadastradosNoCargo(Cargo cargo)
+        {
+            List<Funcionario> funcionarios = new List<Funcionario>();
+            List<Funcionario> TodosFuncionarios = FuncionarioDAO.RetornaFuncionarios();
+
+            foreach (var item in TodosFuncionarios)
+            {
+                if(item.cargoId == cargo.cargoId)
+                {
+                    funcionarios.Add(item);
+                }
+            }
+            return funcionarios.ToList();
+
+        }
     }
 }
