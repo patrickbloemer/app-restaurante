@@ -79,8 +79,6 @@ namespace Harvin.Controllers
 
                 }
  
-            
-
             ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);
             return View(funcionario);
         }
@@ -179,8 +177,11 @@ namespace Harvin.Controllers
                 Funcionario f = new Funcionario();
                 f = FuncionarioLoginDAO.VerificaLogin(funcionario);
                 if (f != null) {
+                    //ADICIONA FUNCIONÁRIO A LISTA DE LOGIN ATIVO DAQUELA SESSÃO DO NAVEGADOR
                     FuncionarioLoginDAO.AdicionarFuncionario(f);
-                    return RedirectToAction("Index");
+
+                    //ENCAMINHA PRA INDEX
+                    return RedirectToAction("Index", "Inicial");
                 }else {
                     ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
                     return View(funcionario);
