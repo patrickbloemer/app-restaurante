@@ -3,45 +3,49 @@
 }
 
 <div id="preload" class="preload"></div>
-<div class="row">
-
-    <!--PAINEL LATERAL ESQUERDO - METRÔ-->
-    <div class="col s12 m9 lateral_direito">
-        <div class="row">
-            <div class="col s12">
-                <div class="row">
-                    <a href="#" class="col m12 l5 tile">
-                        <i class="material-icons">face</i>
-                        <h5>Clientes</h5>
-                    </a>
-                    <a href="#" class="col m12 l5 tile">
-                        <i class="material-icons">perm_identity</i>
-                        <h5>Funcionarios</h5>
-                    </a>
-                    <a href="#" class="col m6 l2 tile">
-                        <i class="material-icons">edit</i>
-                        <h5>Pedidos</h5>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!--PAINEL LATERAL DIREITO - INFORMAÇÕES-->
-    <div class="col s12 m3 lateral_esquerdo">
+<div class="row inicial">
+    <div class="col s12">
         <i class="material-icons">alarm_on</i>
-        <div id="relogio">
+        <div id="relogio"></div>
+    </div>
+    <div class="col s12 m4 tile">
+        <i class="material-icons green-text">shopping_cart</i>
+        <h6>Situação do Estoque</h6>
+        <hr />
+        <p class="porcentagem">
+            <i class="material-icons">check</i>
+            87% - Bom
+        </p>
+        <a href="@Url.Action("Index", "Produtos")" class="btn">Monitore</a>
+    </div>
+    <div class="col s12 m4 tile">
+        <i class="material-icons red-text">warning</i>
+        <h6>Notificações</h6>
+        <hr />
+        <p class="notificacao">
+            <i class="material-icons orange-text" ">priority_high</i>
+            Coca Cola - Estoque <span class="orange-text">ocioso (37%)</span>
+        </p>
+        <p class="notificacoes red white-text">
+            <i class="material-icons white-text">local_pizza</i>
+            Novo Pedido - Delivery - <span class="white-text">17:44</span>
+        </p>
+        <a href="@Url.Action("Index", "Produtos")" class="btn">Verifique!</a>
+    </div>
+    <div class="col s12 m4 tile">
+        <i class="material-icons blue-text">restaurant</i>
+        <h6>Reservas hoje</h6>
+        <hr />
+        <p class="reservas">
+            <i class="material-icons blue-text">people</i>
+            4 pessoas - 20:30
+        </p>
+        <p class="reservas">
+            <i class="material-icons blue-text">people</i>
+            12 pessoas - 19:55
+        </p>
+        <a href="@Url.Action("Index", "Produtos")" class="btn">Todos</a>
 
-        </div>
-        <hr>
-        <div>
-            <h5>Situação do Estoque</h5>
-            <p class="porcentagem">
-                <i class="material-icons">check</i>
-                87% - Bom
-            </p>
-        </div>
     </div>
 
 </div>
