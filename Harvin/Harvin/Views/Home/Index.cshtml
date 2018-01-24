@@ -15,25 +15,31 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>Bem Vindo a Cantina Dona Bella</title>
+
 </head>
 
 <body>
     <div id="preload" class="preload"></div>
     <!--SLIDE MATERIALIZE-->
     <section id="home">
-        <nav>
+        <nav class="nav_menu">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Dona Bella</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#!" class="brand-logo opcaomenu">Dona Bella</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse opcaomenu"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#bemvindo">Sobre</a></li>
-                    <li><a href="#empresa">Conheça</a></li>
-                    <li><a href="#cardapio">Cardápio</a></li>
-                    <li><a href="#reserva">Reserva</a></li>
+                    <li><a href="#home" class="opcaomenu">Home</a></li>
+                    <li><a href="#bemvindo" class="opcaomenu">Sobre</a></li>
+                    <li><a href="#empresa" class="opcaomenu">Conheça</a></li>
+                    <li><a href="#harvin" class="opcaomenu">Harvin</a></li>
+                    <li><a href="#cardapio" class="opcaomenu">Cardápio</a></li>
+                    <li><a href="#reserva" class="opcaomenu">Reserva</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
+                    <li><a href="#home" class="opcaomenu">Home</a></li>
                     <li><a href="#bemvindo">Sobre</a></li>
                     <li><a href="#empresa">Conheça</a></li>
+                    <li><a href="#harvin">Harvin</a></li>
                     <li><a href="#cardapio">Cardápio</a></li>
                     <li><a href="#reserva">Reserva</a></li>
                 </ul>
@@ -42,6 +48,15 @@
 
         <div class="slider">
             <ul class="slides">
+                <li>
+                    <img src="~/Content/images/images/fazerpedido.png" />
+                    <div class="caption left-align">
+                        <h3>Faça seu Pedido pelo Celular</h3>
+                        <h5 class="light grey-text text-lighten-3">Seu pedido chegará na mesa</h5>
+                        <a href="#bemvindo" class="btn">Conheça</a>
+                        <a href="@Url.Action("Login", "Clientes")" class="btn">Peça</a>
+                    </div>
+                </li>
                 <li>
                     <img src="~/Content/images/images/background5.jpg" />
                     <div class="caption left-align">
@@ -55,7 +70,7 @@
                     <div class="caption left-align">
                         <h3>Várias opções de Pizzas</h3>
                         <h5 class="light grey-text text-lighten-3">Porções, bebidas e pastéis</h5>
-                        <a href="bemvindo" class="btn">Conheça</a>
+                        <a href="#cardapio" class="btn">Conheça</a>
                     </div>
                 </li>
                 <li>
@@ -63,16 +78,7 @@
                     <div class="caption left-align">
                         <h3>Aproveite em casa</h3>
                         <h5 class="light grey-text text-lighten-3">Faça agora sua encomenda</h5>
-                        <a href="bemvindo" class="btn">Fazer Pedido</a>
-                    </div>
-                </li>
-                <li>
-                    <img src="~/Content/images/slide-harvin.jpg" />
-                    <div class="caption left-align">
-                        <h3>Harvin</h3>
-                        <h5 class="light grey-text text-lighten-3">Faça pedido pelo celular e receba na mesa</h5>
                         <a href="@Url.Action("Login", "Clientes")" class="btn">Fazer Pedido</a>
-                        <a href="#" class="btn">Conheça</a>
                     </div>
                 </li>
             </ul>
@@ -124,7 +130,7 @@
                     <p>
                         Veja nossa galeria de fotos e um pouco mais sobre nossa história
                     </p>
-                    <a href="sobrenos.html" class="btn">Conheça</a>
+                    <a href="@Url.Action("Pizzaria")" class="btn">Conheça</a>
                 </div>
             </div>
         </div>
@@ -404,6 +410,20 @@
         $(document).ready(function(){
             setTimeout('$("#preload").fadeOut(700)', 3500);
         });
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      window.addEventListener("scroll", function() {
+        if (window.scrollY > 50) {
+          $('.nav_menu').css({"background-color": "#FFF", "transition-property": "all", "transition-duration": "0.5s"});
+          $('.opcaomenu').css('color', '#000');
+        }else{
+          $('.nav_menu').css({"background-color": "transparent", "transition-property": "all", "transition-duration": "0.5s"});
+          $('.opcaomenu').css('color', '#fff');
+        }
+      })
+    });
     </script>
 </body>
 </html>

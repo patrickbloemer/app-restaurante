@@ -139,6 +139,7 @@
     <Content Include="Content\images\images\delivery.png" />
     <Content Include="Content\images\images\facebook.png" />
     <Content Include="Content\images\images\fatia.png" />
+    <Content Include="Content\images\images\fazerpedido.png" />
     <Content Include="Content\images\images\footer.jpg" />
     <Content Include="Content\images\images\gif\pizza.gif" />
     <Content Include="Content\images\images\icons\chat.png" />
@@ -370,6 +371,7 @@
     <Content Include="Views\Funcionarios\Inativar.cshtml" />
     <Content Include="scripts\vegas\vegas.min.css.map" />
     <Content Include="scripts\vegas\vegas.min.js.map" />
+    <Content Include="Views\Home\Pizzaria.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

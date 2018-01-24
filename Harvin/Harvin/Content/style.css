@@ -39,7 +39,7 @@ hr{
 }
 
 nav{
-  position: absolute;
+  position: fixed;
   background-color: transparent;
   z-index: 99999!important;
   box-shadow: none;
@@ -246,4 +246,14 @@ nav{
   text-align: center;
   padding: 20px 0;
   font-family: roboto;
+}
+
+
+/*PÁGINA DA PIZZARIA*/
+.materialboxed {
+    margin-top: 20px;
+}
+
+#pizzaria h1{
+    text-align: center;
 }
