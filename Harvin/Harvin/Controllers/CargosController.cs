@@ -174,12 +174,21 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Inativar([Bind(Include = "cargoId")] Cargo cargo) {
 
-            Cargo aux = new Cargo();
-            aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
-            aux.inativo = true;
-            db.Entry(aux).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            Cargo aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
+
+            if (CargoDAO.VerificaSeExisteFuncionariosEmCargo(aux))
+            {
+                ModelState.AddModelError("", "Não é possível inativar este cargo, pois existem funcionários cadastrados");
+            }
+            else
+            {
+                aux.inativo = true;
+                db.Entry(aux).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(aux);
         }
     }
 }

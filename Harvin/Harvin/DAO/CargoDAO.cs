@@ -38,5 +38,20 @@ namespace Harvin.DAO
                 return false;
             }
         }
+
+        // Verifica Funcionários em Cargos
+        public static bool VerificaSeExisteFuncionariosEmCargo(Cargo cargo)
+        {
+            List<Funcionario> funcionarios = FuncionarioDAO.RetornaFuncionarios();
+            foreach (var item in funcionarios)
+            {
+                if(item.cargoId == cargo.cargoId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
