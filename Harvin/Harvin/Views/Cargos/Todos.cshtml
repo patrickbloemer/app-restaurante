@@ -1,13 +1,9 @@
 ﻿@model IEnumerable<Harvin.Models.Cargo>
-
 @{
     ViewBag.Title = "Cargos";
 }
-
 <p>Cargos de Funcionários cadastrados no sistema. Clique em "<i class="material-icons blue-text">info</i>" para ter acesso as suas informações individuais.</p>
-
 <hr />
-
 
 <table class="table table striped centered responsive-table">
     <tr>
@@ -21,9 +17,10 @@
             Opções
         </th>
     </tr>
-
-    @foreach (var item in Model) {
-        if (item.inativo) {
+    @foreach (var item in Model)
+    {
+        if (item.inativo)
+        {
             <tr style="background-color: rgba(255,0,0,0.5)">
                 <td>
                     @Html.DisplayFor(modelItem => item.nome)
@@ -32,31 +29,30 @@
                     @Html.DisplayFor(modelItem => item.descricao)
                 </td>
                 <td>
-
                     <a href="@Url.Action("Edit", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
                     <a href="@Url.Action("Details", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
-                    <a href="@Url.Action("Inativar", "cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
+                    <a href="@Url.Action("Ativar", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Ativar"><i class="material-icons green-text">restore</i></a>
                 </td>
             </tr>
         }
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descricao)
-            </td>
-            <td>
-
-                <a href="@Url.Action("Edit", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
-                <a href="@Url.Action("Details", "Cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
-                <a href="@Url.Action("Inativar", "cargos", new { id=item.cargoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
-            </td>
-        </tr>
+        if (!item.inativo)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descricao)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Cargos", new { id = item.cargoId })" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
+                    <a href="@Url.Action("Details", "Cargos", new { id = item.cargoId })" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
+                    <a href="@Url.Action("Inativar", "Cargos", new { id = item.cargoId })" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
+                </td>
+            </tr>
+        }
     }
-
 </table>
-
 <div class="fixed-action-btn">
     <a class="btn-floating btn-large red">
         <i class="material-icons">more_vert</i>

@@ -190,5 +190,38 @@ namespace Harvin.Controllers
 
             return View(aux);
         }
+
+        //INATIVAR CARGO
+        // GET: Produtos/Inativar
+        public ActionResult Ativar(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Cargo cargo = db.Cargos.Find(id);
+
+            if (cargo == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(cargo);
+        }
+
+        // POST: Produtos/Inativar
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Ativar([Bind(Include = "cargoId")] Cargo cargo)
+        {
+            Cargo aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
+            aux.inativo = false;
+            db.Entry(aux).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Todos");
+        }
     }
 }
