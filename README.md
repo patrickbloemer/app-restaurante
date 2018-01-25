@@ -1,2 +1,3 @@
-# harvin2
-Aqui serão depositado os commits que forem feitos. Quando validados que estão funcionando adequadamente, vão pro repositório oficial
+Harvin Restaurante
+Repositorio oficial do projeto. 
+O mesmo deverá estar funcionando em no máximo 30/04/2017
