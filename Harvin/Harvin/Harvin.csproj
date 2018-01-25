@@ -225,57 +225,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712091211387_CriarBanco.cs" />
-    <Compile Include="Migrations\201712091211387_CriarBanco.Designer.cs">
-      <DependentUpon>201712091211387_CriarBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712111242028_EntitiesAtt.cs" />
-    <Compile Include="Migrations\201712111242028_EntitiesAtt.Designer.cs">
-      <DependentUpon>201712111242028_EntitiesAtt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712112232042_PedidoEPessoaAtt.cs" />
-    <Compile Include="Migrations\201712112232042_PedidoEPessoaAtt.Designer.cs">
-      <DependentUpon>201712112232042_PedidoEPessoaAtt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712122106586_Att.cs" />
-    <Compile Include="Migrations\201712122106586_Att.Designer.cs">
-      <DependentUpon>201712122106586_Att.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712161856433_update.cs" />
-    <Compile Include="Migrations\201712161856433_update.Designer.cs">
-      <DependentUpon>201712161856433_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712172205572_AdicionaImagem.cs" />
-    <Compile Include="Migrations\201712172205572_AdicionaImagem.Designer.cs">
-      <DependentUpon>201712172205572_AdicionaImagem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712172211489_ImagemNasController.cs" />
-    <Compile Include="Migrations\201712172211489_ImagemNasController.Designer.cs">
-      <DependentUpon>201712172211489_ImagemNasController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712231656579_AdicionaQuantidadeAosItens.cs" />
-    <Compile Include="Migrations\201712231656579_AdicionaQuantidadeAosItens.Designer.cs">
-      <DependentUpon>201712231656579_AdicionaQuantidadeAosItens.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs" />
-    <Compile Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.Designer.cs">
-      <DependentUpon>201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712242131567_categoriaNoProduto.cs" />
-    <Compile Include="Migrations\201712242131567_categoriaNoProduto.Designer.cs">
-      <DependentUpon>201712242131567_categoriaNoProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.cs" />
-    <Compile Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.Designer.cs">
-      <DependentUpon>201712271229436_AdicionadoAtributoDeInatividade.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801190714354_CriarBanco2.cs" />
-    <Compile Include="Migrations\201801190714354_CriarBanco2.Designer.cs">
-      <DependentUpon>201801190714354_CriarBanco2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801231203135_ClasseHistoricoAtividade.cs" />
-    <Compile Include="Migrations\201801231203135_ClasseHistoricoAtividade.Designer.cs">
-      <DependentUpon>201801231203135_ClasseHistoricoAtividade.cs</DependentUpon>
+    <Compile Include="Migrations\201801250030097_criarbanco.cs" />
+    <Compile Include="Migrations\201801250030097_criarbanco.Designer.cs">
+      <DependentUpon>201801250030097_criarbanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -384,44 +336,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712091211387_CriarBanco.resx">
-      <DependentUpon>201712091211387_CriarBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712111242028_EntitiesAtt.resx">
-      <DependentUpon>201712111242028_EntitiesAtt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712112232042_PedidoEPessoaAtt.resx">
-      <DependentUpon>201712112232042_PedidoEPessoaAtt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712122106586_Att.resx">
-      <DependentUpon>201712122106586_Att.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712161856433_update.resx">
-      <DependentUpon>201712161856433_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712172205572_AdicionaImagem.resx">
-      <DependentUpon>201712172205572_AdicionaImagem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712172211489_ImagemNasController.resx">
-      <DependentUpon>201712172211489_ImagemNasController.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712231656579_AdicionaQuantidadeAosItens.resx">
-      <DependentUpon>201712231656579_AdicionaQuantidadeAosItens.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712240108186_RemoveAtributoClasseCategoriaDoProduto.resx">
-      <DependentUpon>201712240108186_RemoveAtributoClasseCategoriaDoProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712242131567_categoriaNoProduto.resx">
-      <DependentUpon>201712242131567_categoriaNoProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712271229436_AdicionadoAtributoDeInatividade.resx">
-      <DependentUpon>201712271229436_AdicionadoAtributoDeInatividade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801190714354_CriarBanco2.resx">
-      <DependentUpon>201801190714354_CriarBanco2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801231203135_ClasseHistoricoAtividade.resx">
-      <DependentUpon>201801231203135_ClasseHistoricoAtividade.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801250030097_criarbanco.resx">
+      <DependentUpon>201801250030097_criarbanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

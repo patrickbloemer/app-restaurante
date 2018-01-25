@@ -3,7 +3,7 @@ namespace Harvin.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CriarBanco : DbMigration
+    public partial class criarbanco : DbMigration
     {
         public override void Up()
         {
@@ -12,8 +12,9 @@ namespace Harvin.Migrations
                 c => new
                     {
                         cargoId = c.Int(nullable: false, identity: true),
-                        nome = c.String(),
-                        descricao = c.String(),
+                        nome = c.String(nullable: false),
+                        descricao = c.String(nullable: false),
+                        inativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.cargoId);
             
@@ -22,8 +23,10 @@ namespace Harvin.Migrations
                 c => new
                     {
                         CategoriaId = c.Int(nullable: false, identity: true),
-                        nome = c.String(),
-                        descricao = c.String(),
+                        nome = c.String(nullable: false),
+                        descricao = c.String(nullable: false),
+                        imagem = c.String(nullable: false),
+                        inativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.CategoriaId);
             
@@ -45,18 +48,20 @@ namespace Harvin.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        nome = c.String(),
-                        sobrenome = c.String(),
-                        cpf = c.String(),
-                        dataDeNascimento = c.DateTime(nullable: false),
-                        cep = c.String(),
-                        endereco = c.String(),
-                        complemento = c.String(),
-                        bairro = c.String(),
-                        cidade = c.String(),
-                        email = c.String(),
+                        nome = c.String(nullable: false),
+                        sobrenome = c.String(nullable: false),
+                        cpf = c.String(nullable: false),
                         telefone = c.String(),
-                        senha = c.String(),
+                        dataDeNascimento = c.DateTime(nullable: false),
+                        cep = c.String(nullable: false),
+                        endereco = c.String(nullable: false),
+                        complemento = c.String(nullable: false),
+                        bairro = c.String(nullable: false),
+                        cidade = c.String(nullable: false),
+                        imagem = c.String(nullable: false),
+                        email = c.String(nullable: false),
+                        senha = c.String(nullable: false),
+                        inativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.id);
             
@@ -86,8 +91,9 @@ namespace Harvin.Migrations
                 c => new
                     {
                         formaPagamentoId = c.Int(nullable: false, identity: true),
-                        nome = c.String(),
-                        descricao = c.String(),
+                        nome = c.String(nullable: false),
+                        descricao = c.String(nullable: false),
+                        inativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.formaPagamentoId);
             
@@ -105,18 +111,20 @@ namespace Harvin.Migrations
                         reservarMesa = c.Boolean(nullable: false),
                         configuracoes = c.Boolean(nullable: false),
                         relatorios = c.Boolean(nullable: false),
-                        nome = c.String(),
-                        sobrenome = c.String(),
-                        cpf = c.String(),
-                        dataDeNascimento = c.DateTime(nullable: false),
-                        cep = c.String(),
-                        endereco = c.String(),
-                        complemento = c.String(),
-                        bairro = c.String(),
-                        cidade = c.String(),
-                        email = c.String(),
+                        nome = c.String(nullable: false),
+                        sobrenome = c.String(nullable: false),
+                        cpf = c.String(nullable: false),
                         telefone = c.String(),
-                        senha = c.String(),
+                        dataDeNascimento = c.DateTime(nullable: false),
+                        cep = c.String(nullable: false),
+                        endereco = c.String(nullable: false),
+                        complemento = c.String(nullable: false),
+                        bairro = c.String(nullable: false),
+                        cidade = c.String(nullable: false),
+                        imagem = c.String(nullable: false),
+                        email = c.String(nullable: false),
+                        senha = c.String(nullable: false),
+                        inativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.Cargos", t => t.cargoId, cascadeDelete: true)
@@ -145,6 +153,7 @@ namespace Harvin.Migrations
                 c => new
                     {
                         itemId = c.Int(nullable: false, identity: true),
+                        quantidade = c.Int(nullable: false),
                         produto_id = c.Int(),
                         Pedido_pedidoId = c.Int(),
                     })
@@ -159,15 +168,17 @@ namespace Harvin.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        nome = c.String(),
+                        nome = c.String(nullable: false),
                         valorUnitario = c.Double(nullable: false),
                         quantidadeMinimaEstoque = c.Int(nullable: false),
                         quantidadeMaximaEstoque = c.Int(nullable: false),
                         quantidadeAtualEstoque = c.Int(nullable: false),
-                        descricao = c.String(),
+                        descricao = c.String(nullable: false),
                         estocavel = c.Boolean(nullable: false),
                         categoriaId = c.Int(nullable: false),
-                        comentarios = c.String(),
+                        imagem = c.String(nullable: false),
+                        comentarios = c.String(nullable: false),
+                        inativo = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.Categorias", t => t.categoriaId, cascadeDelete: true)
@@ -183,6 +194,19 @@ namespace Harvin.Migrations
                         funcionario_id = c.Int(),
                     })
                 .PrimaryKey(t => t.funcionarioLoginId)
+                .ForeignKey("dbo.Funcionarios", t => t.funcionario_id)
+                .Index(t => t.funcionario_id);
+            
+            CreateTable(
+                "dbo.HistoricoDeAtividades",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        dataHorario = c.DateTime(nullable: false),
+                        acao = c.String(),
+                        funcionario_id = c.Int(),
+                    })
+                .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.Funcionarios", t => t.funcionario_id)
                 .Index(t => t.funcionario_id);
             
@@ -218,6 +242,7 @@ namespace Harvin.Migrations
             DropForeignKey("dbo.Reservas", "cliente_id", "dbo.Clientes");
             DropForeignKey("dbo.Pedidos", "Mesa_mesaId", "dbo.Mesas");
             DropForeignKey("dbo.Mesas", "cliente_id", "dbo.Clientes");
+            DropForeignKey("dbo.HistoricoDeAtividades", "funcionario_id", "dbo.Funcionarios");
             DropForeignKey("dbo.FuncionarioLogins", "funcionario_id", "dbo.Funcionarios");
             DropForeignKey("dbo.Deliveries", "pedido_pedidoId", "dbo.Pedidos");
             DropForeignKey("dbo.Itens", "Pedido_pedidoId", "dbo.Pedidos");
@@ -231,6 +256,7 @@ namespace Harvin.Migrations
             DropForeignKey("dbo.ClienteLogins", "cliente_id", "dbo.Clientes");
             DropIndex("dbo.Reservas", new[] { "cliente_id" });
             DropIndex("dbo.Mesas", new[] { "cliente_id" });
+            DropIndex("dbo.HistoricoDeAtividades", new[] { "funcionario_id" });
             DropIndex("dbo.FuncionarioLogins", new[] { "funcionario_id" });
             DropIndex("dbo.Produtos", new[] { "categoriaId" });
             DropIndex("dbo.Itens", new[] { "Pedido_pedidoId" });
@@ -245,6 +271,7 @@ namespace Harvin.Migrations
             DropIndex("dbo.ClienteLogins", new[] { "cliente_id" });
             DropTable("dbo.Reservas");
             DropTable("dbo.Mesas");
+            DropTable("dbo.HistoricoDeAtividades");
             DropTable("dbo.FuncionarioLogins");
             DropTable("dbo.Produtos");
             DropTable("dbo.Itens");

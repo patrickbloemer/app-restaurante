@@ -17,10 +17,28 @@
 
     <title>Bem Vindo a Cantina Dona Bella</title>
 
+    <style>
+        .modal-content{
+            color: white;
+            background-color: #17171C;
+        }
+    </style>
+
 </head>
 
 <body>
     <div id="preload" class="preload"></div>
+    <!-- Modal Structure -->
+    <div id="funcionario_login" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h5>Módulo Desenvolvedor</h5>
+            <p>Faça Login</p>
+            <a href="@Url.Action("Login", "Funcionarios")" class="btn" target="_blank">Login</a>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>  
     <!--SLIDE MATERIALIZE-->
     <section id="home">
         <nav class="nav_menu">
@@ -377,7 +395,9 @@
     <script src="~/scripts/vegas/vegas.min.js"></script>
     <script src="~/scripts/materialize.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function(){
+        $(document).ready(function () {
+        $('.modal').modal();
+        $('#funcionario_login').modal('open');
         $('.slider').slider({
           transition: 1000,
           interval: 4500,

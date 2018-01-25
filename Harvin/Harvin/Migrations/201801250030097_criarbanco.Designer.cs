@@ -7,13 +7,13 @@ namespace Harvin.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ImagemNasController : IMigrationMetadata
+    public sealed partial class criarbanco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ImagemNasController));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(criarbanco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712172211489_ImagemNasController"; }
+            get { return "201801250030097_criarbanco"; }
         }
         
         string IMigrationMetadata.Source
