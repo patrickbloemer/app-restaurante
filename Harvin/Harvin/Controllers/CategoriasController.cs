@@ -89,7 +89,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao, imagem")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao,imagem")] Categoria categoria)
         {
                 Categoria aux = new Categoria();
                 aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
@@ -133,14 +133,14 @@ namespace Harvin.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
 
         //INATIVAR CATEGORIA
@@ -161,13 +161,22 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "id")] Categoria categoria) {
-            Categoria aux = new Categoria();
-            aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
-            aux.inativo = true;
-            db.Entry(aux).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
+        public ActionResult Inativar([Bind(Include = "CategoriaId")] Categoria categoria) {
+
+            Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
+
+            if (CategoriaDAO.VerificaSeExisteProdutosEmCategoria(aux))
+            {
+                ModelState.AddModelError("", "Não é possível inativar esta categoria, pois possui produtos cadastrados.");
+            }
+            else
+            {
+                aux.inativo = true;
+                db.Entry(aux).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(aux);
         }
 
 

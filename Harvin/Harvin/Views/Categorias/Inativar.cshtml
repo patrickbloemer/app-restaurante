@@ -41,10 +41,15 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
 
+    <div>
+        @Html.HiddenFor(model => model.CategoriaId)
+    </div>
+
     <div class="form-actions no-color">
         <input type="submit" value="Inativar" class="btn red darken-4" /> |
         <a href="@Url.Action("Index")" class="red btn">Cancelar</a>
     </div>
+    
 }
 
 <div class="fixed-action-btn">

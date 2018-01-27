@@ -44,11 +44,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -226,15 +226,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801250030097_criarbanco.cs" />
-    <Compile Include="Migrations\201801250030097_criarbanco.Designer.cs">
-      <DependentUpon>201801250030097_criarbanco.cs</DependentUpon>
+    <Compile Include="Migrations\201801252029438_CriarBanco.cs" />
+    <Compile Include="Migrations\201801252029438_CriarBanco.Designer.cs">
+      <DependentUpon>201801252029438_CriarBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801252345313_classeConfiguracao.cs" />
+    <Compile Include="Migrations\201801252345313_classeConfiguracao.Designer.cs">
+      <DependentUpon>201801252345313_classeConfiguracao.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteLogin.cs" />
+    <Compile Include="Models\Configuracao.cs" />
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\Entities.cs" />
     <Compile Include="Models\FormaPagamento.cs" />
@@ -337,8 +342,11 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801250030097_criarbanco.resx">
-      <DependentUpon>201801250030097_criarbanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801252029438_CriarBanco.resx">
+      <DependentUpon>201801252029438_CriarBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801252345313_classeConfiguracao.resx">
+      <DependentUpon>201801252345313_classeConfiguracao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

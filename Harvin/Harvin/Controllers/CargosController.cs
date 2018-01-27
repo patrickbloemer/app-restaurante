@@ -178,7 +178,7 @@ namespace Harvin.Controllers
 
             if (CargoDAO.VerificaSeExisteFuncionariosEmCargo(aux))
             {
-                ModelState.AddModelError("", "Não é possível inativar este cargo, pois existem funcionários cadastrados");
+                ModelState.AddModelError("", "Não é possível inativar este cargo, pois existem funcionários cadastrados.");
             }
             else
             {

@@ -30,5 +30,19 @@ namespace Harvin.DAO {
             return entities.Categorias.Find(id);
         }
 
+        // Verifica se Existe Produtos em Categoria
+        public static bool VerificaSeExisteProdutosEmCategoria(Categoria categoria)
+        {
+            List<Produto> produtos = ProdutoDAO.RetornaProdutos();
+            foreach (var item in produtos)
+            {
+                if (item.categoriaId == categoria.CategoriaId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

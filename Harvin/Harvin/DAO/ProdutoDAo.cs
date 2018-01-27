@@ -10,6 +10,12 @@ namespace Harvin.DAO
     {
         private static Entities entities = Singleton.Instance.Entities;
 
+        // Retorna Lista de Produtos
+        public static List<Produto> RetornaProdutos()
+        {
+            return entities.Produtos.ToList();
+        }
+
         // Busca Produto por Nome
         public static Produto BuscaProdutoPorNome(Produto produto)
         {
