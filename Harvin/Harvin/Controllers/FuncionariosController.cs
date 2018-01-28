@@ -193,7 +193,7 @@ namespace Harvin.Controllers
         // GET: Logoff
         public ActionResult Logoff() {
             FuncionarioLoginDAO.NovaSessao();
-            return View("Login");
+            return RedirectToAction("Login");
         }
 
 
