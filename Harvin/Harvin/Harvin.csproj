@@ -331,6 +331,7 @@
     <Content Include="scripts\vegas\vegas.min.js.map" />
     <Content Include="Views\Home\Pizzaria.cshtml" />
     <Content Include="Views\Cargos\Ativar.cshtml" />
+    <Content Include="Views\Categorias\Ativar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

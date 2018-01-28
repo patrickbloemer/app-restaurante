@@ -155,7 +155,7 @@ namespace Harvin.Controllers
 
 
         //INATIVAR CARGO
-        // GET: Produtos/Inativar
+        // GET: Cargos/Inativar
         public ActionResult Inativar(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -167,7 +167,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // POST: Produtos/Inativar
+        // POST: Cargos/Inativar
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -192,7 +192,7 @@ namespace Harvin.Controllers
         }
 
         //INATIVAR CARGO
-        // GET: Produtos/Inativar
+        // GET: Cargos/Ativar
         public ActionResult Ativar(int? id)
         {
             if (id == null)
@@ -210,7 +210,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // POST: Produtos/Inativar
+        // POST: Cargos/Ativar
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

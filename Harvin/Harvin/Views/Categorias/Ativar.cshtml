@@ -1,13 +1,13 @@
-﻿@model Harvin.Models.Cargo
+﻿@model Harvin.Models.Categoria
 
 @{
-    ViewBag.Title = "Ativar Cargo";
+    ViewBag.Title = "Ativar Categoria";
 }
 
 <div>
     <h4>@Html.DisplayFor(model => model.nome)</h4>
 
-    <h6 class="green-text"><i class="material-icons">restore</i> <br />Você realmente deseja ativar este cargo?</h6>
+    <h6 class="green-text"><i class="material-icons">restore</i> <br />Você realmente deseja ativar esta categoria?</h6>
 
     <hr />
 
@@ -39,21 +39,21 @@
     @Html.AntiForgeryToken()
 
     <div>
-        @Html.HiddenFor(model => model.cargoId)
+        @Html.HiddenFor(model => model.CategoriaId)
     </div>
 
     <div class="form-actions no-color">
         <input type="submit" value="Ativar" class="btn green darken-4" /> |
         <a href="@Url.Action("Todos")" class="red btn">Cancelar</a>
     </div>
-    
+
 }
 <div class="fixed-action-btn">
     <a class="btn-floating btn-large red">
         <i class="material-icons">more_vert</i>
     </a>
     <ul>
-        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
-        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Funcionarios Cadastrados" href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">assignment_ind</i></a></li>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Nova Categoria" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Produtos Cadastrados" href="@Url.Action("Lista", "Produtos")"><i class="material-icons">assignment_ind</i></a></li>
     </ul>
 </div>
