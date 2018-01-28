@@ -1,0 +1,97 @@
+﻿@model Harvin.Models.Produto
+@{
+    ViewBag.Title = "Ativar Produto";
+}
+<div>
+    <h4>@Html.DisplayFor(model => model.nome)</h4>
+    <h6 class="green-text"><i class="material-icons">delete</i> <br />Você realmente deseja ativar este produto?</h6>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.categoria.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.categoria.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.valorUnitario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.valorUnitario)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidadeMinimaEstoque)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantidadeMinimaEstoque)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidadeMaximaEstoque)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantidadeMaximaEstoque)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.quantidadeAtualEstoque)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.quantidadeAtualEstoque)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.descricao)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.estocavel)
+        </dt>
+        <dd>
+            @if (Model.estocavel)
+            {
+                <p>Sim</p>
+            }
+            else
+            {
+                <p>Não</p>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.comentarios)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.comentarios)
+        </dd>
+    </dl>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.HiddenFor(model => model.id)
+    </div>
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Ativar" class="btn green darken-4" /> |
+        <a href="@Url.Action("Lista")" class="red btn">Cancelar</a>
+    </div>
+}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Funcionarios Cadastrados" href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">assignment_ind</i></a></li>
+    </ul>
+</div>
+
