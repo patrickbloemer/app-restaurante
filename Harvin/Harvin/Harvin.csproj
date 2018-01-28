@@ -332,6 +332,7 @@
     <Content Include="Views\Home\Pizzaria.cshtml" />
     <Content Include="Views\Cargos\Ativar.cshtml" />
     <Content Include="Views\Categorias\Ativar.cshtml" />
+    <Content Include="Views\Funcionarios\Ativar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

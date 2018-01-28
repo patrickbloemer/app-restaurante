@@ -1,0 +1,121 @@
+﻿@model Harvin.Models.Funcionario
+@{
+    ViewBag.Title = "Ativar Funcionario";
+}
+<div>
+    <h4>@Html.DisplayFor(model => model.nome)</h4>
+    <h6 class="green-text"><i class="material-icons">delete</i> <br />Você realmente deseja ativar este funcionario?</h6>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Cargo do Funcionário")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cargo.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.sobrenome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.sobrenome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cpf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cpf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dataDeNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.dataDeNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.endereco)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.endereco)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.complemento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.complemento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.bairro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.bairro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.senha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.imagem)
+        </dd>
+        <dt>
+            <img src="@Html.DisplayNameFor(model => model.imagem)" style="width: 100px;" />
+        </dt>
+
+    </dl>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.HiddenFor(model => model.id)
+    </div>
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Ativar" class="btn green darken-4" /> |
+        <a href="@Url.Action("Todos")" class="red btn">Cancelar</a>
+    </div>
+}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Funcionário" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Todos" href="@Url.Action("Todos")"><i class="material-icons">do_not_disturb_off</i></a></li>
+        <li><a class="btn-floating red tooltipped" data-position="left" data-delay="0" data-tooltip="Ativos" href="@Url.Action("Index")"><i class="material-icons">do_not_disturb_on</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo" href="@Url.Action("Create", "Cargo")"><i class="material-icons">assignment_ind</i></a></li>
+    </ul>
+</div>
+
