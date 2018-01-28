@@ -23,13 +23,15 @@ namespace Harvin.Controllers
         }
 
         // GET: Produtos-Lista
-        public ActionResult Todos() {
+        public ActionResult Todos()
+        {
             var produtos = db.Produtos.Include(p => p.categoria);
             return View(produtos.ToList());
         }
 
         // GET: Produtos-Lista
-        public ActionResult Lista() {
+        public ActionResult Lista()
+        {
             var produtos = db.Produtos.Include(p => p.categoria);
             return View(produtos.ToList());
         }
@@ -50,25 +52,22 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (ProdutoDAO.BuscaProdutoPorNome(produto) == null)
+                produto.categoria = CategoriaDAO.BuscarCategoriaPorId(produto.categoriaId);
+                if (ProdutoDAO.CadastrarProduto(produto))
                 {
-                    if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
-                    {
-                        ModelState.AddModelError("", "Quantidade Atual não pode ser maior que a Quantidade Máxima!");
-                        ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
-                        return View(produto);
-                    }
-                    else
-                    {
-                        produto.categoria = CategoriaDAO.BuscarCategoriaPorId(produto.categoriaId);
-                        db.Produtos.Add(produto);
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Já existe um produto cadastrado com esse nome!");
+                    if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
+                    {
+                        ModelState.AddModelError("", "Quantidade atual não pode ser maior que a quantidade máxima!");
+                    }
+
+                    if (ProdutoDAO.BuscaProdutoPorNome(produto) != null)
+                    {
+                        ModelState.AddModelError("", "Não podem existir dois produtos com o mesmo nome!");
+                    }
                 }
 
             }
@@ -102,26 +101,34 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Produto aux = new Produto();
-                aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
-                if (ProdutoDAO.BuscaProdutoPorNome(produto) == null || produto.nome == aux.nome)
+                Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
+                string nomeProdutoCadastrado = aux.nome;
+                aux.nome = produto.nome;
+                aux.valorUnitario = produto.valorUnitario;
+                aux.quantidadeMinimaEstoque = produto.quantidadeMinimaEstoque;
+                aux.quantidadeMaximaEstoque = produto.quantidadeMaximaEstoque;
+                aux.quantidadeAtualEstoque = produto.quantidadeAtualEstoque;
+                aux.descricao = produto.descricao;
+                aux.estocavel = produto.estocavel;
+                aux.categoriaId = produto.categoriaId;
+                aux.comentarios = produto.comentarios;
+                aux.imagem = produto.imagem;
+
+                if (ProdutoDAO.AlterandoProduto(aux, nomeProdutoCadastrado))
                 {
-                    if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
-                    {
-                        ModelState.AddModelError("", "Quantidade Atual não pode ser maior que a Quantidade Máxima!");
-                        ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
-                        return View(produto);
-                    }
-                    else
-                    {
-                        db.Entry(produto).State = EntityState.Modified;
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Não podem existir dois produtos com o mesmo nome!");
+                    if (ProdutoDAO.VerificacaoDeQtdeAtualEQtdeMax(produto))
+                    {
+                        ModelState.AddModelError("", "Quantidade atual não pode ser maior que a quantidade máxima!");
+                    }
+
+                    if (ProdutoDAO.BuscaProdutoPorNome(produto) != null)
+                    {
+                        ModelState.AddModelError("", "Não podem existir dois produtos com o mesmo nome!");
+                    }
                 }
 
 
@@ -130,25 +137,28 @@ namespace Harvin.Controllers
             return View(produto);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
 
 
         //INATIVAR PRODUTO
         // GET: Produtos/Inativar
-        public ActionResult Inativar(int? id) {
-            if (id == null) {
+        public ActionResult Inativar(int? id)
+        {
+            if (id == null)
+            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Produto produto = db.Produtos.Find(id);
-            if (produto == null) {
+            if (produto == null)
+            {
                 return HttpNotFound();
             }
             ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
@@ -160,13 +170,14 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "id, comentarios")] Produto produto) {
+        public ActionResult Inativar([Bind(Include = "id, comentarios")] Produto produto)
+        {
             Produto aux = new Produto();
             aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
             aux.inativo = true;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");            
+            return RedirectToAction("Index");
         }
     }
 }

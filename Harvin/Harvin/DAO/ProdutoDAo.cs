@@ -27,15 +27,64 @@ namespace Harvin.DAO
         {
             return entities.Produtos.Find(id);
         }
+
+        // Cadastrando Produto
+        public static bool CadastrarProduto(Produto produto)
+        {
+            try
+            {
+                if (BuscaProdutoPorNome(produto) == null && !VerificacaoDeQtdeAtualEQtdeMax(produto))
+                {
+                    entities.Produtos.Add(produto);
+                    entities.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        // Alterando atributos de Produto
+        public static bool AlterandoProduto(Produto produto, string nome)
+        {
+            try
+            {
+                if((BuscaProdutoPorNome(produto) == null || produto.nome == nome) && !VerificacaoDeQtdeAtualEQtdeMax(produto))
+                {
+                    entities.Entry(produto).State = System.Data.Entity.EntityState.Modified;
+                    entities.SaveChanges();
+                    return true;
+                } 
+                else
+                {
+                    return false;
+                }
+                
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         // Verifica se Quantidade Atual Não é maior que Quantidade Máxima
         public static bool VerificacaoDeQtdeAtualEQtdeMax(Produto produto)
         {
             try
             {
-                if(produto.quantidadeAtualEstoque > produto.quantidadeMaximaEstoque)
+                if (produto.quantidadeAtualEstoque > produto.quantidadeMaximaEstoque)
                 {
                     return true;
-                } else {
+                }
+                else
+                {
                     return false;
                 }
             }
@@ -47,17 +96,23 @@ namespace Harvin.DAO
 
 
         //CALCULA SITUAÇÃO DO ESTOQUE
-        public static float VerificaSituacaoEstoque(Produto produto) {
-            try {
+        public static float VerificaSituacaoEstoque(Produto produto)
+        {
+            try
+            {
                 float porcentagem;
 
                 porcentagem = (produto.quantidadeAtualEstoque * 100) / produto.quantidadeMaximaEstoque;
 
                 return porcentagem;
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return 0;
             }
         }
+
+        
+
     }
 }

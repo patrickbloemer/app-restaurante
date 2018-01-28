@@ -49,7 +49,11 @@
         <input type="submit" value="Inativar" class="btn red darken-4" /> |
         <a href="@Url.Action("Index")" class="red btn">Cancelar</a>
     </div>
-    
+
+    <div class="alert alert-dismissible alert-warning">
+        <strong>@Html.ValidationSummary(true, "", new { @style = "color:red;" })</strong>
+    </div>
+
 }
 
 <div class="fixed-action-btn">
