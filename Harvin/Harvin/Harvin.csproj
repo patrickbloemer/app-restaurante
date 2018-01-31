@@ -226,13 +226,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801252029438_CriarBanco.cs" />
-    <Compile Include="Migrations\201801252029438_CriarBanco.Designer.cs">
-      <DependentUpon>201801252029438_CriarBanco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801252345313_classeConfiguracao.cs" />
-    <Compile Include="Migrations\201801252345313_classeConfiguracao.Designer.cs">
-      <DependentUpon>201801252345313_classeConfiguracao.cs</DependentUpon>
+    <Compile Include="Migrations\201801312201485_IniciaBanco.cs" />
+    <Compile Include="Migrations\201801312201485_IniciaBanco.Designer.cs">
+      <DependentUpon>201801312201485_IniciaBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -345,11 +341,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801252029438_CriarBanco.resx">
-      <DependentUpon>201801252029438_CriarBanco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801252345313_classeConfiguracao.resx">
-      <DependentUpon>201801252345313_classeConfiguracao.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801312201485_IniciaBanco.resx">
+      <DependentUpon>201801312201485_IniciaBanco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
