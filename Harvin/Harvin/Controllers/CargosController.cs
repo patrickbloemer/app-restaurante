@@ -63,10 +63,9 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CargoDAO.BurcarCargoPorNome(cargo) == null)
+                if (CargoDAO.CadastrarCargo(cargo))
                 {
-                    db.Cargos.Add(cargo);
-                    db.SaveChanges();
+                    
                     return RedirectToAction("Index");
                 } else
                 {

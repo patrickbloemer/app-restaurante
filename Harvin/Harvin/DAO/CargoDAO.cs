@@ -70,5 +70,27 @@ namespace Harvin.DAO
             return funcionarios.ToList();
 
         }
+
+        // Cadastrar Cargo
+        public static bool CadastrarCargo(Cargo cargo)
+        {
+            try
+            {
+                if (CargoDAO.BurcarCargoPorNome(cargo) == null)
+                {
+                    entities.Cargos.Add(cargo);
+                    entities.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
