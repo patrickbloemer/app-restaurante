@@ -1606,8 +1606,8 @@ if (Vel) {
 
   $.fn.dropdown = function (options) {
     var defaults = {
-      inDuration: 300,
-      outDuration: 225,
+      inDuration: 600,
+      outDuration: 400,
       constrainWidth: true, // Constrains width of dropdown to the activator
       hover: false,
       gutter: 0, // Spacing from edge

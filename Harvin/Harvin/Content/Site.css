@@ -44,10 +44,6 @@ h1, h2, h3, h4, h5, h6, p, table{
     text-transform: uppercase!important;
 }
 
-.cordefundodomenu{
-    background-color: rgba(0,0,0,0.6);
-}
-
 nav{
     font-family: 'Lato';
     font-weight: 100;
@@ -401,3 +397,40 @@ dt{
     background-repeat: no-repeat;
 }
       
+
+
+.nav-wrapper{
+    background-color: #17171C!important;
+}
+
+nav a{
+    color: white!important;
+    font-family: 'Raleway';
+    font-weight: 800!important;
+}
+
+.brand-logo{
+    font-weight: 100!important;
+}
+
+.dropdown-content{
+    background-color: #17171C!important;
+}
+
+.dropdown-content li > a{
+    color: white!important;
+    font-weight: 800;
+}
+
+nav ul a{
+        color: #fff!important;
+    transition-property: all;
+    transition-duration: 0.5s;
+}
+
+nav ul a:hover, nav ul a:focus, .dropdown-content li:hover, .dropdown-content li.active, .dropdown-content li.selected{
+    background-color: #ff5d00!important;
+    color: white!important;
+    transition-property: all;
+    transition-duration: 0.7s;
+}
