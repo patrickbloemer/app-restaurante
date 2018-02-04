@@ -7,13 +7,13 @@ namespace Harvin.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class IniciaBanco : IMigrationMetadata
+    public sealed partial class adicionadoMesaIdnoPedido : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(IniciaBanco));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(adicionadoMesaIdnoPedido));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801312201485_IniciaBanco"; }
+            get { return "201802042038237_adicionado MesaId no Pedido"; }
         }
         
         string IMigrationMetadata.Source

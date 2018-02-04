@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Harvin.DAO {
-    public class FuncionarioDAO {
+namespace Harvin.DAO
+{
+    public class FuncionarioDAO
+    {
 
         private static Entities entities = Singleton.Instance.Entities;
 
@@ -32,14 +34,24 @@ namespace Harvin.DAO {
         {
             List<Funcionario> listAux = new List<Funcionario>();
             listAux = RetornaFuncionarios();
-            if(listAux.Count == 1)
+            if (listAux.Count == 1)
             {
                 return false;
-            } else
+            }
+            else
             {
                 return true;
             }
-            
+
+        }
+
+        public static Funcionario GetFuncionarioIdBySession()
+        {
+            var currentSession = HttpContext.Current.Session["Sessao"].ToString();
+
+            var retorno = entities.FuncionarioLogin.Where(f => f.sessao == currentSession).Select(s => s.funcionario).FirstOrDefault();
+
+            return retorno;
         }
     }
 }

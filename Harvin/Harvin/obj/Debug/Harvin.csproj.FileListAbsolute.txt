@@ -1,104 +1,64 @@
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\ApplicationInsights.config
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\csc.exe
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\System.Collections.Immutable.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\System.Reflection.Metadata.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\vbc.exe
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\VBCSCompiler.exe
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\roslyn\VBCSCompiler.exe.config
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Harvin.dll.config
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Harvin.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Harvin.pdb
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\EntityFramework.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\EntityFramework.SqlServer.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.Agent.Intercept.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.DependencyCollector.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.PerfCounterCollector.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.ServerTelemetryChannel.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.Web.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.WindowsServer.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.ApplicationInsights.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.Web.Infrastructure.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Helpers.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Mvc.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Razor.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Webpages.Deployment.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Webpages.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Webpages.Razor.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\EntityFramework.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\EntityFramework.SqlServer.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.DependencyCollector.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.ServerTelemetryChannel.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.Web.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.AI.WindowsServer.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.ApplicationInsights.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Razor.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Webpages.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Webpages.Deployment.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Webpages.Razor.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Helpers.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\bin\System.Web.Mvc.xml
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\obj\Debug\Harvin.csprojResolveAssemblyReference.cache
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\obj\Debug\Harvin.dll
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\obj\Debug\Harvin.pdb
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.IniciaBanco.resources
-D:\Projetos\Harvin Restaurante\Harvin\Harvin\obj\Debug\Harvin.csproj.GenerateResource.Cache
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\ApplicationInsights.config
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\csc.exe
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\vbc.exe
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\VBCSCompiler.exe
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Harvin.dll.config
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Harvin.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Harvin.pdb
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\EntityFramework.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\EntityFramework.SqlServer.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.Web.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.ApplicationInsights.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Helpers.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Mvc.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Razor.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Webpages.Deployment.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Webpages.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Webpages.Razor.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\EntityFramework.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\EntityFramework.SqlServer.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.Web.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.ApplicationInsights.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Razor.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Webpages.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Webpages.Deployment.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Webpages.Razor.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Helpers.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\bin\System.Web.Mvc.xml
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\obj\Debug\Harvin.csprojResolveAssemblyReference.cache
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.IniciaBanco.resources
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\obj\Debug\Harvin.csproj.GenerateResource.Cache
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\obj\Debug\Harvin.dll
-C:\Users\ASUS\Documents\Faculdade\PAP\HarvinRestaurante\Harvin\Harvin\obj\Debug\Harvin.pdb
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\ApplicationInsights.config
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\csc.exe
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\vbc.exe
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\VBCSCompiler.exe
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Harvin.dll.config
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Harvin.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Harvin.pdb
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\EntityFramework.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\EntityFramework.SqlServer.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.Web.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.ApplicationInsights.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Helpers.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Mvc.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Razor.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Webpages.Deployment.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Webpages.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Webpages.Razor.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\EntityFramework.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\EntityFramework.SqlServer.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.Web.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.ApplicationInsights.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Razor.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Webpages.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Webpages.Deployment.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Webpages.Razor.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Helpers.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\bin\System.Web.Mvc.xml
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.csproj.CoreCompileInputs.cache
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.dll
+C:\Users\fullm\Source\Repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.pdb
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.pedidoIdnoitem.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.csproj.GenerateResource.Cache
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.datanull.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.tiradadadataentrega.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.adicionadoMesaIdnoPedido.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.MESA.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.semitensnopedido.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\bin\Dapper.dll
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\bin\Dapper.xml
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.horarioentrega.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.pedidoseclientesnamesa.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.itensnopedido.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.mesasócompedidos.resources
+C:\Users\fullm\source\repos\harvinrestaurante\Harvin\Harvin\obj\Debug\Harvin.Migrations.asddas.resources

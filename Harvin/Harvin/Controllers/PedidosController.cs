@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Harvin.Models;
 using Harvin.DAO;
+using Harvin.Controllers.Util;
+using System;
+using Dapper;
 
 namespace Harvin.Controllers
 {
@@ -16,7 +16,8 @@ namespace Harvin.Controllers
         private Entities db = new Entities();
 
         // GET: Pedidos
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
             return View(db.Pedidos.ToList());
         }
 
@@ -41,20 +42,75 @@ namespace Harvin.Controllers
             return View(db.Produtos.ToList());
         }
 
-        // POST: Pedidos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id")] Produto produto, int quantidade)
+        public JsonResult Create(List<Item> itens, int numeroMesa)
         {
-            Item item = new Item();
-            item.produto = db.Produtos.Find(produto.id);
-            item.quantidade = quantidade;
-            db.Itens.Add(item);
-            db.SaveChanges();
-            PedidosDAO.AdicionaProduto(item);
-            return RedirectToAction("Create");
+            try
+            {
+                var mesa = 0;
+                var funcionario = FuncionarioDAO.GetFuncionarioIdBySession();
+
+                //INSERT NOVA MESA SE JÁ NÃO EXISTIR UMA MESA COM O MESMO ID
+                mesa = PedidosDAO.GetMesaByNumero(numeroMesa);
+
+                if (mesa == 0)
+                {
+                    mesa = ConnectionFactory.Query<int>(@"
+                        INSERT INTO MESAS (numeroMesa) OUTPUT INSERTED.[mesaId] VALUES (@mesa)",
+                         new
+                         {
+                             mesa = numeroMesa
+                         }).FirstOrDefault();
+                }
+
+                var pedido = new Pedido(DateTime.Now, funcionario, mesa);
+
+                //INSERT PEDIDO
+                pedido.pedidoId = ConnectionFactory.Query<int>(@"
+                    INSERT INTO PEDIDOS 
+                    (horarioPedido, pendencia, pagamento, funcionario_id, mesaId)
+                    OUTPUT INSERTED.[pedidoId] 
+                    VALUES (@horario, @pendencia, @pagamento, @funcionario_id, @mesaId)",
+                new
+                {
+                    horario = pedido.horarioPedido,
+                    pendencia = pedido.pendencia,
+                    pagamento = pedido.pagamento,
+                    funcionario_id = pedido.funcionario.id,
+                    mesaId = pedido.mesaId
+                }).FirstOrDefault();
+
+                //INSERT ITEM PARA CADA ITEM NO ARRAY COM O PEDIDO ID RECÉM INSERTADO
+                foreach (var item in itens)
+                {
+                    item.pedido = new Pedido();
+                    item.pedido = pedido;
+
+                    ConnectionFactory.Execute(@"
+                        INSERT INTO ITENS VALUES (@quantidade, @produto_id, @Pedido_pedidoId)",
+                    new
+                    {
+                        quantidade = item.quantidade,
+                        produto_id = item.produto.id,
+                        Pedido_pedidoId = item.pedido.pedidoId
+                    });
+
+                }
+
+                return new ApiRetorno(true).ToJson();
+            }
+            catch (Exception ex)
+            {
+                return new ApiRetorno(false).ToJson();
+            }
+            #region [OLD]
+            //Item item = new Item();
+            //item.produto = db.Produtos.Find(produto.id);
+            //item.quantidade = quantidade;
+            //db.Itens.Add(item);
+            //db.SaveChanges();
+            //PedidosDAO.AdicionaProduto(item);
+            #endregion
         }
 
         // GET: Pedidos/Edit/5
@@ -127,7 +183,8 @@ namespace Harvin.Controllers
         //DESTINADO AO CLIENTE
         //COM PAYPAL
         // GET: Pedidos/FAZER PEDIDO
-        public ActionResult Fazerpedido() {
+        public ActionResult Fazerpedido()
+        {
             return View(db.Produtos.ToList());
         }
 
@@ -136,7 +193,8 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Fazerpedido([Bind(Include = "id")] Produto produto, int quantidade) {
+        public ActionResult Fazerpedido([Bind(Include = "id")] Produto produto, int quantidade)
+        {
             Item item = new Item();
             item.produto = db.Produtos.Find(produto.id);
             item.quantidade = quantidade;

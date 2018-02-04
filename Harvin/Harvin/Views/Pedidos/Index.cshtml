@@ -26,25 +26,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.horarioPedido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.horarioEntrega)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pendencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pagamento)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.pedidoId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.pedidoId }) |
-            @Html.ActionLink("Finalizar", "Delete", new { id=item.pedidoId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.horarioPedido)
+            </td>
+            <td>
+                @if (item.horarioEntrega == DateTime.Parse("01/01/1900 00:00:00"))
+                {
+                <span>PENDENTE</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.horarioEntrega)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pendencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pagamento)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.pedidoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.pedidoId }) |
+                @Html.ActionLink("Finalizar", "Delete", new { id = item.pedidoId })
+            </td>
+        </tr>
+    }
 </table>

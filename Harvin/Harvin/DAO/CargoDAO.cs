@@ -10,8 +10,8 @@ namespace Harvin.DAO
     {
         private static Entities entities = Singleton.Instance.Entities;
 
-        //Retorna Lista de Cargos
-        public static List<Cargo> RetornaCargos()
+        //Retorna Lista de Cargo
+        public static List<Cargo> RetornaCargo()
         {
             return entities.Cargos.ToList();
         }
@@ -28,10 +28,10 @@ namespace Harvin.DAO
             return entities.Cargos.Find(id);
         }
 
-        // Verifica se existem Cargos Cadastrados
-        public static bool VerificaExistenciaDeCargos() {
+        // Verifica se existem Cargo Cadastrados
+        public static bool VerificaExistenciaDeCargo() {
             List<Cargo> listAux = new List<Cargo>();
-            listAux = CargoDAO.RetornaCargos();
+            listAux = CargoDAO.RetornaCargo();
             if (listAux.Count == 0) {
                 return true;
             } else {
@@ -39,7 +39,7 @@ namespace Harvin.DAO
             }
         }
 
-        // Verifica Funcionários em Cargos
+        // Verifica Funcionários em Cargo
         public static bool VerificaSeExisteFuncionariosEmCargo(Cargo cargo)
         {
             List<Funcionario> funcionarios = FuncionarioDAO.RetornaFuncionarios();

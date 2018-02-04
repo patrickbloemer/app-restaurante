@@ -2,8 +2,8 @@
 
 @{
     ViewBag.Title = "Funcionários";
-    List<Harvin.Models.Cargo> ListaCargos = new List<Harvin.Models.Cargo>();
-    ListaCargos = Harvin.DAO.CargoDAO.RetornaCargos();
+    List<Harvin.Models.Cargo> ListaCargo = new List<Harvin.Models.Cargo>();
+    ListaCargo = Harvin.DAO.CargoDAO.RetornaCargo();
 }
 
 <p>Funcionários Cadastrados no sistema. Clique em um cartão para ter acesso a suas respectivas informações</p>

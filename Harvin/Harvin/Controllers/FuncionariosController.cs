@@ -47,9 +47,9 @@ namespace Harvin.Controllers
         // GET: Funcionarios/Create
         public ActionResult Create()
         {
-            if (CargoDAO.VerificaExistenciaDeCargos())
+            if (CargoDAO.VerificaExistenciaDeCargo())
             {
-                return RedirectToAction("Create", "Cargos");
+                return RedirectToAction("Create", "Cargo");
             }
             else
             {

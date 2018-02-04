@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 
-namespace Harvin.Models {
+namespace Harvin.Models
+{
     public class Entities : DbContext {
         public DbSet<Cargo> Cargos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }

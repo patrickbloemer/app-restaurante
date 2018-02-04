@@ -5,12 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace Harvin.Models {
+namespace Harvin.Models
+{
     [Table("Mesas")]
-    public class Mesa {
+    public class Mesa
+    {
         [Key]
         public int mesaId { get; set; }
+        public int numeroMesa { get; set; }
         public List<Pedido> pedidos { get; set; }
-        public Cliente cliente { get; set; }
+        //public Pedido pedido { get; set; }
+        //public Cliente cliente { get; set; }
     }
 }

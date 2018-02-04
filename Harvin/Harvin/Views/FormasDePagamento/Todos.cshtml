@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Harvin.Models.FormaPagamento>
 
 @{
-    ViewBag.Title = "Cargos";
+    ViewBag.Title = "Cargo";
 }
 
-<p>Cargos de Funcionários cadastrados no sistema.</p>
+<p>Cargo de Funcionários cadastrados no sistema.</p>
 
 <hr />
 
@@ -33,9 +33,9 @@
                 </td>
                 <td>
 
-                    <a href="@Url.Action("Edit", "Cargos", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
-                    <a href="@Url.Action("Details", "Cargos", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
-                    <a href="@Url.Action("Inativar", "cargos", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
+                    <a href="@Url.Action("Edit", "Cargo", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
+                    <a href="@Url.Action("Details", "Cargo", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
+                    <a href="@Url.Action("Inativar", "Cargo", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
                 </td>
             </tr>
         }
@@ -48,9 +48,9 @@
             </td>
             <td>
 
-                <a href="@Url.Action("Edit", "Cargos", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
-                <a href="@Url.Action("Details", "Cargos", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
-                <a href="@Url.Action("Inativar", "cargos", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
+                <a href="@Url.Action("Edit", "Cargo", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
+                <a href="@Url.Action("Details", "Cargo", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
+                <a href="@Url.Action("Inativar", "Cargo", new { id=item.formaPagamentoId})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
             </td>
         </tr>
     }

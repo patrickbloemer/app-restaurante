@@ -11,14 +11,18 @@
     double totalProduto = 0;
     double total = 0;
     Harvin.Models.Produto adicionarProduto = new Harvin.Models.Produto();
+    int count = 1;
 }
+
+<script src="~/scripts/sweetAlert2.js"></script>
 
 <div class="container">
     <p class="bodytop_message">Selecione a categoria desejada</p>
     <a href="#" class="btn">Montar Pizza</a>
     <p class="red">@ViewBag.Mensagem</p>
     <div class="row">
-        @foreach (var item in ListaCategorias) {
+        @foreach (var item in ListaCategorias)
+        {
             modalName = modalName + 1;
             <div class="col s6 m3">
                 <a class="modal-trigger" href="#modal_@modalName">
@@ -37,8 +41,10 @@
                     <div class="modal-content">
                         <h5>Selecione os produtos desejados</h5>
                         <div class="row">
-                            @foreach (var produto in Model) {
-                                if (produto.categoriaId == item.CategoriaId) {
+                            @foreach (var produto in Model)
+                            {
+                                if (produto.categoriaId == item.CategoriaId)
+                                {
                                     <div class="col s6 m4 l3">
                                         <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
                                         <div class="card z-depth-3">
@@ -65,25 +71,19 @@
                                                 @Html.DisplayFor(modelItem => produto.descricao)
                                                 <br />
                                                 <br />
-                                                @using (Html.BeginForm()) {
-                                                    @Html.AntiForgeryToken()
-                                                    <div class="row">
-                                                        <div class="input-field col s12" style="display: none;">
-                                                            @Html.EditorFor(modelItem => produto.id, new { @class = "invisible" })
-                                                        </div>
-                                                        <div class="col s12">
-                                                            <select name="quantidade" required="required" class="quantidade">
-                                                                <option value="1">1</option>
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                            </select>
-                                                            <label>Quantidade</label>
-                                                        </div>
-                                                        <button class="btn-floating red adicionar"><i class="material-icons">add</i></button>
+                                                <div class="row">
+                                                    <div class="col s12">
+                                                        <select name="quantidade" required="required" class="quantidade">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                        <label>Quantidade</label>
                                                     </div>
-                                                }
+                                                    <button class="btn-floating red adicionar" onclick="adicionaItem('@(produto.nome.ToString())', '@(produto.valorUnitario.ToString().Replace(",", "."))', @(produto.id))"><i class="material-icons">add</i></button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -100,62 +100,110 @@
         }
     </div>
 
-
     <!--TABELA ABAIXO COM PROGRESSO DA SELEÇÃO DOS PRODUTOS-->
-    @if (ListaItens.Count > 0) {
-        <h5 style="margin: 50px;">Seus produtos</h5>
-        <table class="bordered striped centered responsive-table">
-            <thead>
-            <th>Produto</th>
-            <th>Valor</th>
-            <th>Quantidade</th>
-            <th>Total</th>
-            <th>Total</th>
-            </thead>
-            <tbody>
-                @foreach (var itens in Harvin.DAO.PedidosDAO.RetornaLista()) {
-                    totalProduto = itens.quantidade * itens.produto.valorUnitario;
-                    total = total + totalProduto;
-                    <tr>
-                        <td>@itens.produto.nome</td>
-                        <td>@itens.produto.valorUnitario.ToString("C2")</td>
-                        <td>@itens.quantidade</td>
-                        <td>@totalProduto.ToString("C2")</td>
-                        <td><a href="@Url.Action("RemoverItem", "Pedidos", new { id=itens.itemId})"><i class="material-icons red-text">delete</i></a></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    } else {
-        <h5 style="margin: 50px;">Sua Lista de produtos está vazia</h5>
-    }
-
+    <h5 style="margin: 50px;">Seus produtos</h5>
+    <table class="bordered striped centered responsive-table">
+        <thead>
+        <th>Produto</th>
+        <th>Valor</th>
+        <th>Quantidade</th>
+        <th>Total</th>
+        <th>AÇÃO</th>
+        </thead>
+        <tbody id="tbodyItens">
+            <!--CHILD-->
+        </tbody>
+    </table>
 
     <!-- Modal Trigger -->
-    <h5 class="green-text center" style="margin: 50px;">Total: @total.ToString("C2")</h5>
+    <h5 id="valorTotal" class="green-text center" style="margin: 50px;">Total: R$ 0</h5>
     <a class="waves-effect waves-light btn modal-trigger blue right" href="#pagamento" style="margin: 30px;">Finalizar</a>
 
     <!-- Modal Structure -->
     <div id="pagamento" class="modal">
         <div class="modal-content">
-            <h5>Finalizar Pedido</h5>
+            <h5 style="color: black;">Finalizar Pedido</h5>
             <form style="text-align: center;">
                 <label for="numero_mesa">Número da Mesa</label>
-                <input type="number" name="numero_mesa" value="" />
+                <input type="number" style="color: black;" name="numero_mesa" id="numeroMesa" value="" />
                 <div class="modal-footer">
-                   <a href="@Url.Action("Finalizar")" class="btn green">CONCLUIR</a>
+                    @*<input type="submit" value="CONCLUIR" />*@
+                    <a href="#" onclick="salvaPedido()" class="btn green">CONCLUIR</a>
                 </div>
             </form>
         </div>
     </div>
 
-
-
-
-
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
-
 </div>
+
+<script>
+    var i = 0;
+    var valorTotal = 0.00;
+    var itens = [];
+    var quantidadeItem = 0;
+
+    function adicionaItem(produtoNome, produtoValor, produtoId) {
+        i++;
+        var quantidade = quantidadeItem;
+        var quantidadeTotal = produtoValor * quantidade;
+
+        itens.push({ quantidade: quantidade, produto: { id: produtoId } });
+
+        valorTotal = valorTotal + quantidadeTotal;
+
+        var child = "<tr id='trId" + i + "'>"
+            + "<td>" + produtoNome + "</td>"
+            + "<td>" + produtoValor + "</td>"
+            + "<td>" + quantidade + "</td>"
+            + "<td>" + quantidadeTotal + "</td>"
+            + "<td><a href='#' onclick=removeItem('trId" + i + "'," + quantidadeTotal + "," + itens.length + ")><i class='material-icons red-text'>delete</i></a></td>"
+            + "</tr>";
+
+        $("#tbodyItens").append(child);
+
+        $("#valorTotal").html("R$ " + valorTotal);
+    }
+
+    function removeItem(id, valor, itemLength) {
+        //REMOVE O INDEX DO ARRAY DOS ITENS
+        delete itens[itemLength - 1];
+
+        $("#" + id + "").remove();
+
+        valorTotal = valorTotal - valor;
+        $("#valorTotal").html("R$ " + valorTotal);
+    }
+
+    $(".quantidade").change(function () {
+        quantidadeItem = $(this).val();
+    });
+
+    function salvaPedido() {
+        $.ajax({
+            url: '@(Url.Action("Create", "Pedidos"))',
+            type: "POST",
+            dataType: "json",
+            data: { itens: itens, numeroMesa: $("#numeroMesa").val() },
+            success: function (data) {
+                swal(
+                    'Pedido salvo com sucesso!',
+                    'Clique para ser redirecionado',
+                    'success',
+                    allowOutsideClick = false
+                ).then((result) => {
+                    window.location = '@(Url.Action("Index", "Pedidos"))';
+                    });
+            },
+            error: function (data) {
+            },
+            beforeSend: function () {
+            },
+            complete: function () {
+            }
+        });
+    }
+
+</script>

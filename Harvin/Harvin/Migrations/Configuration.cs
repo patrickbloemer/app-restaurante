@@ -16,16 +16,15 @@ namespace Harvin.Migrations
 
         protected override void Seed(Harvin.Models.Entities context)
         {
-            if (context.Cargos.Count() == 0 && context.Funcionarios.Count() == 0) {
-                GetCargos().ForEach(c => context.Cargos.Add(c));
+            if (context.Cargos.Count() == 0 && context.Funcionarios.Count() == 0)
+            {
+                GetCargo().ForEach(c => context.Cargos.Add(c));
                 GetFuncionarios().ForEach(p => context.Funcionarios.Add(p));
             }
         }
 
-
-
-
-        private static List<Cargo> GetCargos() {
+        private static List<Cargo> GetCargo()
+        {
             var cargo = new List<Cargo> {
                 new Cargo
                 {
@@ -38,7 +37,8 @@ namespace Harvin.Migrations
             return cargo;
         }
 
-        private static List<Funcionario> GetFuncionarios() {
+        private static List<Funcionario> GetFuncionarios()
+        {
             var funcionario = new List<Funcionario> {
                 new Funcionario
                 {
@@ -63,8 +63,6 @@ namespace Harvin.Migrations
             };
             return funcionario;
         }
-
-
 
     }
 }

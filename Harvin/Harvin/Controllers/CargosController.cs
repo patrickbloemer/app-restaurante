@@ -11,21 +11,21 @@ using Harvin.DAO;
 
 namespace Harvin.Controllers
 {
-    public class CargosController : Controller
+    public class CargoController : Controller
     {
         private Entities db = new Entities();
 
-        // GET: Cargos
+        // GET: Cargo
         public ActionResult Index() {
             return View(db.Cargos.ToList());
         }
 
-        // GET: Cargos
+        // GET: Cargo
         public ActionResult Todos() {
             return View(db.Cargos.ToList());
         }
 
-        // GET: Cargos/Details/5
+        // GET: Cargo/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -40,10 +40,10 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // GET: Cargos/Create
+        // GET: Cargo/Create
         public ActionResult Create()
         {
-            if (CargoDAO.VerificaExistenciaDeCargos())
+            if (CargoDAO.VerificaExistenciaDeCargo())
             {
                 ViewBag.SemCargo = "É necessário ter ao menos um cargo cadastrado antes de cadastrar um funcionário!";
                 return View();
@@ -54,7 +54,7 @@ namespace Harvin.Controllers
             }
         }
 
-        // POST: Cargos/Create
+        // POST: Cargo/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -77,7 +77,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // GET: Cargos/Edit/5
+        // GET: Cargo/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,7 +92,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // POST: Cargos/Edit/5
+        // POST: Cargo/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -110,14 +110,14 @@ namespace Harvin.Controllers
                     return RedirectToAction("Index");
                 } else
                 {
-                    ModelState.AddModelError("", "Não podem existir dois cargos com o mesmo nome!");
+                    ModelState.AddModelError("", "Não podem existir dois Cargo com o mesmo nome!");
                 }
                
             }
             return View(cargo);
         }
 
-        // GET: Cargos/Delete/5
+        // GET: Cargo/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -132,7 +132,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // POST: Cargos/Delete/5
+        // POST: Cargo/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -154,7 +154,7 @@ namespace Harvin.Controllers
 
 
         //INATIVAR CARGO
-        // GET: Cargos/Inativar
+        // GET: Cargo/Inativar
         public ActionResult Inativar(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -166,7 +166,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // POST: Cargos/Inativar
+        // POST: Cargo/Inativar
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -191,7 +191,7 @@ namespace Harvin.Controllers
         }
 
         //INATIVAR CARGO
-        // GET: Cargos/Ativar
+        // GET: Cargo/Ativar
         public ActionResult Ativar(int? id)
         {
             if (id == null)
@@ -209,7 +209,7 @@ namespace Harvin.Controllers
             return View(cargo);
         }
 
-        // POST: Cargos/Ativar
+        // POST: Cargo/Ativar
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

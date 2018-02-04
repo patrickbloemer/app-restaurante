@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -184,6 +188,7 @@
     <Content Include="scripts\materialize.js" />
     <Content Include="scripts\materialize.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
+    <Content Include="scripts\sweetAlert2.js" />
     <Content Include="scripts\vegas\overlays\01.png" />
     <Content Include="scripts\vegas\overlays\02.png" />
     <Content Include="scripts\vegas\overlays\03.png" />
@@ -214,6 +219,8 @@
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Controllers\ReservasController.cs" />
+    <Compile Include="Controllers\Util\ApiRetorno.cs" />
+    <Compile Include="Controllers\Util\ConnectionFactory.cs" />
     <Compile Include="DAO\CargoDAO.cs" />
     <Compile Include="DAO\CategoriaDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
@@ -226,9 +233,49 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801312201485_IniciaBanco.cs" />
-    <Compile Include="Migrations\201801312201485_IniciaBanco.Designer.cs">
-      <DependentUpon>201801312201485_IniciaBanco.cs</DependentUpon>
+    <Compile Include="Migrations\201802042017077_pedidoId no item.cs" />
+    <Compile Include="Migrations\201802042017077_pedidoId no item.Designer.cs">
+      <DependentUpon>201802042017077_pedidoId no item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042029143_data null.cs" />
+    <Compile Include="Migrations\201802042029143_data null.Designer.cs">
+      <DependentUpon>201802042029143_data null.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042030201_tirada da data entrega.cs" />
+    <Compile Include="Migrations\201802042030201_tirada da data entrega.Designer.cs">
+      <DependentUpon>201802042030201_tirada da data entrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042038237_adicionado MesaId no Pedido.cs" />
+    <Compile Include="Migrations\201802042038237_adicionado MesaId no Pedido.Designer.cs">
+      <DependentUpon>201802042038237_adicionado MesaId no Pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042042115_MESA.cs" />
+    <Compile Include="Migrations\201802042042115_MESA.Designer.cs">
+      <DependentUpon>201802042042115_MESA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042046478_sem itens no pedido.cs" />
+    <Compile Include="Migrations\201802042046478_sem itens no pedido.Designer.cs">
+      <DependentUpon>201802042046478_sem itens no pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042126557_horario entrega.cs" />
+    <Compile Include="Migrations\201802042126557_horario entrega.Designer.cs">
+      <DependentUpon>201802042126557_horario entrega.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042137435_pedidos e clientes na mesa.cs" />
+    <Compile Include="Migrations\201802042137435_pedidos e clientes na mesa.Designer.cs">
+      <DependentUpon>201802042137435_pedidos e clientes na mesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042138444_itens no pedido.cs" />
+    <Compile Include="Migrations\201802042138444_itens no pedido.Designer.cs">
+      <DependentUpon>201802042138444_itens no pedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042146032_mesa só com pedidos.cs" />
+    <Compile Include="Migrations\201802042146032_mesa só com pedidos.Designer.cs">
+      <DependentUpon>201802042146032_mesa só com pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802042200349_asddas.cs" />
+    <Compile Include="Migrations\201802042200349_asddas.Designer.cs">
+      <DependentUpon>201802042200349_asddas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
@@ -342,8 +389,38 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801312201485_IniciaBanco.resx">
-      <DependentUpon>201801312201485_IniciaBanco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802042017077_pedidoId no item.resx">
+      <DependentUpon>201802042017077_pedidoId no item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042029143_data null.resx">
+      <DependentUpon>201802042029143_data null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042030201_tirada da data entrega.resx">
+      <DependentUpon>201802042030201_tirada da data entrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042038237_adicionado MesaId no Pedido.resx">
+      <DependentUpon>201802042038237_adicionado MesaId no Pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042042115_MESA.resx">
+      <DependentUpon>201802042042115_MESA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042046478_sem itens no pedido.resx">
+      <DependentUpon>201802042046478_sem itens no pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042126557_horario entrega.resx">
+      <DependentUpon>201802042126557_horario entrega.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042137435_pedidos e clientes na mesa.resx">
+      <DependentUpon>201802042137435_pedidos e clientes na mesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042138444_itens no pedido.resx">
+      <DependentUpon>201802042138444_itens no pedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042146032_mesa só com pedidos.resx">
+      <DependentUpon>201802042146032_mesa só com pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802042200349_asddas.resx">
+      <DependentUpon>201802042200349_asddas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
