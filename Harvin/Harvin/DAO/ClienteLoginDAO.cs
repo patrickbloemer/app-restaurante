@@ -54,5 +54,12 @@ namespace Harvin.DAO {
                 return null;
             }
         }
+
+        //NOVO GUID PARA SESSÃO
+        public static void NovaSessao()
+        {
+            Guid guid = Guid.NewGuid();
+            HttpContext.Current.Session["Sessao"] = guid.ToString();
+        }
     }
 }

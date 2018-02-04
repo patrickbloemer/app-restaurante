@@ -169,7 +169,7 @@ namespace Harvin.Controllers
         // GET: Clinetes/Logoff
         public ActionResult Logoff()
         {
-            HttpContext.Session.Clear();
+            ClienteLoginDAO.NovaSessao();
             return RedirectToAction("Login");
         }
     }
