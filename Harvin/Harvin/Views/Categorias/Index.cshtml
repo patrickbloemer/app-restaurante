@@ -8,7 +8,7 @@
 
 
 }
-<p>Estas são categorias de produtos cadastradas no sistema. Clique em cada uma para ter acesso a suas informações individuais</p>
+<p>Categorias cadastrados. Clique no cartão para ter acesso a suas respectivas informações</p>
 <div class="row">
     @foreach (var item in Model)
     {
@@ -21,10 +21,10 @@
                         <img class="activator" src="@item.imagem">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => item.nome)</span>
+                        <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => item.nome)</span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                         <b>Categoria</b>
                         <br />
                         @Html.DisplayFor(modelItem => item.nome)

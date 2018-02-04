@@ -6,8 +6,7 @@
     ListaCargos = Harvin.DAO.CargoDAO.RetornaCargos();
 }
 
-<p>Aqui você consegue consultar toda relação de funcionários do estabelecimento, tal como suas informações pessoais e dados referentes aos seus respectivos acessos a este sistema.</p>
-
+<p>Funcionários Cadastrados no sistema. Clique em um cartão para ter acesso a suas respectivas informações</p>
 <hr />
 
 <div class="row">
@@ -19,10 +18,10 @@
                         <img class="activator" src="@item.imagem">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">@item.nome @item.sobrenome</span>
+                        <span class="card-title activator white-text text-darken-4">@item.nome @item.sobrenome</span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                         <b>Nome Completo</b>
                         <br />
                         @item.nome @item.sobrenome

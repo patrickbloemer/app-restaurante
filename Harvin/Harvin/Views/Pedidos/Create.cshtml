@@ -15,6 +15,7 @@
 
 <div class="container">
     <p class="bodytop_message">Selecione a categoria desejada</p>
+    <a href="#" class="btn">Montar Pizza</a>
     <p class="red">@ViewBag.Mensagem</p>
     <div class="row">
         @foreach (var item in ListaCategorias) {
@@ -27,7 +28,7 @@
                             <img class="activator categoria" src="@item.imagem">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">@item.nome</span>
+                            <span class="card-title activator white-text text-darken-4">@item.nome</span>
                         </div>
                     </div>
                 </a>
@@ -45,10 +46,10 @@
                                                 <img class="activator" src="@produto.imagem">
                                             </div>
                                             <div class="card-content">
-                                                <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
+                                                <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
                                             </div>
                                             <div class="card-reveal">
-                                                <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                                                <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                                                 <b>Produto</b>
                                                 <br />
                                                 @Html.DisplayFor(modelItem => produto.nome)

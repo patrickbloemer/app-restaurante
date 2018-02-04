@@ -50,8 +50,6 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentarios, imagem")] Produto produto)
         {
-            if (ModelState.IsValid)
-            {
                 produto.categoria = CategoriaDAO.BuscarCategoriaPorId(produto.categoriaId);
                 if (ProdutoDAO.CadastrarProduto(produto))
                 {
@@ -70,7 +68,7 @@ namespace Harvin.Controllers
                     }
                 }
 
-            }
+            
 
             ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
             return View(produto);

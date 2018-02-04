@@ -8,8 +8,7 @@
     float mediaEstoque = 0;
 }
 
-<p>Aqui você terá acesso a todos os produtos dividos por categorias, para uma melhor organização. Clicando nelas, você terá acesso somente a seus produtos, tal como clicando nos produtos, onde terão suas atuais informações.</p>
-
+<p>Produtos cadastrados no sistema, divididos por categorias (com o percentual de estoque).</p>
 <!--INICIO DAS COLLAPSABLES DE CATEGORIAS QUE CONTÉM OS SEUS RESPECTIVOS PRODUTOS-->
 <ul class="collapsible" data-collapsible="accordion">
     @foreach (var categorias in ListaCategorias) {
@@ -48,10 +47,10 @@
                                         <img class="activator" src="@produto.imagem">
                                     </div>
                                     <div class="card-content">
-                                        <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
+                                        <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
                                     </div>
                                     <div class="card-reveal">
-                                        <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
+                                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                                         <b>Produto</b>
                                         <br />
                                         @Html.DisplayFor(modelItem => produto.nome)
