@@ -67,7 +67,7 @@
                     <span class="white-text email">@funcionario.email</span>
                 </div>
             </li>
-            <li><a href="@Url.Action("~/Funcionarios/Configuracoes")"><i class="material-icons">settings</i>Configurações</a></li>
+            <li><a href="@Url.Action("Edit", "Funcionario", new { id=funcionario.id})"><i class="material-icons">settings</i>Editar</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">Opções</a></li>
             <li class="red darken-4"><a class="waves-effect white-text" href="@Url.Action("Logoff", "Funcionarios")"><i class="material-icons white-text">forward</i>Sair</a></li>
