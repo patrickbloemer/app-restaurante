@@ -16,13 +16,15 @@ namespace Harvin.Controllers
         private Entities db = new Entities();
 
         // GET: Funcionarios
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
             var funcionarios = db.Funcionarios.Include(f => f.cargo);
             return View(funcionarios.ToList());
         }
 
         // GET: Funcionarios/Todos
-        public ActionResult Todos() {
+        public ActionResult Todos()
+        {
             var funcionarios = db.Funcionarios.Include(f => f.cargo);
             return View(funcionarios.ToList());
         }
@@ -45,10 +47,11 @@ namespace Harvin.Controllers
         // GET: Funcionarios/Create
         public ActionResult Create()
         {
-            if(CargoDAO.VerificaExistenciaDeCargos())
+            if (CargoDAO.VerificaExistenciaDeCargos())
             {
                 return RedirectToAction("Create", "Cargos");
-            } else
+            }
+            else
             {
                 ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome");
                 return View();
@@ -62,23 +65,26 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,cargoId,home,verificarConsumo,realizarPedido,pedidosPendentes,clientes,reservarMesa,configuracoes,relatorios,nome,sobrenome,cpf,dataDeNascimento,cep,endereco,complemento,bairro,cidade,email,telefone,senha, imagem")] Funcionario funcionario)
         {
-            
-                if(FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) == null && FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) == null)
-                {
-                    db.Funcionarios.Add(funcionario);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                } else
-                {
-                    if(FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) != null) {
-                        ModelState.AddModelError("", "Já existe um funcionário cadastrado no sistema com esse CPF!");
-                    }
-                    if(FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) != null) {
-                        ModelState.AddModelError("", "Já existe um funcionário cadastrado no sistema com esse email!");
-                    }
 
+            if (FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) == null && FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) == null)
+            {
+                db.Funcionarios.Add(funcionario);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                if (FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) != null)
+                {
+                    ModelState.AddModelError("", "Já existe um funcionário cadastrado no sistema com esse CPF!");
                 }
- 
+                if (FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) != null)
+                {
+                    ModelState.AddModelError("", "Já existe um funcionário cadastrado no sistema com esse email!");
+                }
+
+            }
+
             ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);
             return View(funcionario);
         }
@@ -142,12 +148,13 @@ namespace Harvin.Controllers
                 db.Funcionarios.Remove(funcionario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            } else
+            }
+            else
             {
                 ModelState.AddModelError("", "Não é possível excluir funcionário, pois só há este funcionário cadastrado!");
                 return View(funcionario);
             }
-            
+
         }
 
         protected override void Dispose(bool disposing)
@@ -162,7 +169,8 @@ namespace Harvin.Controllers
 
 
         // GET: Funcionarios/Login
-        public ActionResult Login() {
+        public ActionResult Login()
+        {
             string mensagem;
             mensagem = ViewBag.Mensagem;
             ViewBag.Mensagem = mensagem;
@@ -173,25 +181,30 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include = "cpf,senha")] Funcionario funcionario) {
-                Funcionario f = new Funcionario();
-                f = FuncionarioLoginDAO.VerificaLogin(funcionario);
-                if (f != null) {
-                    //ADICIONA FUNCIONÁRIO A LISTA DE LOGIN ATIVO DAQUELA SESSÃO DO NAVEGADOR
-                    FuncionarioLoginDAO.AdicionarFuncionario(f);
+        public ActionResult Login([Bind(Include = "cpf,senha")] Funcionario funcionario)
+        {
+            Funcionario f = new Funcionario();
+            f = FuncionarioLoginDAO.VerificaLogin(funcionario);
+            if (f != null)
+            {
+                //ADICIONA FUNCIONÁRIO A LISTA DE LOGIN ATIVO DAQUELA SESSÃO DO NAVEGADOR
+                FuncionarioLoginDAO.AdicionarFuncionario(f);
 
-                    //ENCAMINHA PRA INDEX
-                    return RedirectToAction("Index", "Inicial");
-                }else {
-                    ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
-                    return View(funcionario);
-                }
+                //ENCAMINHA PRA INDEX
+                return RedirectToAction("Index", "Inicial");
+            }
+            else
+            {
+                ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
+                return View(funcionario);
+            }
         }
 
 
 
         // GET: Logoff
-        public ActionResult Logoff() {
+        public ActionResult Logoff()
+        {
             FuncionarioLoginDAO.NovaSessao();
             return RedirectToAction("Login");
         }
@@ -200,12 +213,15 @@ namespace Harvin.Controllers
 
         //INATIVAR FUNCIONÁRIO
         // GET: Funcionarios/Inativar
-        public ActionResult Inativar(int? id) {
-            if (id == null) {
+        public ActionResult Inativar(int? id)
+        {
+            if (id == null)
+            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Funcionario funcionario = db.Funcionarios.Find(id);
-            if (funcionario == null) {
+            if (funcionario == null)
+            {
                 return HttpNotFound();
             }
             return View(funcionario);
@@ -216,7 +232,8 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "id")] Funcionario funcionario) {
+        public ActionResult Inativar([Bind(Include = "id")] Funcionario funcionario)
+        {
             Funcionario aux = db.Funcionarios.Find(funcionario.id);
             aux.inativo = true;
             db.Entry(aux).State = EntityState.Modified;

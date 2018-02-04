@@ -49,12 +49,13 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nome,sobrenome,cpf,dataDeNascimento,email,telefone,senha,cep,endereco,complemento,bairro,cidade, imagem")] Cliente cliente)
         {
-            if(ClienteDAO.BuscaClientePorCPF(cliente) == null && ClienteDAO.BuscaClientePorEmail(cliente) == null)
+            if (ClienteDAO.BuscaClientePorCPF(cliente) == null && ClienteDAO.BuscaClientePorEmail(cliente) == null)
             {
                 db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            } else
+            }
+            else
             {
                 if (ClienteDAO.BuscaClientePorCPF(cliente) != null)
                 {
@@ -136,7 +137,8 @@ namespace Harvin.Controllers
 
 
         // GET: Clientes/Login
-        public ActionResult Login() {
+        public ActionResult Login()
+        {
             //ClinicaLoginDAO.NovoGuidPraSessao();
             return View();
         }
@@ -146,16 +148,29 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login([Bind(Include = "cpf,senha")] Cliente cliente) {
+        public ActionResult Login([Bind(Include = "cpf,senha")] Cliente cliente)
+        {
             Cliente c = new Cliente();
             c = ClienteLoginDAO.VerificaLogin(cliente);
-            if (c != null) {
+            if (c != null)
+            {
+                // ADICIONA CLIENTE À LISTA DE LOGIN ATIVO DAQUELA SESSÃO DO NAVEGADOR
                 ClienteLoginDAO.AdicionarCliente(c);
+                // ENCAMINHA PARA INDEX DO CLIENTE
                 return RedirectToAction("Index");
-            } else {
+            }
+            else
+            {
                 ViewBag.Mensagem = "Login e/ou Senha inválido (s)";
                 return View(cliente);
             }
+        }
+
+        // GET: Clinetes/Logoff
+        public ActionResult Logoff()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
         }
     }
 }

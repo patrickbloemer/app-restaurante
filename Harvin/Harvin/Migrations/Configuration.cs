@@ -48,7 +48,7 @@ namespace Harvin.Migrations
                     sobrenome = "Administrador",
                     cpf = "Administrador",
                     telefone = "Administrador",
-                    dataDeNascimento = DateTime.Now,
+                    dataDeNascimento = DateTime.Now.Date,
                     cep = "Administrador",
                     endereco = "Administrador",
                     complemento = "Administrador",

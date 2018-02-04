@@ -330,6 +330,7 @@
     <Content Include="Views\Categorias\Ativar.cshtml" />
     <Content Include="Views\Funcionarios\Ativar.cshtml" />
     <Content Include="Views\Produtos\Ativar.cshtml" />
+    <Content Include="Views\Shared\_LayoutCliente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
