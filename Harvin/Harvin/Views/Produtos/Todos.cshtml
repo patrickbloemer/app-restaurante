@@ -1,130 +1,130 @@
 ﻿@model IEnumerable<Harvin.Models.Produto>
 
 @{
-    ViewBag.Title = "Lista de Produtos (com inativos)";
+    ViewBag.Title = "Lista de Produtos (com Inativos)";
 }
 
-<p style="margin: 30px;">Todos os produtos cadastrados no sistemas aparecem aqui, incluíndo os inativos (em vermelho)</p>
+<p style="margin: 30px;">Todos os produtos cadastrados no sistemas aparecem aqui, incluíndo os Inativos (em vermelho)</p>
 <hr />
 <a href="@Url.Action("Lista")" class="btn center deep-orange" style="margin-bottom: 30px;">Apenas Ativos</a>
 <table class="table striped centered responsive-table">
     <tr style="background-color: lightgrey;">
         <th>
-            @Html.DisplayNameFor(model => model.categoria.nome)
+            @Html.DisplayNameFor(model => model.Categoria.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nome)
+            @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.valorUnitario)
+            @Html.DisplayNameFor(model => model.ValorUnitario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantidadeMinimaEstoque)
+            @Html.DisplayNameFor(model => model.QuantidadeMinimaEstoque)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantidadeMaximaEstoque)
+            @Html.DisplayNameFor(model => model.QuantidadeMaximaEstoque)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantidadeAtualEstoque)
+            @Html.DisplayNameFor(model => model.QuantidadeAtualEstoque)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descricao)
+            @Html.DisplayNameFor(model => model.Descricao)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estocavel)
+            @Html.DisplayNameFor(model => model.Estocavel)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.imagem)
+            @Html.DisplayNameFor(model => model.Imagem)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.comentarios)
+            @Html.DisplayNameFor(model => model.Comentarios)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    if (item.inativo) {
+    if (item.Inativo) {
         <tr style="background-color: rgba(255,0,0,0.2);">
             <td>
-                @Html.DisplayFor(modelItem => item.categoria.nome)
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome)
+                @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.valorUnitario)
+                @Html.DisplayFor(modelItem => item.ValorUnitario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantidadeMinimaEstoque)
+                @Html.DisplayFor(modelItem => item.QuantidadeMinimaEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantidadeMaximaEstoque)
+                @Html.DisplayFor(modelItem => item.QuantidadeMaximaEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantidadeAtualEstoque)
+                @Html.DisplayFor(modelItem => item.QuantidadeAtualEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.descricao)
+                @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @if (item.estocavel) {
+                @if (item.Estocavel) {
                     <p>Sim</p>
                 } else {
                     <p>Nao</p>
                 }
             </td>
             <td>
-                <img src="@item.imagem" style="width: 45px!important; height: 45px!important;" />
+                <img src="@item.Imagem" style="wIdth: 45px!important; height: 45px!important;" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.comentarios)
+                @Html.DisplayFor(modelItem => item.Comentarios)
             </td>
             <td>
-                @Html.ActionLink("Ediatr", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Deletar", "Delete", new { id = item.id })
-                @Html.ActionLink("Ativar", "Ativar", new { id = item.id })
+                @Html.ActionLink("Ediatr", "Edit", new { Id = item.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { Id = item.Id })
+                @Html.ActionLink("Ativar", "Ativar", new { Id = item.Id })
             </td>
         </tr>
     } else {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.categoria.nome)
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.nome)
+                @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.valorUnitario)
+                @Html.DisplayFor(modelItem => item.ValorUnitario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantidadeMinimaEstoque)
+                @Html.DisplayFor(modelItem => item.QuantidadeMinimaEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantidadeMaximaEstoque)
+                @Html.DisplayFor(modelItem => item.QuantidadeMaximaEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.quantidadeAtualEstoque)
+                @Html.DisplayFor(modelItem => item.QuantidadeAtualEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.descricao)
+                @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @if (item.estocavel) {
+                @if (item.Estocavel) {
                     <p>Sim</p>
                 } else {
                     <p>Nao</p>
                 }
             </td>
             <td>
-                <img src="@item.imagem" style="width: 45px!important; height: 45px!important;" />
+                <img src="@item.Imagem" style="wIdth: 45px!important; height: 45px!important;" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.comentarios)
+                @Html.DisplayFor(modelItem => item.Comentarios)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Deletar", "Delete", new { id = item.id })
-                @Html.ActionLink("Inativar", "Inativar", new { id = item.id })
+                @Html.ActionLink("Editar", "Edit", new { Id = item.Id }) |
+                @Html.ActionLink("Deletar", "Delete", new { Id = item.Id })
+                @Html.ActionLink("Inativar", "Inativar", new { Id = item.Id })
             </td>
         </tr>
     }

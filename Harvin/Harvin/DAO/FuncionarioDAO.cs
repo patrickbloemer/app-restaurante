@@ -20,13 +20,13 @@ namespace Harvin.DAO
         // Busca Funcionário Por CPF
         public static Funcionario BuscaFuncionarioPorCPF(Funcionario funcionario)
         {
-            return entities.Funcionarios.FirstOrDefault(x => x.cpf.Equals(funcionario.cpf));
+            return entities.Funcionarios.FirstOrDefault(x => x.Cpf.Equals(funcionario.Cpf));
         }
 
         // Busca Funcionário Por Email
         public static Funcionario BuscaFuncionarioPorEmail(Funcionario funcionario)
         {
-            return entities.Funcionarios.FirstOrDefault(x => x.email.Equals(funcionario.email));
+            return entities.Funcionarios.FirstOrDefault(x => x.Email.Equals(funcionario.Email));
         }
 
         // Verifica se Existe Mais de um Funcionário
@@ -49,7 +49,7 @@ namespace Harvin.DAO
         {
             var currentSession = HttpContext.Current.Session["Sessao"].ToString();
 
-            var retorno = entities.FuncionarioLogin.Where(f => f.sessao == currentSession).Select(s => s.funcionario).FirstOrDefault();
+            var retorno = entities.FuncionarioLogin.Where(f => f.Sessao == currentSession).Select(s => s.Funcionario).FirstOrDefault();
 
             return retorno;
         }

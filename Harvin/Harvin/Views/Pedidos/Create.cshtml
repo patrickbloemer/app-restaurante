@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Novo Pedido";
-    //LISTA DE CATEGORIAS PARA SEPARAÇÃO DOS PRODUTOS
+    //LISTA DE CATEGORIAS PARA SEPARAÇÃO DOS ProdutoS
     List<Harvin.Models.Categoria> ListaCategorias = new List<Harvin.Models.Categoria>();
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
     List<Harvin.Models.Item> ListaItens = new List<Harvin.Models.Item>();
@@ -29,51 +29,51 @@
                     <!--CABEÇALHO DE CADA CATEGORIA-->
                     <div class="card">
                         <div class="card-image">
-                            <img class="activator categoria" src="@item.imagem">
+                            <img class="activator categoria" src="@item.Imagem">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator white-text text-darken-4">@item.nome</span>
+                            <span class="card-title activator white-text text-darken-4">@item.Nome</span>
                         </div>
                     </div>
                 </a>
                 <!-- Modal Structure -->
-                <div id="modal_@modalName" class="modal">
+                <div Id="modal_@modalName" class="modal">
                     <div class="modal-content">
-                        <h5>Selecione os produtos desejados</h5>
+                        <h5>Selecione os Produtos desejados</h5>
                         <div class="row">
-                            @foreach (var produto in Model)
+                            @foreach (var Produto in Model)
                             {
-                                if (produto.categoriaId == item.CategoriaId)
+                                if (Produto.Categoria.Id == item.Id)
                                 {
                                     <div class="col s6 m4 l3">
-                                        <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
+                                        <!--Produto MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
                                         <div class="card z-depth-3">
                                             <div class="card-image waves-effect waves-block waves-light">
-                                                <img class="activator" src="@produto.imagem">
+                                                <img class="activator" src="@Produto.Imagem">
                                             </div>
                                             <div class="card-content">
-                                                <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
+                                                <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => Produto.Nome)</span>
                                             </div>
                                             <div class="card-reveal">
                                                 <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                                                 <b>Produto</b>
                                                 <br />
-                                                @Html.DisplayFor(modelItem => produto.nome)
+                                                @Html.DisplayFor(modelItem => Produto.Nome)
                                                 <br />
                                                 <br />
                                                 <b>Valor</b>
                                                 <br />
-                                                @produto.valorUnitario.ToString("C2")
+                                                @Produto.ValorUnitario.ToString("C2")
                                                 <br />
                                                 <br />
                                                 <b>Descrição</b>
                                                 <br />
-                                                @Html.DisplayFor(modelItem => produto.descricao)
+                                                @Html.DisplayFor(modelItem => Produto.Descricao)
                                                 <br />
                                                 <br />
                                                 <div class="row">
                                                     <div class="col s12">
-                                                        <select name="quantidade" required="required" class="quantidade">
+                                                        <select name="Quantidade" required="required" class="Quantidade">
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
@@ -82,7 +82,7 @@
                                                         </select>
                                                         <label>Quantidade</label>
                                                     </div>
-                                                    <button class="btn-floating red adicionar" onclick="adicionaItem('@(produto.nome.ToString())', '@(produto.valorUnitario.ToString().Replace(",", "."))', @(produto.id))"><i class="material-icons">add</i></button>
+                                                    <button class="btn-floating red adicionar" onclick="adicionaItem('@(Produto.Nome.ToString())', '@(Produto.ValorUnitario.ToString().Replace(",", "."))', @(Produto.Id))"><i class="material-icons">add</i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,8 +100,8 @@
         }
     </div>
 
-    <!--TABELA ABAIXO COM PROGRESSO DA SELEÇÃO DOS PRODUTOS-->
-    <h5 style="margin: 50px;">Seus produtos</h5>
+    <!--TABELA ABAIXO COM PROGRESSO DA SELEÇÃO DOS ProdutoS-->
+    <h5 style="margin: 50px;">Seus Produtos</h5>
     <table class="bordered striped centered responsive-table">
         <thead>
         <th>Produto</th>
@@ -110,22 +110,22 @@
         <th>Total</th>
         <th>AÇÃO</th>
         </thead>
-        <tbody id="tbodyItens">
+        <tbody Id="tbodyItens">
             <!--CHILD-->
         </tbody>
     </table>
 
     <!-- Modal Trigger -->
-    <h5 id="valorTotal" class="green-text center" style="margin: 50px;">Total: R$ 0</h5>
-    <a class="waves-effect waves-light btn modal-trigger blue right" href="#pagamento" style="margin: 30px;">Finalizar</a>
+    <h5 Id="valorTotal" class="green-text center" style="margin: 50px;">Total: R$ 0</h5>
+    <a class="waves-effect waves-light btn modal-trigger blue right" href="#Pagamento" style="margin: 30px;">Finalizar</a>
 
     <!-- Modal Structure -->
-    <div id="pagamento" class="modal">
+    <div Id="Pagamento" class="modal">
         <div class="modal-content">
             <h5 style="color: black;">Finalizar Pedido</h5>
             <form style="text-align: center;">
                 <label for="numero_mesa">Número da Mesa</label>
-                <input type="number" style="color: black;" name="numero_mesa" id="numeroMesa" value="" />
+                <input type="number" style="color: black;" name="numero_mesa" Id="numeroMesa" value="" />
                 <div class="modal-footer">
                     @*<input type="submit" value="CONCLUIR" />*@
                     <a href="#" onclick="salvaPedido()" class="btn green">CONCLUIR</a>
@@ -135,31 +135,31 @@
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.valIdate.min.js"></script>
+    <script src="~/Scripts/jquery.valIdate.unobtrusive.min.js"></script>
 </div>
 
 <script>
     var i = 0;
     var valorTotal = 0.00;
     var itens = [];
-    var quantidadeItem = 0;
+    var QuantidadeItem = 0;
 
-    function adicionaItem(produtoNome, produtoValor, produtoId) {
+    function adicionaItem(ProdutoNome, ProdutoValor, ProdutoId) {
         i++;
-        var quantidade = quantidadeItem;
-        var quantidadeTotal = produtoValor * quantidade;
+        var Quantidade = QuantidadeItem;
+        var QuantidadeTotal = ProdutoValor * Quantidade;
 
-        itens.push({ quantidade: quantidade, produto: { id: produtoId } });
+        itens.push({ Quantidade: Quantidade, Produto: { Id: ProdutoId } });
 
-        valorTotal = valorTotal + quantidadeTotal;
+        valorTotal = valorTotal + QuantidadeTotal;
 
-        var child = "<tr id='trId" + i + "'>"
-            + "<td>" + produtoNome + "</td>"
-            + "<td>" + produtoValor + "</td>"
-            + "<td>" + quantidade + "</td>"
-            + "<td>" + quantidadeTotal + "</td>"
-            + "<td><a href='#' onclick=removeItem('trId" + i + "'," + quantidadeTotal + "," + itens.length + ")><i class='material-icons red-text'>delete</i></a></td>"
+        var child = "<tr Id='trId" + i + "'>"
+            + "<td>" + ProdutoNome + "</td>"
+            + "<td>" + ProdutoValor + "</td>"
+            + "<td>" + Quantidade + "</td>"
+            + "<td>" + QuantidadeTotal + "</td>"
+            + "<td><a href='#' onclick=removeItem('trId" + i + "'," + QuantidadeTotal + "," + itens.length + ")><i class='material-icons red-text'>delete</i></a></td>"
             + "</tr>";
 
         $("#tbodyItens").append(child);
@@ -167,18 +167,18 @@
         $("#valorTotal").html("R$ " + valorTotal);
     }
 
-    function removeItem(id, valor, itemLength) {
+    function removeItem(Id, valor, itemLength) {
         //REMOVE O INDEX DO ARRAY DOS ITENS
         delete itens[itemLength - 1];
 
-        $("#" + id + "").remove();
+        $("#" + Id + "").remove();
 
         valorTotal = valorTotal - valor;
         $("#valorTotal").html("R$ " + valorTotal);
     }
 
-    $(".quantidade").change(function () {
-        quantidadeItem = $(this).val();
+    $(".Quantidade").change(function () {
+        QuantidadeItem = $(this).val();
     });
 
     function salvaPedido() {
@@ -192,7 +192,7 @@
                     'Pedido salvo com sucesso!',
                     'Clique para ser redirecionado',
                     'success',
-                    allowOutsideClick = false
+                    allowOutsIdeClick = false
                 ).then((result) => {
                     window.location = '@(Url.Action("Index", "Pedidos"))';
                     });

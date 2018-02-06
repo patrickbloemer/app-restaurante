@@ -102,8 +102,8 @@ namespace Harvin.Controllers
             if (ModelState.IsValid)
             {
                 Cargo aux = new Cargo();
-                aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
-                if(CargoDAO.BurcarCargoPorNome(cargo) == null || aux.nome == cargo.nome)
+                aux = CargoDAO.BuscaCargoPorId(cargo.Id);
+                if(CargoDAO.BurcarCargoPorNome(cargo) == null || aux.Nome == cargo.Nome)
                 {
                     db.Entry(cargo).State = EntityState.Modified;
                     db.SaveChanges();
@@ -173,7 +173,7 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Inativar([Bind(Include = "cargoId")] Cargo cargo) {
 
-            Cargo aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
+            Cargo aux = CargoDAO.BuscaCargoPorId(cargo.Id);
 
             if (CargoDAO.VerificaSeExisteFuncionariosEmCargo(aux))
             {
@@ -181,7 +181,7 @@ namespace Harvin.Controllers
             }
             else
             {
-                aux.inativo = true;
+                aux.Inativo = true;
                 db.Entry(aux).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -216,8 +216,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Ativar([Bind(Include = "cargoId")] Cargo cargo)
         {
-            Cargo aux = CargoDAO.BuscaCargoPorId(cargo.cargoId);
-            aux.inativo = false;
+            Cargo aux = CargoDAO.BuscaCargoPorId(cargo.Id);
+            aux.Inativo = false;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Todos");

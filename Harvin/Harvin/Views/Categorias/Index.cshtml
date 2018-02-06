@@ -5,40 +5,39 @@
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
     List<Harvin.Models.Produto> ListaProdutos = new List<Harvin.Models.Produto>();
     ListaProdutos = Harvin.DAO.ProdutoDAO.RetornaProdutos();
-
-
 }
+
 <p>Categorias cadastrados. Clique no cartão para ter acesso a suas respectivas informações</p>
 <div class="row">
     @foreach (var item in Model)
     {
         int totalProdutos = 0;
-        if (!item.inativo)
+        if (!item.Inativo)
         {
             <div class="col s6 m4 l3">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="@item.imagem">
+                        <img class="activator" src="@item.Imagem">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => item.nome)</span>
+                        <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => item.Nome)</span>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                         <b>Categoria</b>
                         <br />
-                        @Html.DisplayFor(modelItem => item.nome)
+                        @Html.DisplayFor(modelItem => item.Nome)
                         <br />
                         <br />
                         <b>Descrição</b>
                         <br />
-                        @Html.DisplayFor(modelItem => item.descricao)
+                        @Html.DisplayFor(modelItem => item.Descricao)
                         <br />
 
 
                         @foreach (var produto in ListaProdutos)
                         {
-                            if (produto.categoriaId.Equals(item.CategoriaId))
+                            if (produto.Categoria.Id.Equals(item.Id))
                             {
                                 totalProdutos++;
                             }
@@ -48,8 +47,8 @@
                             <span>@totalProdutos produto(s)</span>
                         }
                         <br /><br />
-                        <a href="@Url.Action("Edit", new { id=item.CategoriaId})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
-                        <a href="@Url.Action("Inativar", new { id=item.CategoriaId})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                        <a href="@Url.Action("Edit", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Inativar", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
                     </div>
                 </div>
             </div>

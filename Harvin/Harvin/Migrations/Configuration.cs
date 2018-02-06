@@ -28,10 +28,10 @@ namespace Harvin.Migrations
             var cargo = new List<Cargo> {
                 new Cargo
                 {
-                    cargoId = 1,
-                    nome = "Administrador",
-                    descricao = "Administrador do Sistema",
-                    inativo = false
+                    Id = 1,
+                    Nome = "Administrador",
+                    Descricao = "Administrador do Sistema",
+                    Inativo = false
                 }
             };
             return cargo;
@@ -42,23 +42,22 @@ namespace Harvin.Migrations
             var funcionario = new List<Funcionario> {
                 new Funcionario
                 {
-                    id = 1,
-                    cargoId = 1,
-                    nome = "Administrador",
-                    sobrenome = "Administrador",
-                    cpf = "Administrador",
-                    telefone = "Administrador",
-                    dataDeNascimento = DateTime.Now.Date,
-                    cep = "Administrador",
-                    endereco = "Administrador",
-                    complemento = "Administrador",
-                    bairro = "Administrador",
-                    cidade = "Administrador",
-                    imagem = "Administrador",
-                    email = "Administrador",
-                    senha = "Administrador",
-                    inativo = false
-
+                    Id = 1,
+                    Cargo = new Cargo(1),
+                    Nome = "Administrador",
+                    Sobrenome = "Administrador",
+                    Cpf = "Administrador",
+                    Telefone = "Administrador",
+                    DataDeNascimento = DateTime.Now.Date,
+                    Cep = "Administrador",
+                    Endereco = "Administrador",
+                    Complemento = "Administrador",
+                    Bairro = "Administrador",
+                    Cidade = "Administrador",
+                    Imagem = "Administrador",
+                    Email = "Administrador",
+                    Senha = "Administrador",
+                    Inativo = false
                 }
             };
             return funcionario;

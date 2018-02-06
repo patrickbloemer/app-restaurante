@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
-namespace Harvin.Models {
-    [Table("Deliveries")]
+namespace Harvin.Models
+{
+    [Table("Deliveriy")]
     public class Delivery {
+
         [Key]
-        public int pedidoId { get; set; }
-        public Pedido pedido { get; set; }
-        public Cliente cliente { get; set; }
-        public Funcionario funcionarioEntrega { get; set; }
-        public FormaPagamento formaPagamento { get; set; }
+        public int Id { get; set; }
+
+        public Pedido Pedido { get; set; }
+
+        public Cliente Cliente { get; set; }
+
+        public Funcionario FuncionarioEntrega { get; set; }
+
+        public FormaPagamento FormaPagamento { get; set; }
 
         [Display(Name = "Pagamento")]
         public bool Pagamento { get; set; }

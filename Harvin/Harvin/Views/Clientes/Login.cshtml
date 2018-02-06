@@ -14,12 +14,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="wIdth=device-wIdth, initial-scale=1.0" />
     <title>Cliente - Harvin</title>
     <link rel="shortcut icon" href="~/Content/images/favicon.ico" />
 </head>
 <body>
-    <div class="block center" style="width: 90%; margin: auto; height: 400px; border-radius: 85px;" class="z-depth-5">
+    <div class="block center" style="wIdth: 90%; margin: auto; height: 400px; border-radius: 85px;" class="z-depth-5">
         <div class="row" style="border-radius: 15px!important;">
             <div class="col s12 l6 direita">
                 @using (Html.BeginForm()) {
@@ -30,11 +30,11 @@
                             <p class="center red-text">O Login para Clientes está temporariamente indisponível.</p>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    @Html.EditorFor(model => model.cpf, new { @class = "validate" })
+                                    @Html.EditorFor(model => model.Cpf, new { @class = "valIdate" })
                                     <label for="icon_prefix" style="color: white;">E-mail</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    @Html.EditorFor(model => model.senha, new { @class = "validate" })
+                                    @Html.EditorFor(model => model.Senha, new { @class = "valIdate" })
                                     <label for="icon_prefix" style="color: white;">Senha</label>
                                 </div>
                             </div>

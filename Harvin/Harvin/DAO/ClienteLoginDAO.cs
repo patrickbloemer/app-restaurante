@@ -12,9 +12,9 @@ namespace Harvin.DAO {
         public static bool AdicionarCliente(Cliente cliente) {
             try {
                 ClienteLogin login = new ClienteLogin();
-                login.cliente = cliente;
-                login.dataHorarioLogin = DateTime.Now;
-                login.sessao = RetornarIdSessao();
+                login.Cliente = cliente;
+                login.DataHorarioLogin = DateTime.Now;
+                login.Sessao = RetornarIdSessao();
                 entities.ClienteLogin.Add(login);
                 entities.SaveChanges();
                 return true;
@@ -28,7 +28,7 @@ namespace Harvin.DAO {
         public static ClienteLogin RetornarClienteLogado() {
             try {
                 string sessao = RetornarIdSessao();
-                return entities.ClienteLogin.FirstOrDefault(x => x.sessao == sessao);
+                return entities.ClienteLogin.FirstOrDefault(x => x.Sessao == sessao);
             }
             catch (Exception e) {
                 return null;
@@ -48,7 +48,7 @@ namespace Harvin.DAO {
         //Verifica Login
         public static Cliente VerificaLogin(Cliente cliente) {
             try {
-                return entities.Clientes.FirstOrDefault(x => x.cpf.Equals(cliente.cpf) && x.senha.Equals(cliente.senha));
+                return entities.Clientes.FirstOrDefault(x => x.Cpf.Equals(cliente.Cpf) && x.Senha.Equals(cliente.Senha));
             }
             catch (Exception e) {
                 return null;

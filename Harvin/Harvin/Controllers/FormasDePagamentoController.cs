@@ -150,8 +150,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Inativar([Bind(Include = "id")] FormaPagamento forma) {
             FormaPagamento aux = new FormaPagamento();
-            aux = db.FormaPagamentos.Find(forma.formaPagamentoId);
-            aux.inativo = true;
+            aux = db.FormaPagamentos.Find(forma.Id);
+            aux.Inativo = true;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");

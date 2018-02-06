@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Harvin.Models
 {
-    [Table("Mesas")]
+    [Table("Mesa")]
     public class Mesa
     {
         [Key]
-        public int mesaId { get; set; }
-        public int numeroMesa { get; set; }
-        public List<Pedido> pedidos { get; set; }
-        //public Pedido pedido { get; set; }
-        //public Cliente cliente { get; set; }
+        public int Id { get; set; }
+
+        public int NumeroMesa { get; set; }
+
+        public Pedido Pedido { get; set; }
+
+        public Cliente Cliente { get; set; }
+
+        //public virtual List<Pedido> Pedidos { get; set; }
     }
 }

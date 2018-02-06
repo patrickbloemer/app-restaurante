@@ -1,13 +1,13 @@
 ﻿
-<!--PÁGINA DESTINADA A PEDIDO DO CLIENTE-->
+<!--PÁGINA DESTINADA A PEDIdO DO CLIENTE-->
 <!--DEVERÁ CONTER INTEGRAÇÃO COM API DO PAYPAL E NTREGAS DELIVERY-->
 
 
 @model List<Harvin.Models.Produto>
 
 @{
-    ViewBag.Title = "Novo Pedido";
-    //LISTA DE CATEGORIAS PARA SEPARAÇÃO DOS PRODUTOS
+    ViewBag.Title = "Novo PedIdo";
+    //LISTA DE CATEGORIAS PARA SEPARAÇÃO DOS ProdutoS
     List<Harvin.Models.Categoria> ListaCategorias = new List<Harvin.Models.Categoria>();
     ListaCategorias = Harvin.DAO.CategoriaDAO.ListaCategorias();
     List<Harvin.Models.Item> ListaItens = new List<Harvin.Models.Item>();
@@ -29,54 +29,54 @@
                     <!--CABEÇALHO DE CADA CATEGORIA-->
                     <div class="card">
                         <div class="card-image">
-                            <img class="activator categoria" src="@item.imagem">
+                            <img class="activator categoria" src="@item.Imagem">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">@item.nome</span>
+                            <span class="card-title activator grey-text text-darken-4">@item.Nome</span>
                         </div>
                     </div>
                 </a>
                 <!-- Modal Structure -->
-                <div id="modal_@modalName" class="modal">
+                <div Id="modal_@modalName" class="modal">
                     <div class="modal-content">
-                        <h5>Selecione os produtos desejados</h5>
+                        <h5>Selecione os Produtos desejados</h5>
                         <div class="row">
-                            @foreach (var produto in Model) {
-                                if (produto.categoriaId == item.CategoriaId) {
+                            @foreach (var Produto in Model) {
+                                if (Produto.Categoria.Id == item.Id) {
                                     <div class="col s6 m4 l3">
-                                        <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
+                                        <!--Produto MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
                                         <div class="card z-depth-3">
                                             <div class="card-image waves-effect waves-block waves-light">
-                                                <img class="activator" src="@produto.imagem">
+                                                <img class="activator" src="@Produto.Imagem">
                                             </div>
                                             <div class="card-content">
-                                                <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
+                                                <span class="card-title activator grey-text text-darken-4">@Html.DisplayFor(modelItem => Produto.Nome)</span>
                                             </div>
                                             <div class="card-reveal">
                                                 <span class="card-title grey-text text-darken-4"><i class="material-icons">close</i></span>
                                                 <b>Produto</b>
                                                 <br />
-                                                @Html.DisplayFor(modelItem => produto.nome)
+                                                @Html.DisplayFor(modelItem => Produto.Nome)
                                                 <br />
                                                 <br />
                                                 <b>Valor</b>
                                                 <br />
-                                                @produto.valorUnitario.ToString("C2")
+                                                @Produto.ValorUnitario.ToString("C2")
                                                 <br />
                                                 <br />
                                                 <b>Descrição</b>
                                                 <br />
-                                                @Html.DisplayFor(modelItem => produto.descricao)
+                                                @Html.DisplayFor(modelItem => Produto.Descricao)
                                                 <br />
                                                 <br />
                                                 @using (Html.BeginForm()) {
                                                     @Html.AntiForgeryToken()
                                                     <div class="row">
                                                         <div class="input-field col s12" style="display: none;">
-                                                            @Html.EditorFor(modelItem => produto.id, new { @class = "invisible" })
+                                                            @Html.EditorFor(modelItem => Produto.Id, new { @class = "invisible" })
                                                         </div>
                                                         <div class="col s12">
-                                                            <select name="quantidade" required="required" class="quantidade">
+                                                            <select name="Quantidade" required="required" class="Quantidade">
                                                                 <option value="1">1</option>
                                                                 <option value="2">2</option>
                                                                 <option value="3">3</option>
@@ -105,9 +105,9 @@
     </div>
 
 
-    <!--TABELA ABAIXO COM PROGRESSO DA SELEÇÃO DOS PRODUTOS-->
+    <!--TABELA ABAIXO COM PROGRESSO DA SELEÇÃO DOS ProdutoS-->
     @if (ListaItens.Count > 0) {
-        <h5 style="margin: 50px;">Seus produtos</h5>
+        <h5 style="margin: 50px;">Seus Produtos</h5>
         <table class="bordered striped centered responsive-table">
             <thead>
             <th>Produto</th>
@@ -118,31 +118,31 @@
             </thead>
             <tbody>
                 @foreach (var itens in Harvin.DAO.PedidosDAO.RetornaLista()) {
-                    totalProduto = itens.quantidade * itens.produto.valorUnitario;
+                    totalProduto = itens.Quantidade * itens.Produto.ValorUnitario;
                     total = total + totalProduto;
                     <tr>
-                        <td>@itens.produto.nome</td>
-                        <td>@itens.produto.valorUnitario.ToString("C2")</td>
-                        <td>@itens.quantidade</td>
+                        <td>@itens.Produto.Nome</td>
+                        <td>@itens.Produto.ValorUnitario.ToString("C2")</td>
+                        <td>@itens.Quantidade</td>
                         <td>@totalProduto.ToString("C2")</td>
-                        <td><a href="@Url.Action("RemoverItem", "Pedidos", new { id=itens.itemId})"><i class="material-icons red-text">delete</i></a></td>
+                        <td><a href="@Url.Action("RemoverItem", "PedIdos", new { Id=itens.Id})"><i class="material-icons red-text">delete</i></a></td>
                     </tr>
                 }
             </tbody>
         </table>
     } else {
-        <h5 style="margin: 50px;">Sua Lista de produtos está vazia</h5>
+        <h5 style="margin: 50px;">Sua Lista de Produtos está vazia</h5>
     }
 
 
     <!-- Modal Trigger -->
     <h5 class="green-text center" style="margin: 50px;">Total: @total.ToString("C2")</h5>
-    <a class="waves-effect waves-light btn modal-trigger blue right" href="#pagamento" style="margin: 30px;">Finalizar</a>
+    <a class="waves-effect waves-light btn modal-trigger blue right" href="#Pagamento" style="margin: 30px;">Finalizar</a>
 
     <!-- Modal Structure -->
-    <div id="pagamento" class="modal">
+    <div Id="Pagamento" class="modal">
         <div class="modal-content">
-            <h5>Finalizar Pedido</h5>
+            <h5>Finalizar PedIdo</h5>
             <form style="text-align: center;">
                 <button class="btn blue">PAGAR COM PAYPAL</button>
                 <button class="btn green">ENTREGAR EM CASA</button>
@@ -158,8 +158,8 @@
 
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.valIdate.min.js"></script>
+    <script src="~/Scripts/jquery.valIdate.unobtrusive.min.js"></script>
 
 
 </div>

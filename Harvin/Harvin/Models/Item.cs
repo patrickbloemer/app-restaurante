@@ -3,13 +3,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Harvin.Models
 {
-    [Table("Itens")]
+    [Table("Item")]
     public class Item
     {
         [Key]
-        public int itemId { get; set; }
-        public Produto produto { get; set; }
-        public int quantidade { get; set; }
-        public Pedido pedido { get; set; }
+        public int Id { get; set; }
+
+        public Produto Produto { get; set; }
+
+        public int Quantidade { get; set; }
+
+        public Pedido Pedido { get; set; }
     }
 }

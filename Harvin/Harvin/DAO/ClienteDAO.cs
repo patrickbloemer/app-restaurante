@@ -13,12 +13,12 @@ namespace Harvin.DAO
         // Busca Cliente por CPF
         public static Cliente BuscaClientePorCPF(Cliente cliente)
         {
-            return entities.Clientes.FirstOrDefault(x => x.cpf.Equals(cliente.cpf));
+            return entities.Clientes.FirstOrDefault(x => x.Cpf.Equals(cliente.Cpf));
         }
         // Busca Cliente por Email 
         public static Cliente BuscaClientePorEmail(Cliente cliente)
         {
-            return entities.Clientes.FirstOrDefault(x => x.email.Equals(cliente.email));
+            return entities.Clientes.FirstOrDefault(x => x.Email.Equals(cliente.Email));
         }
     }
 }

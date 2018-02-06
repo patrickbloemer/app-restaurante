@@ -7,7 +7,7 @@
     }
     else
     {
-        cliente = logado.cliente;
+        cliente = logado.Cliente;
     }
 }
 <!DOCTYPE html>
@@ -40,12 +40,12 @@
                 <div class="background">
                     <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
                 </div>
-                <img class="circle" src="@cliente.imagem">
-                <span class="white-text name">@cliente.nome @cliente.sobrenome</span>
-                <span class="white-text email">@cliente.email</span>
+                <img class="circle" src="@cliente.Imagem">
+                <span class="white-text name">@cliente.Nome @cliente.Sobrenome</span>
+                <span class="white-text email">@cliente.Email</span>
             </div>
         </li>
-        <li><a href="@Url.Action("Edit", "Clientes", new { id=cliente.id})"><i class="material-icons">settings</i>Editar</a></li>
+        <li><a href="@Url.Action("Edit", "Clientes", new { id=cliente.Id})"><i class="material-icons">settings</i>Editar</a></li>
         <li><div class="divider"></div></li>
         <li><a class="subheader">Opções</a></li>
         <li class="red darken-4"><a class="waves-effect white-text" href="@Url.Action("Logoff", "Clientes")"><i class="material-icons white-text">forward</i>Sair</a></li>
@@ -60,7 +60,7 @@
                 <li><a class="opcaomenu" href="@Url.Action("Index", "Clientes")">Home <span class="notification_ballon">2</span></a></li>
                 <li><a class="dropdown-button opcaomenu" href="#!" data-activates="pedidos">Pedidos<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="opcaomenu" href="@Url.Action("Create", "Reservas")">Reservas<i class="material-icons right">store_mall_directory</i></a></li>
-                <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>@cliente.nome</a></li>
+                <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>@cliente.Nome</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <!--Mobile navbar-->
@@ -69,9 +69,9 @@
                         <div class="background">
                             <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
                         </div>
-                        <img class="circle" src="@cliente.imagem">
-                        <span class="white-text name">@cliente.nome @cliente.sobrenome</span>
-                        <span class="white-text email">@cliente.email</span>
+                        <img class="circle" src="@cliente.Imagem">
+                        <span class="white-text name">@cliente.Nome @cliente.Sobrenome</span>
+                        <span class="white-text email">@cliente.Email</span>
                     </div>
                 </li>
                 <!--RESERVA-->

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace Harvin.Models
 {
@@ -11,28 +8,32 @@ namespace Harvin.Models
     public class Configuracao
     {
         [Key]
-        public int ConfiguracaoId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Sistema Ativado")]
-        public bool sistemaAtivado { get; set; }
+        public bool SistemaAtivado { get; set; }
 
         [Display(Name = "Valor do Buffet")]
-        public double valorBuffet { get; set; }
+        public double ValorBuffet { get; set; }
 
         // Primeiro Horário
         [Display(Name = "Primeiro Horário")]
-        public bool primeiroHorario { get; set; }
+        public bool PrimeiroHorario { get; set; }
+
         [Display(Name = "Início do Primeiro Horário")]
-        public DateTime primeiroHorarioInicio { get; set; }
+        public DateTime PrimeiroHorarioInicio { get; set; }
+
         [Display(Name = "Final do Primeiro Horário")]
-        public DateTime primeiroHorarioFinal { get; set; }
+        public DateTime PrimeiroHorarioFinal { get; set; }
 
         // Segundo Horário
         [Display(Name = "Segundo Horário")]
-        public bool segundoHorario { get; set; }
+        public bool SegundoHorario { get; set; }
+
         [Display(Name = "Início do Segundo Horário")]
-        public DateTime segundoHorarioInicio { get; set; }
+        public DateTime SegundoHorarioInicio { get; set; }
+
         [Display(Name = "Final do Segundo Horário")]
-        public DateTime segundoHorarioFinal { get; set; }
+        public DateTime SegundoHorarioFinal { get; set; }
     }
 }

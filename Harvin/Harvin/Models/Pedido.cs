@@ -5,45 +5,43 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Harvin.Models
 {
-    [Table("Pedidos")]
+    [Table("Pedido")]
     public class Pedido
     {
-
         public Pedido()
         {
-
         }
 
         public Pedido(DateTime dataCadastro, Funcionario func, int mesa, bool pend = true, bool pagam = false)
         {
-            horarioPedido = dataCadastro;
-            funcionario = func;
-            pendencia = pend;
-            pagamento = pagam;
-            mesaId = mesa;
+            HorarioPedido = dataCadastro;
+            Funcionario = func;
+            Pendencia = pend;
+            Pagamento = pagam;
+            Mesa.Id = mesa;
         }
 
         [Key]
-        public int pedidoId { get; set; }
+        public int Id { get; set; }
 
-        public int mesaId { get; set; }
+        public Mesa Mesa { get; set; }
 
-        public List<Item> itens { get; set; }
+        public Funcionario Funcionario { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Horário do Pedido")]
-        public DateTime horarioPedido { get; set; }
+        public DateTime HorarioPedido { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Horário da entrega")]
-        public DateTime horarioEntrega { get; set; }
-
-        public Funcionario funcionario { get; set; }
+        public DateTime HorarioEntrega { get; set; }
 
         [Display(Name = "Pendência")]
-        public bool pendencia { get; set; }
+        public bool Pendencia { get; set; }
 
         [Display(Name = "Pagamento")]
-        public bool pagamento { get; set; }
+        public bool Pagamento { get; set; }
+
+        //public virtual List<Item> Itens { get; set; }
     }
 }

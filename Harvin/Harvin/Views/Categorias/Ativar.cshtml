@@ -5,7 +5,7 @@
 }
 
 <div>
-    <h4>@Html.DisplayFor(model => model.nome)</h4>
+    <h4>@Html.DisplayFor(model => model.Nome)</h4>
 
     <h6 class="green-text"><i class="material-icons">restore</i> <br />Você realmente deseja ativar esta categoria?</h6>
 
@@ -14,19 +14,19 @@
     <dl class="dl-horizontal">
 
         <dt>
-            @Html.DisplayNameFor(model => model.nome)
+            @Html.DisplayNameFor(model => model.Nome)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nome)
+            @Html.DisplayFor(model => model.Nome)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.descricao)
+            @Html.DisplayNameFor(model => model.Descricao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.descricao)
+            @Html.DisplayFor(model => model.Descricao)
         </dd>
 
     </dl>
@@ -39,7 +39,7 @@
     @Html.AntiForgeryToken()
 
     <div>
-        @Html.HiddenFor(model => model.CategoriaId)
+        @Html.HiddenFor(model => model.Id)
     </div>
 
     <div class="form-actions no-color">

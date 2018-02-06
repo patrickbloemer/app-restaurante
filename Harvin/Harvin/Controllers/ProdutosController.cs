@@ -18,21 +18,21 @@ namespace Harvin.Controllers
         // GET: Produtos-Categorias
         public ActionResult Index()
         {
-            var produtos = db.Produtos.Include(p => p.categoria);
+            var produtos = db.Produtos.Include(p => p.Categoria);
             return View(produtos.ToList());
         }
 
         // GET: Produtos-Lista
         public ActionResult Todos()
         {
-            var produtos = db.Produtos.Include(p => p.categoria);
+            var produtos = db.Produtos.Include(p => p.Categoria);
             return View(produtos.ToList());
         }
 
         // GET: Produtos-Lista
         public ActionResult Lista()
         {
-            var produtos = db.Produtos.Include(p => p.categoria);
+            var produtos = db.Produtos.Include(p => p.Categoria);
             return View(produtos.ToList());
         }
 
@@ -50,7 +50,7 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentarios, imagem")] Produto produto)
         {
-                produto.categoria = CategoriaDAO.BuscarCategoriaPorId(produto.categoriaId);
+                produto.Categoria = CategoriaDAO.BuscarCategoriaPorId(produto.Categoria.Id);
                 if (ProdutoDAO.CadastrarProduto(produto))
                 {
                     return RedirectToAction("Index");
@@ -70,7 +70,7 @@ namespace Harvin.Controllers
 
             
 
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -86,7 +86,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -99,18 +99,18 @@ namespace Harvin.Controllers
         {
             if (ModelState.IsValid)
             {
-                Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
-                string nomeProdutoCadastrado = aux.nome;
-                aux.nome = produto.nome;
-                aux.valorUnitario = produto.valorUnitario;
-                aux.quantidadeMinimaEstoque = produto.quantidadeMinimaEstoque;
-                aux.quantidadeMaximaEstoque = produto.quantidadeMaximaEstoque;
-                aux.quantidadeAtualEstoque = produto.quantidadeAtualEstoque;
-                aux.descricao = produto.descricao;
-                aux.estocavel = produto.estocavel;
-                aux.categoriaId = produto.categoriaId;
-                aux.comentarios = produto.comentarios;
-                aux.imagem = produto.imagem;
+                Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.Id);
+                string nomeProdutoCadastrado = aux.Nome;
+                aux.Nome = produto.Nome;
+                aux.ValorUnitario = produto.ValorUnitario;
+                aux.QuantidadeMinimaEstoque = produto.QuantidadeMinimaEstoque;
+                aux.QuantidadeMaximaEstoque = produto.QuantidadeMaximaEstoque;
+                aux.QuantidadeAtualEstoque = produto.QuantidadeAtualEstoque;
+                aux.Descricao = produto.Descricao;
+                aux.Estocavel = produto.Estocavel;
+                aux.Categoria.Id = produto.Categoria.Id;
+                aux.Comentarios = produto.Comentarios;
+                aux.Imagem = produto.Imagem;
 
                 if (ProdutoDAO.AlterandoProduto(aux, nomeProdutoCadastrado))
                 {
@@ -131,7 +131,7 @@ namespace Harvin.Controllers
 
 
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -143,8 +143,6 @@ namespace Harvin.Controllers
         //    }
         //    base.Dispose(disposing);
         //}
-
-
 
         //INATIVAR PRODUTO
         // GET: Produtos/Inativar
@@ -159,7 +157,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -170,8 +168,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Inativar([Bind(Include = "id, comentarios")] Produto produto)
         {
-            Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
-            aux.inativo = true;
+            Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.Id);
+            aux.Inativo = true;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Lista");
@@ -190,7 +188,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.categoriaId);
+            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -201,8 +199,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Ativar([Bind(Include = "id, comentarios")] Produto produto)
         {
-            Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.id);
-            aux.inativo = false;
+            Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.Id);
+            aux.Inativo = false;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Todos");

@@ -92,8 +92,8 @@ namespace Harvin.Controllers
         public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao,imagem")] Categoria categoria)
         {
                 Categoria aux = new Categoria();
-                aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
-                if(CategoriaDAO.BuscarCategoriaPorNome(categoria) == null || aux.nome == categoria.nome)
+                aux = CategoriaDAO.BuscarCategoriaPorId(categoria.Id);
+                if(CategoriaDAO.BuscarCategoriaPorNome(categoria) == null || aux.Nome == categoria.Nome)
                 {
                     db.Entry(categoria).State = EntityState.Modified;
                     db.SaveChanges();
@@ -163,7 +163,7 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Inativar([Bind(Include = "CategoriaId")] Categoria categoria) {
 
-            Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
+            Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.Id);
 
             if (CategoriaDAO.VerificaSeExisteProdutosEmCategoria(aux))
             {
@@ -171,7 +171,7 @@ namespace Harvin.Controllers
             }
             else
             {
-                aux.inativo = true;
+                aux.Inativo = true;
                 db.Entry(aux).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -205,8 +205,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Ativar([Bind(Include = "CategoriaId")] Categoria categoria)
         {
-            Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.CategoriaId);
-            aux.inativo = false;
+            Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.Id);
+            aux.Inativo = false;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Todos");

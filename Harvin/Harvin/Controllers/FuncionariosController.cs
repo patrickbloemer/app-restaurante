@@ -18,14 +18,14 @@ namespace Harvin.Controllers
         // GET: Funcionarios
         public ActionResult Index()
         {
-            var funcionarios = db.Funcionarios.Include(f => f.cargo);
+            var funcionarios = db.Funcionarios.Include(f => f.Cargo);
             return View(funcionarios.ToList());
         }
 
         // GET: Funcionarios/Todos
         public ActionResult Todos()
         {
-            var funcionarios = db.Funcionarios.Include(f => f.cargo);
+            var funcionarios = db.Funcionarios.Include(f => f.Cargo);
             return View(funcionarios.ToList());
         }
 
@@ -85,7 +85,7 @@ namespace Harvin.Controllers
 
             }
 
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);
+            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.Cargo.Id);
             return View(funcionario);
         }
 
@@ -101,7 +101,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);
+            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.Cargo.Id);
             return View(funcionario);
         }
 
@@ -118,7 +118,7 @@ namespace Harvin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.cargoId);
+            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.Cargo.Id);
             return View(funcionario);
         }
 
@@ -234,8 +234,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Inativar([Bind(Include = "id")] Funcionario funcionario)
         {
-            Funcionario aux = db.Funcionarios.Find(funcionario.id);
-            aux.inativo = true;
+            Funcionario aux = db.Funcionarios.Find(funcionario.Id);
+            aux.Inativo = true;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -264,8 +264,8 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Ativar([Bind(Include = "id")] Funcionario funcionario)
         {
-            Funcionario aux = db.Funcionarios.Find(funcionario.id);
-            aux.inativo = false;
+            Funcionario aux = db.Funcionarios.Find(funcionario.Id);
+            aux.Inativo = false;
             db.Entry(aux).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");

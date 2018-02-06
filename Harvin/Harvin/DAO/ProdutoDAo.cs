@@ -19,7 +19,7 @@ namespace Harvin.DAO
         // Busca Produto por Nome
         public static Produto BuscaProdutoPorNome(Produto produto)
         {
-            return entities.Produtos.FirstOrDefault(x => x.nome.Equals(produto.nome));
+            return entities.Produtos.FirstOrDefault(x => x.Nome.Equals(produto.Nome));
         }
 
         // Busca Produto por Id
@@ -56,17 +56,17 @@ namespace Harvin.DAO
         {
             try
             {
-                if((BuscaProdutoPorNome(produto) == null || produto.nome == nome) && !VerificacaoDeQtdeAtualEQtdeMax(produto))
+                if ((BuscaProdutoPorNome(produto) == null || produto.Nome == nome) && !VerificacaoDeQtdeAtualEQtdeMax(produto))
                 {
                     entities.Entry(produto).State = System.Data.Entity.EntityState.Modified;
                     entities.SaveChanges();
                     return true;
-                } 
+                }
                 else
                 {
                     return false;
                 }
-                
+
             }
             catch (Exception)
             {
@@ -79,7 +79,7 @@ namespace Harvin.DAO
         {
             try
             {
-                if (produto.quantidadeAtualEstoque > produto.quantidadeMaximaEstoque)
+                if (produto.QuantidadeAtualEstoque > produto.QuantidadeMaximaEstoque)
                 {
                     return true;
                 }
@@ -102,7 +102,7 @@ namespace Harvin.DAO
             {
                 float porcentagem;
 
-                porcentagem = (produto.quantidadeAtualEstoque * 100) / produto.quantidadeMaximaEstoque;
+                porcentagem = (produto.QuantidadeAtualEstoque * 100) / produto.QuantidadeMaximaEstoque;
 
                 return porcentagem;
             }
@@ -111,8 +111,5 @@ namespace Harvin.DAO
                 return 0;
             }
         }
-
-        
-
     }
 }

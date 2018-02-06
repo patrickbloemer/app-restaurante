@@ -15,21 +15,21 @@
                 <hr />
             </div>
 
-            <!--NOME-->
+            <!--Nome-->
             <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.nome, new { @class = "validate" })
+                @Html.EditorFor(model => model.Nome, new { @class = "validate" })
                 <label for="icon_prefix">Nome</label>
             </div>
 
-            <!--IMAGEM URL-->
+            <!--Imagem URL-->
             <div class="input-field col s12 m6">
-                @Html.EditorFor(model => model.imagem, new { @class = "materialize-textarea" })
+                @Html.EditorFor(model => model.Imagem, new { @class = "materialize-textarea" })
                 <label for="icon_prefix">Imagem</label>
             </div>
 
             <!--DESCRIÇÃO-->
             <div class="input-field col s12">
-                @Html.TextAreaFor(model => model.descricao, new { @class = "materialize-textarea" })
+                @Html.TextAreaFor(model => model.Descricao, new { @class = "materialize-textarea" })
                 <label for="icon_prefix">Descrição</label>
             </div>
 

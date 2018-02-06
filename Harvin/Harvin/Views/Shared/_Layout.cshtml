@@ -4,7 +4,7 @@
     if (logado == null) {
         Response.Redirect("~/Funcionarios/Login");
     }else {
-        funcionario = logado.funcionario;
+        funcionario = logado.Funcionario;
     }
 }
 
@@ -25,7 +25,7 @@
 <body>
         <!--DROPDOWNS DO MENU PARA COMPUTADORES-->
         <!--FUNCIONÁRIOS-->
-        <ul id="funcionarios" class="dropdown-content" style="width: 150px!important;">
+        <ul Id="funcionarios" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Funcionarios")"><i class="material-icons">add</i>Novo</a></li>
             <li><a href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">account_circle</i>Detalhes</a></li>
             <li><a href="@Url.Action("Todos", "Funcionarios")"><i class="material-icons">list</i>Todos</a></li>
@@ -33,7 +33,7 @@
         </ul>
 
         <!--PRODUTOS-->
-        <ul id="produtos" class="dropdown-content" style="width: 150px!important;">
+        <ul Id="produtos" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Produtos")"><i class="material-icons">add</i>Novo</a></li>
             <li><a href="@Url.Action("Index", "Produtos")"><i class="material-icons">local_pizza</i>Detalhes</a></li>
             <li><a href="@Url.Action("Lista", "Produtos")"><i class="material-icons">list</i>Lista</a></li>
@@ -42,32 +42,32 @@
         </ul>
 
         <!--PEDIDOS-->
-        <ul id="pedidos" class="dropdown-content" style="width: 150px!important;">
+        <ul Id="pedidos" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Pedidos")"><i class="material-icons">add</i>Novo</a></li>
             <li><a href="@Url.Action("Index", "Pedidos")"><i class="material-icons">restaurant_menu</i>Abertos</a></li>
             <li><a href="@Url.Action("Todos", "Pedidos")"><i class="material-icons">list</i>Lista</a></li>
         </ul>
 
         <!--USUARIOS-->
-        <ul id="usuario" class="dropdown-content" style="width: 150px!important;">
+        <ul Id="usuario" class="dropdown-content" style="width: 150px!important;">
             <li><a href="@Url.Action("Create", "Pedidos")"><i class="material-icons">settings</i>Editar</a></li>
             <li><a href="@Url.Action("Index", "Pedidos")"><i class="material-icons">info</i>Infos</a></li>
             <li style="background-color: darkred;"><a href="@Url.Action("Todos", "Pedidos")"><i class="material-icons">highlight_off</i>Sair</a></li>
         </ul>
 
         <!--FUNCIONÁRIOS MENU SIDEBAR-->
-        <ul id="slide-out" class="side-nav">
+        <ul Id="slide-out" class="side-nav">
             <li>
                 <div class="user-view">
                     <div class="background">
                         <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
                     </div>
-                    <img class="circle" src="@funcionario.imagem">
-                    <span class="white-text name">@funcionario.nome @funcionario.sobrenome</span>
-                    <span class="white-text email">@funcionario.email</span>
+                    <img class="circle" src="@funcionario.Imagem">
+                    <span class="white-text name">@funcionario.Nome @funcionario.Sobrenome</span>
+                    <span class="white-text Email">@funcionario.Email</span>
                 </div>
             </li>
-            <li><a href="@Url.Action("Edit", "Funcionarios", new { id=funcionario.id})"><i class="material-icons">settings</i>Editar</a></li>
+            <li><a href="@Url.Action("Edit", "Funcionarios", new { Id=funcionario.Id})"><i class="material-icons">settings</i>Editar</a></li>
             <li><div class="divider"></div></li>
             <li><a class="subheader">Opções</a></li>
             <li class="red darken-4"><a class="waves-effect white-text" href="@Url.Action("Logoff", "Funcionarios")"><i class="material-icons white-text">forward</i>Sair</a></li>
@@ -84,19 +84,19 @@
                     <li><a class="dropdown-button opcaomenu" href="#!" data-activates="produtos">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="dropdown-button opcaomenu" href="#!" data-activates="funcionarios">Funcionários<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a class="opcaomenu" href="@Url.Action("Create", "Reservas")">Reservas<i class="material-icons right">store_mall_directory</i></a></li>
-                    <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>@funcionario.nome</a></li>
+                    <li><a class="button-collapse button-collapse-funcionario" href="#!" data-activates="slide-out"><i class="material-icons left">account_circle</i>@funcionario.Nome</a></li>
 
                 </ul>
-                <ul class="side-nav" id="mobile-demo">
+                <ul class="side-nav" Id="mobile-demo">
                     <!--Mobile navbar-->
                     <li>
                         <div class="user-view">
                             <div class="background">
                                 <img src="https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Wood-Background.jpg" />
                             </div>
-                            <img class="circle" src="@funcionario.imagem">
-                            <span class="white-text name">@funcionario.nome @funcionario.sobrenome</span>
-                            <span class="white-text email">@funcionario.email</span>
+                            <img class="circle" src="@funcionario.Imagem">
+                            <span class="white-text name">@funcionario.Nome @funcionario.Sobrenome</span>
+                            <span class="white-text Email">@funcionario.Email</span>
                         </div>
                     </li>
                     <!--RESERVA-->

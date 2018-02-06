@@ -13,40 +13,40 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nome)
+            @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sobrenome)
+            @Html.DisplayNameFor(model => model.Sobrenome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cpf)
+            @Html.DisplayNameFor(model => model.Cpf)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dataDeNascimento)
+            @Html.DisplayNameFor(model => model.DataDeNascimento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.telefone)
+            @Html.DisplayNameFor(model => model.Telefone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.senha)
+            @Html.DisplayNameFor(model => model.Senha)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cep)
+            @Html.DisplayNameFor(model => model.Cep)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.endereco)
+            @Html.DisplayNameFor(model => model.Endereco)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.complemento)
+            @Html.DisplayNameFor(model => model.Complemento)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.bairro)
+            @Html.DisplayNameFor(model => model.Bairro)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cidade)
+            @Html.DisplayNameFor(model => model.Cidade)
         </th>
         <th></th>
     </tr>
@@ -54,45 +54,45 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.nome)
+            @Html.DisplayFor(modelItem => item.Nome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.sobrenome)
+            @Html.DisplayFor(modelItem => item.Sobrenome)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cpf)
+            @Html.DisplayFor(modelItem => item.Cpf)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.dataDeNascimento)
+            @Html.DisplayFor(modelItem => item.DataDeNascimento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.telefone)
+            @Html.DisplayFor(modelItem => item.Telefone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.senha)
+            @Html.DisplayFor(modelItem => item.Senha)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cep)
+            @Html.DisplayFor(modelItem => item.Cep)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.endereco)
+            @Html.DisplayFor(modelItem => item.Endereco)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.complemento)
+            @Html.DisplayFor(modelItem => item.Complemento)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.bairro)
+            @Html.DisplayFor(modelItem => item.Bairro)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cidade)
+            @Html.DisplayFor(modelItem => item.Cidade)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.id }) |
-            @Html.ActionLink("Inativar", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { Id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { Id=item.Id }) |
+            @Html.ActionLink("Inativar", "Delete", new { Id=item.Id })
         </td>
     </tr>
 }

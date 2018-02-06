@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Harvin.Models {
-    [Table("Clientes")]
-    public class Cliente : Pessoa{
-
+namespace Harvin.Models
+{
+    [Table("Cliente")]
+    public class Cliente : Pessoa
+    {
     }
 }

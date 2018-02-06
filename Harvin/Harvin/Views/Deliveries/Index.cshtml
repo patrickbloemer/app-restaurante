@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Pagamento)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.pedidoId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.pedidoId }) |
-            @Html.ActionLink("Finalizar", "Delete", new { id=item.pedidoId })
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Finalizar", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

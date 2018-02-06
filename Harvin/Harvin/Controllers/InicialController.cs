@@ -21,9 +21,5 @@ namespace Harvin.Controllers
         public ActionResult AcessoNegado() {
             return View();
         }
-
-
     }
-
-
 }

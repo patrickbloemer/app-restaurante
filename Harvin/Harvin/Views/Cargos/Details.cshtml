@@ -7,20 +7,20 @@
 
 }
 <div>
-    <h4>@Html.DisplayFor(model => model.nome)</h4>
+    <h4>@Html.DisplayFor(model => model.Nome)</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nome)
+            @Html.DisplayNameFor(model => model.Nome)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.nome)
+            @Html.DisplayFor(model => model.Nome)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.descricao)
+            @Html.DisplayNameFor(model => model.Descricao)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.descricao)
+            @Html.DisplayFor(model => model.Descricao)
         </dd>
     </dl>
 </div>
@@ -44,11 +44,11 @@
             <tr>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.nome)
+                    @Html.DisplayFor(modelItem => item.Nome)
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.cpf)
+                    @Html.DisplayFor(modelItem => item.Cpf)
                 </td>
 
             </tr>
@@ -57,7 +57,7 @@
 }
 <hr />
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.cargoId }, new { @class = "btn green" }) |
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn green" }) |
     @Html.ActionLink("Retornar para Lista", "Index", "", new { @class = "btn orange" })
 </p>
 <div class="fixed-action-btn">

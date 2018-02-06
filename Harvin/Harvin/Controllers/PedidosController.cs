@@ -66,33 +66,33 @@ namespace Harvin.Controllers
                 var pedido = new Pedido(DateTime.Now, funcionario, mesa);
 
                 //INSERT PEDIDO
-                pedido.pedidoId = ConnectionFactory.Query<int>(@"
+                pedido.Id = ConnectionFactory.Query<int>(@"
                     INSERT INTO PEDIDOS 
                     (horarioPedido, pendencia, pagamento, funcionario_id, mesaId)
                     OUTPUT INSERTED.[pedidoId] 
                     VALUES (@horario, @pendencia, @pagamento, @funcionario_id, @mesaId)",
                 new
                 {
-                    horario = pedido.horarioPedido,
-                    pendencia = pedido.pendencia,
-                    pagamento = pedido.pagamento,
-                    funcionario_id = pedido.funcionario.id,
-                    mesaId = pedido.mesaId
+                    horario = pedido.HorarioPedido,
+                    pendencia = pedido.Pendencia,
+                    pagamento = pedido.Pagamento,
+                    funcionario_id = pedido.Funcionario.Id,
+                    mesaId = pedido.Mesa.Id
                 }).FirstOrDefault();
 
                 //INSERT ITEM PARA CADA ITEM NO ARRAY COM O PEDIDO ID RECÉM INSERTADO
                 foreach (var item in itens)
                 {
-                    item.pedido = new Pedido();
-                    item.pedido = pedido;
+                    item.Pedido = new Pedido();
+                    item.Pedido = pedido;
 
                     ConnectionFactory.Execute(@"
                         INSERT INTO ITENS VALUES (@quantidade, @produto_id, @Pedido_pedidoId)",
                     new
                     {
-                        quantidade = item.quantidade,
-                        produto_id = item.produto.id,
-                        Pedido_pedidoId = item.pedido.pedidoId
+                        quantidade = item.Quantidade,
+                        produto_id = item.Produto.Id,
+                        Pedido_pedidoId = item.Pedido.Id
                     });
 
                 }
@@ -103,14 +103,6 @@ namespace Harvin.Controllers
             {
                 return new ApiRetorno(false).ToJson();
             }
-            #region [OLD]
-            //Item item = new Item();
-            //item.produto = db.Produtos.Find(produto.id);
-            //item.quantidade = quantidade;
-            //db.Itens.Add(item);
-            //db.SaveChanges();
-            //PedidosDAO.AdicionaProduto(item);
-            #endregion
         }
 
         // GET: Pedidos/Edit/5
@@ -196,8 +188,8 @@ namespace Harvin.Controllers
         public ActionResult Fazerpedido([Bind(Include = "id")] Produto produto, int quantidade)
         {
             Item item = new Item();
-            item.produto = db.Produtos.Find(produto.id);
-            item.quantidade = quantidade;
+            item.Produto = db.Produtos.Find(produto.Id);
+            item.Quantidade = quantidade;
             db.Itens.Add(item);
             db.SaveChanges();
             PedidosDAO.AdicionaProduto(item);

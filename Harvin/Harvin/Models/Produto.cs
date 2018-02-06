@@ -1,61 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
-namespace Harvin.Models {
-    [Table("Produtos")]
-    public class Produto {
-
+namespace Harvin.Models
+{
+    [Table("Produto")]
+    public class Produto
+    {
         [Key]
-        public int id { get; set; }
-        
+        public int Id { get; set; }
+
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
 
         [Display(Name = "Valor Unitário")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public double valorUnitario { get; set; }
+        public double ValorUnitario { get; set; }
 
         [Display(Name = "Quantidade Mínima em Estoque")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public int quantidadeMinimaEstoque { get; set; }
+        public int QuantidadeMinimaEstoque { get; set; }
 
         [Display(Name = "Quantidade Máxima em Estoque")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public int quantidadeMaximaEstoque { get; set; }
+        public int QuantidadeMaximaEstoque { get; set; }
 
         [Display(Name = "Quantidade Atual em Estoque")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public int quantidadeAtualEstoque { get; set; }
+        public int QuantidadeAtualEstoque { get; set; }
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public string descricao { get; set; }
+        public string Descricao { get; set; }
 
         [Display(Name = "Estocável")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public bool estocavel { get; set; }
+        public bool Estocavel { get; set; }
 
-        [Display(Name = "Categoria")]
-        [Required(ErrorMessage = "Campo Obrigatório!")]
-        public int categoriaId { get; set; }
-
-        public Categoria categoria { get; set; }
+        public Categoria Categoria { get; set; }
 
         [Required(ErrorMessage = "Campo Obrigatório!")]
         [Display(Name = "Link Imagem")]
-        public string imagem { get; set; }
+        public string Imagem { get; set; }
 
         [Display(Name = "Comentários")]
         [Required(ErrorMessage = "Campo Obrigatório!")]
-        public string comentarios { get; set; }
+        public string Comentarios { get; set; }
 
         [Display(Name = "Inativo")]
-        public bool inativo { get; set; }
-
+        public bool Inativo { get; set; }
     }
 }

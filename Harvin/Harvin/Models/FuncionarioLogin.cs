@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
-namespace Harvin.Models {
-    [Table("FuncionarioLogins")]
-    public class FuncionarioLogin {
+namespace Harvin.Models
+{
+    [Table("FuncionarioLogin")]
+    public class FuncionarioLogin
+    {
         [Key]
-        public int funcionarioLoginId { get; set; }
-        public Funcionario funcionario { get; set; }
+        public int Id { get; set; }
+
+        public Funcionario Funcionario { get; set; }
 
         [Display(Name = "Horário Login")]
-        public DateTime dataHorarioLogin { get; set; }
-        public string sessao { get; set; }
+        public DateTime DataHorarioLogin { get; set; }
+
+        public string Sessao { get; set; }
     }
 }

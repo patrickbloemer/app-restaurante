@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Harvin.Models;
+﻿using Harvin.Models;
 
 namespace Harvin.DAO
 {
     internal class Singleton
     {
-
         private static readonly Singleton instance = new Singleton();
         private readonly Entities entities;
 

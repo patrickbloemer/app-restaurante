@@ -12,9 +12,9 @@ namespace Harvin.DAO {
         public static bool AdicionarFuncionario(Funcionario funcionario) {
             try {
                 FuncionarioLogin login = new FuncionarioLogin();
-                login.funcionario = funcionario;
-                login.dataHorarioLogin = DateTime.Now;
-                login.sessao = RetornarIdSessao();
+                login.Funcionario = funcionario;
+                login.DataHorarioLogin = DateTime.Now;
+                login.Sessao = RetornarIdSessao();
                 entities.FuncionarioLogin.Add(login);
                 entities.SaveChanges();
                 return true;
@@ -28,7 +28,7 @@ namespace Harvin.DAO {
         public static FuncionarioLogin RetornarFuncionarioLogado() {
             try {
                 string sessao = RetornarIdSessao();
-                return entities.FuncionarioLogin.FirstOrDefault(x => x.sessao == sessao);
+                return entities.FuncionarioLogin.FirstOrDefault(x => x.Sessao == sessao);
             }
             catch (Exception e) {
                 return null;
@@ -48,7 +48,7 @@ namespace Harvin.DAO {
         //Verifica Login
         public static Funcionario VerificaLogin(Funcionario funcionario) {
             try {
-                return entities.Funcionarios.FirstOrDefault(x => x.cpf.Equals(funcionario.cpf) && x.senha.Equals(funcionario.senha));
+                return entities.Funcionarios.FirstOrDefault(x => x.Cpf.Equals(funcionario.Cpf) && x.Senha.Equals(funcionario.Senha));
             }
             catch (Exception e) {
                 return null;

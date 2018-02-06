@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.horarioPedido)
+            @Html.DisplayNameFor(model => model.HorarioPedido)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.horarioEntrega)
+            @Html.DisplayNameFor(model => model.HorarioEntrega)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pendencia)
+            @Html.DisplayNameFor(model => model.Pendencia)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pagamento)
+            @Html.DisplayNameFor(model => model.Pagamento)
         </th>
         <th></th>
     </tr>
@@ -30,28 +30,28 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.horarioPedido)
+                @Html.DisplayFor(modelItem => item.HorarioPedido)
             </td>
             <td>
-                @if (item.horarioEntrega == DateTime.Parse("01/01/1900 00:00:00"))
+                @if (item.HorarioEntrega == DateTime.Parse("01/01/1900 00:00:00"))
                 {
                 <span>PENDENTE</span>
                 }
                 else
                 {
-                    @Html.DisplayFor(modelItem => item.horarioEntrega)
+                    @Html.DisplayFor(modelItem => item.HorarioEntrega)
                 }
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pendencia)
+                @Html.DisplayFor(modelItem => item.Pendencia)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pagamento)
+                @Html.DisplayFor(modelItem => item.Pagamento)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.pedidoId }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.pedidoId }) |
-                @Html.ActionLink("Finalizar", "Delete", new { id = item.pedidoId })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Finalizar", "Delete", new { id = item.Id })
             </td>
         </tr>
     }

@@ -7,13 +7,13 @@ namespace Harvin.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class adicionadoMesaIdnoPedido : IMigrationMetadata
+    public sealed partial class PrimeiroDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(adicionadoMesaIdnoPedido));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PrimeiroDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802042038237_adicionado MesaId no Pedido"; }
+            get { return "201802062341288_Primeiro DB"; }
         }
         
         string IMigrationMetadata.Source

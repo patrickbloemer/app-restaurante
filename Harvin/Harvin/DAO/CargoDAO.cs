@@ -19,7 +19,7 @@ namespace Harvin.DAO
         // Buscar Cargo Por Nome
         public static Cargo BurcarCargoPorNome(Cargo cargo)
         {
-            return entities.Cargos.FirstOrDefault(x => x.nome.Equals(cargo.nome));
+            return entities.Cargos.FirstOrDefault(x => x.Nome.Equals(cargo.Nome));
         }
 
         // Busca Cargo por ID
@@ -45,7 +45,7 @@ namespace Harvin.DAO
             List<Funcionario> funcionarios = FuncionarioDAO.RetornaFuncionarios();
             foreach (var item in funcionarios)
             {
-                if(item.cargoId == cargo.cargoId)
+                if(item.Cargo.Id == cargo.Id)
                 {
                     return true;
                 }
@@ -62,7 +62,7 @@ namespace Harvin.DAO
 
             foreach (var item in TodosFuncionarios)
             {
-                if(item.cargoId == cargo.cargoId)
+                if(item.Cargo.Id == cargo.Id)
                 {
                     funcionarios.Add(item);
                 }

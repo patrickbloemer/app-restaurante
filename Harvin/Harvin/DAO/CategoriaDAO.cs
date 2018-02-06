@@ -21,7 +21,7 @@ namespace Harvin.DAO {
         // Busca Categoria Por Nome
         public static Categoria BuscarCategoriaPorNome(Categoria categoria)
         {
-            return entities.Categorias.FirstOrDefault(x => x.nome.Equals(categoria.nome));
+            return entities.Categorias.FirstOrDefault(x => x.Nome.Equals(categoria.Nome));
         }
 
         // Busca Categoria por Id
@@ -36,7 +36,7 @@ namespace Harvin.DAO {
             List<Produto> produtos = ProdutoDAO.RetornaProdutos();
             foreach (var item in produtos)
             {
-                if (item.categoriaId == categoria.CategoriaId)
+                if (item.Categoria.Id == categoria.Id)
                 {
                     return true;
                 }

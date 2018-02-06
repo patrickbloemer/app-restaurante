@@ -8,7 +8,7 @@
     float mediaEstoque = 0;
 }
 
-<p>Produtos cadastrados no sistema, divididos por categorias (com o percentual de estoque).</p>
+<p>Produtos cadastrados no sistema, divIdIdos por categorias (com o percentual de estoque).</p>
 <!--INICIO DAS COLLAPSABLES DE CATEGORIAS QUE CONTÉM OS SEUS RESPECTIVOS PRODUTOS-->
 <ul class="collapsible" data-collapsible="accordion">
     @foreach (var categorias in ListaCategorias) {
@@ -16,7 +16,7 @@
         int totalProdutos = 0;
         <li>
             @foreach (var produto in Model) {
-                if (produto.categoriaId.Equals(categorias.CategoriaId) && !produto.inativo) {
+                if (produto.Categoria.Id.Equals(categorias.Id) && !produto.Inativo) {
                     totalProdutos++;
                     mediaEstoque = mediaEstoque + Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto);
                 }
@@ -26,7 +26,7 @@
                 mediaEstoque = mediaEstoque / totalProdutos;
             }
 
-            <div class="collapsible-header"><img src="@categorias.imagem" />@categorias.nome
+            <div class="collapsible-header"><img src="@categorias.Imagem" />@categorias.Nome
                 @if (mediaEstoque > 70) {
                     <span class="badge">@totalProdutos produto(s)<br />Estoque: <b class="green-text">@mediaEstoque%</b></span>
                 } else if (mediaEstoque > 40) {
@@ -38,77 +38,77 @@
             <div class="collapsible-body">
                 <div class="row">
                     @foreach (var produto in Model) {
-                        if (produto.categoriaId.Equals(categorias.CategoriaId) && !produto.inativo) {
+                        if (produto.Categoria.Id.Equals(categorias.Id) && !produto.Inativo) {
                             <div class="col s6 m4 l3">
 
                                 <!--PRODUTO MOSTRADO COMO UM CART DENTRO DA COLLAPSABLE DA CATEGORIA-->
                                 <div class="card z-depth-3">
                                     <div class="card-image waves-effect waves-block waves-light">
-                                        <img class="activator" src="@produto.imagem">
+                                        <img class="activator" src="@produto.Imagem">
                                     </div>
                                     <div class="card-content">
-                                        <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => produto.nome)</span>
+                                        <span class="card-title activator white-text text-darken-4">@Html.DisplayFor(modelItem => produto.Nome)</span>
                                     </div>
                                     <div class="card-reveal">
                                         <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
                                         <b>Produto</b>
                                         <br />
-                                        @Html.DisplayFor(modelItem => produto.nome)
+                                        @Html.DisplayFor(modelItem => produto.Nome)
                                         <br />
                                         <br />
                                         <b>Valor</b>
                                         <br />
-                                        @produto.valorUnitario.ToString("C2")
+                                        @produto.ValorUnitario.ToString("C2")
                                         <br />
                                         <br />
-                                        <b>Quantidade Atual</b>
+                                        <b>QuantIdade Atual</b>
                                         <br />
-                                        @Html.DisplayFor(modelItem => produto.quantidadeAtualEstoque)
-                                        <br />
-                                        <br />
-                                        <b>Quantidade Mínima</b>
-                                        <br />
-                                        @Html.DisplayFor(modelItem => produto.quantidadeMinimaEstoque)
+                                        @Html.DisplayFor(modelItem => produto.QuantidadeAtualEstoque)
                                         <br />
                                         <br />
-                                        <b>Quantidade Máxima</b>
+                                        <b>QuantIdade Mínima</b>
                                         <br />
-                                        @Html.DisplayFor(modelItem => produto.quantidadeMaximaEstoque)
+                                        @Html.DisplayFor(modelItem => produto.QuantidadeMinimaEstoque)
+                                        <br />
+                                        <br />
+                                        <b>QuantIdade Máxima</b>
+                                        <br />
+                                        @Html.DisplayFor(modelItem => produto.QuantidadeMaximaEstoque)
                                         <br />
                                         <br />
                                         <b>Situação do Estoque</b>
                                         <!--CALCULA PORCENTAGEM DO ESTOQUE-->
-                                        @if (produto.quantidadeAtualEstoque == produto.quantidadeMaximaEstoque) {
+                                        @if (produto.QuantidadeAtualEstoque == produto.QuantidadeMaximaEstoque) {
                                             <p class="green-text"><b>COMPLETO</b></p>
                                             <p>@Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%</p>
                                             <div class="progress">
-                                                <div class="determinate green" style="width: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
+                                                <div class="determinate green" style="wIdth: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
                                             </div>
-                                        } else if (produto.quantidadeAtualEstoque > produto.quantidadeMinimaEstoque) {
+                                        } else if (produto.QuantidadeAtualEstoque > produto.QuantidadeMinimaEstoque) {
                                             <p class="green-text"><b>BOM</b></p>
                                             <p>@Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%</p>
                                             <div class="progress">
-                                                <div class="determinate green" style="width: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
+                                                <div class="determinate green" style="wIdth: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
                                             </div>
                                         } else {
                                             <p class="red-text"><b>CRÍTICO</b></p>
                                             <p>@Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%</p>
                                             <div class="progress">
-                                                <div class="determinate red" style="width: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
+                                                <div class="determinate red" style="wIdth: @Harvin.DAO.ProdutoDAO.VerificaSituacaoEstoque(produto)%"></div>
                                             </div>
                                         }
                                         <br />
                                         <b>Descrição</b>
                                         <br />
-                                        @Html.DisplayFor(modelItem => produto.descricao)
+                                        @Html.DisplayFor(modelItem => produto.Descricao)
                                         <br />
                                         <br />
                                         <b>Comentários</b>
                                         <br />
-                                        @Html.DisplayFor(modelItem => produto.comentarios)
+                                        @Html.DisplayFor(modelItem => produto.Comentarios)
                                         <br /><br />
-                                        <a href="@Url.Action("Edit", new { id = produto.id })" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
-                                        <a href="@Url.Action("Delete", new { id = produto.id })" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                                        <a href="@Url.Action("Edit", new { Id = produto.Id })" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                                        <a href="@Url.Action("Delete", new { Id = produto.Id })" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
                                     </div>
                                 </div>
                             </div>
