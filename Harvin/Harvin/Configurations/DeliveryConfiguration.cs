@@ -13,7 +13,6 @@ namespace Harvin.Configurations
 
             HasRequired(p => p.FormaPagamento).WithMany().Map(m => m.MapKey("FormaPagamentoId"));
             HasRequired(p => p.Pedido).WithMany().Map(m => m.MapKey("PedidoId"));
-            HasRequired(p => p.Cliente).WithMany().Map(m => m.MapKey("ClienteId"));
             HasRequired(p => p.FuncionarioEntrega).WithMany().Map(m => m.MapKey("FuncionarioEntregaId"));
         }
     }

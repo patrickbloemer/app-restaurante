@@ -10,30 +10,20 @@ namespace Harvin.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Sistema Ativado")]
-        public bool SistemaAtivado { get; set; }
+        public bool AutorizarPedidos { get; set; }
 
-        [Display(Name = "Valor do Buffet")]
-        public double ValorBuffet { get; set; }
+        public bool AutorizarReservas { get; set; }
 
-        // Primeiro Horário
-        [Display(Name = "Primeiro Horário")]
         public bool PrimeiroHorario { get; set; }
 
-        [Display(Name = "Início do Primeiro Horário")]
         public DateTime PrimeiroHorarioInicio { get; set; }
 
-        [Display(Name = "Final do Primeiro Horário")]
         public DateTime PrimeiroHorarioFinal { get; set; }
 
-        // Segundo Horário
-        [Display(Name = "Segundo Horário")]
-        public bool SegundoHorario { get; set; }
+        public DateTime SegundoHorario { get; set; }
 
-        [Display(Name = "Início do Segundo Horário")]
         public DateTime SegundoHorarioInicio { get; set; }
 
-        [Display(Name = "Final do Segundo Horário")]
         public DateTime SegundoHorarioFinal { get; set; }
     }
 }

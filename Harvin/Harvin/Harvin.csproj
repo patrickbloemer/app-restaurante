@@ -170,6 +170,8 @@
     <Content Include="Content\style_login_funcionario.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="ScriptsSQL\CRIAÇÃO DAS TABELAS NOVAS - NOVISSIMA.sql" />
+    <Content Include="ScriptsSQL\CRIAÇÃO DAS TABELAS NOVAS.sql" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -206,6 +208,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Configurations\AdicionalConfiguration.cs" />
+    <Compile Include="Configurations\CargoConfiguration.cs" />
+    <Compile Include="Configurations\CategoriaConfiguration.cs" />
+    <Compile Include="Configurations\ClienteConfiguration.cs" />
+    <Compile Include="Configurations\ClienteLoginConfiguration.cs" />
+    <Compile Include="Configurations\ConfiguracaoConfiguration.cs" />
+    <Compile Include="Configurations\DeliveryConfiguration.cs" />
+    <Compile Include="Configurations\FormaPagamentoConfiguration.cs" />
+    <Compile Include="Configurations\FuncionarioConfiguration.cs" />
+    <Compile Include="Configurations\FuncionarioLoginConfiguration.cs" />
+    <Compile Include="Configurations\HistoricoDeAtividadeConfiguration.cs" />
+    <Compile Include="Configurations\ItemConfiguration.cs" />
+    <Compile Include="Configurations\ItemProdutoConfiguration.cs" />
+    <Compile Include="Configurations\MesaConfiguration.cs" />
+    <Compile Include="Configurations\PedidoConfiguration.cs" />
+    <Compile Include="Configurations\PessoaConfiguration.cs" />
+    <Compile Include="Configurations\ProdutoConfiguration.cs" />
+    <Compile Include="Configurations\PromocaoConfiguration.cs" />
+    <Compile Include="Configurations\ReservaConfiguration.cs" />
     <Compile Include="Controllers\CargosController.cs" />
     <Compile Include="Controllers\CategoriasController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
@@ -233,51 +254,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802042017077_pedidoId no item.cs" />
-    <Compile Include="Migrations\201802042017077_pedidoId no item.Designer.cs">
-      <DependentUpon>201802042017077_pedidoId no item.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042029143_data null.cs" />
-    <Compile Include="Migrations\201802042029143_data null.Designer.cs">
-      <DependentUpon>201802042029143_data null.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042030201_tirada da data entrega.cs" />
-    <Compile Include="Migrations\201802042030201_tirada da data entrega.Designer.cs">
-      <DependentUpon>201802042030201_tirada da data entrega.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042038237_adicionado MesaId no Pedido.cs" />
-    <Compile Include="Migrations\201802042038237_adicionado MesaId no Pedido.Designer.cs">
-      <DependentUpon>201802042038237_adicionado MesaId no Pedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042042115_MESA.cs" />
-    <Compile Include="Migrations\201802042042115_MESA.Designer.cs">
-      <DependentUpon>201802042042115_MESA.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042046478_sem itens no pedido.cs" />
-    <Compile Include="Migrations\201802042046478_sem itens no pedido.Designer.cs">
-      <DependentUpon>201802042046478_sem itens no pedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042126557_horario entrega.cs" />
-    <Compile Include="Migrations\201802042126557_horario entrega.Designer.cs">
-      <DependentUpon>201802042126557_horario entrega.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042137435_pedidos e clientes na mesa.cs" />
-    <Compile Include="Migrations\201802042137435_pedidos e clientes na mesa.Designer.cs">
-      <DependentUpon>201802042137435_pedidos e clientes na mesa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042138444_itens no pedido.cs" />
-    <Compile Include="Migrations\201802042138444_itens no pedido.Designer.cs">
-      <DependentUpon>201802042138444_itens no pedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042146032_mesa só com pedidos.cs" />
-    <Compile Include="Migrations\201802042146032_mesa só com pedidos.Designer.cs">
-      <DependentUpon>201802042146032_mesa só com pedidos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802042200349_asddas.cs" />
-    <Compile Include="Migrations\201802042200349_asddas.Designer.cs">
-      <DependentUpon>201802042200349_asddas.cs</DependentUpon>
+    <Compile Include="Migrations\201802101712067_harvin banco.cs" />
+    <Compile Include="Migrations\201802101712067_harvin banco.Designer.cs">
+      <DependentUpon>201802101712067_harvin banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Adicional.cs" />
     <Compile Include="Models\Cargo.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -289,11 +271,13 @@
     <Compile Include="Models\FuncionarioLogin.cs" />
     <Compile Include="Models\HistoricoDeAtividade.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemAdicional.cs" />
     <Compile Include="Models\Mesa.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Promocao.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -389,38 +373,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802042017077_pedidoId no item.resx">
-      <DependentUpon>201802042017077_pedidoId no item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042029143_data null.resx">
-      <DependentUpon>201802042029143_data null.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042030201_tirada da data entrega.resx">
-      <DependentUpon>201802042030201_tirada da data entrega.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042038237_adicionado MesaId no Pedido.resx">
-      <DependentUpon>201802042038237_adicionado MesaId no Pedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042042115_MESA.resx">
-      <DependentUpon>201802042042115_MESA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042046478_sem itens no pedido.resx">
-      <DependentUpon>201802042046478_sem itens no pedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042126557_horario entrega.resx">
-      <DependentUpon>201802042126557_horario entrega.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042137435_pedidos e clientes na mesa.resx">
-      <DependentUpon>201802042137435_pedidos e clientes na mesa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042138444_itens no pedido.resx">
-      <DependentUpon>201802042138444_itens no pedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042146032_mesa só com pedidos.resx">
-      <DependentUpon>201802042146032_mesa só com pedidos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802042200349_asddas.resx">
-      <DependentUpon>201802042200349_asddas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802101712067_harvin banco.resx">
+      <DependentUpon>201802101712067_harvin banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

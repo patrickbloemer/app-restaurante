@@ -11,25 +11,30 @@ namespace Harvin.Models
         [Display(Name = "Home")]
         public bool Home { get; set; }
 
-        [Display(Name = "Verificar Consumo")]
-        public bool VerificarConsumo { get; set; }
+        public bool Bi { get; set; }
 
-        [Display(Name = "Realizar Pedido")]
-        public bool RealizarPedido { get; set; }
-
-        [Display(Name = "Pedidos Pendentes")]
-        public bool PedidosPendentes { get; set; }
-
-        [Display(Name = "Clientes")]
-        public bool Clientes { get; set; }
-
-        [Display(Name = "Reservar Mesa")]
-        public bool ReservarMesa { get; set; }
-
-        [Display(Name = "Configurações")]
-        public bool Configuracoes { get; set; }
-
-        [Display(Name = "Relatórios")]
         public bool Relatorios { get; set; }
+
+        public bool ConsultarFuncionarios { get; set; }
+
+        public bool ManipularFuncionarios { get; set; }
+
+        public bool ManipularCargos { get; set; }
+
+        public bool ConsultarCargos { get; set; }
+
+        public bool ConsultarCategorias { get; set; }
+
+        public bool ManipularCategorias { get; set; }
+
+        public bool ManipularProdutos { get; set; }
+
+        public bool ConsultarPedidos { get; set; }
+
+        public bool ManipularPedidos { get; set; }
+
+        public bool ConsultarReservas { get; set; }
+
+        public bool ManipularReservas { get; set; }
     }
 }

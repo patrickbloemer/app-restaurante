@@ -63,7 +63,7 @@ namespace Harvin.Controllers
                          }).FirstOrDefault();
                 }
 
-                var pedido = new Pedido(DateTime.Now, funcionario, mesa);
+                var pedido = new Pedido(DateTime.Now, funcionario);
 
                 //INSERT PEDIDO
                 pedido.Id = ConnectionFactory.Query<int>(@"
@@ -77,7 +77,6 @@ namespace Harvin.Controllers
                     pendencia = pedido.Pendencia,
                     pagamento = pedido.Pagamento,
                     funcionario_id = pedido.Funcionario.Id,
-                    mesaId = pedido.Mesa.Id
                 }).FirstOrDefault();
 
                 //INSERT ITEM PARA CADA ITEM NO ARRAY COM O PEDIDO ID RECÉM INSERTADO

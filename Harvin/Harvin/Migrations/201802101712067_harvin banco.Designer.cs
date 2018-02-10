@@ -7,13 +7,13 @@ namespace Harvin.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class PrimeiroDB : IMigrationMetadata
+    public sealed partial class harvinbanco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PrimeiroDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(harvinbanco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802062341288_Primeiro DB"; }
+            get { return "201802101712067_harvin banco"; }
         }
         
         string IMigrationMetadata.Source

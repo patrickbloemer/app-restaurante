@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Harvin.Models
@@ -13,9 +12,5 @@ namespace Harvin.Models
         public int NumeroMesa { get; set; }
 
         public Pedido Pedido { get; set; }
-
-        public Cliente Cliente { get; set; }
-
-        //public virtual List<Pedido> Pedidos { get; set; }
     }
 }

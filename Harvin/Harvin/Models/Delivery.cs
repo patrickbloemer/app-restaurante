@@ -11,13 +11,12 @@ namespace Harvin.Models
 
         public Pedido Pedido { get; set; }
 
-        public Cliente Cliente { get; set; }
-
         public Funcionario FuncionarioEntrega { get; set; }
 
         public FormaPagamento FormaPagamento { get; set; }
 
-        [Display(Name = "Pagamento")]
-        public bool Pagamento { get; set; }
+        public bool Troco { get; set; }
+
+        public double TrocoValor { get; set; }
     }
 }

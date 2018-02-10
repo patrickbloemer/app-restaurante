@@ -109,7 +109,6 @@ namespace Harvin.Controllers
                 aux.Descricao = produto.Descricao;
                 aux.Estocavel = produto.Estocavel;
                 aux.Categoria.Id = produto.Categoria.Id;
-                aux.Comentarios = produto.Comentarios;
                 aux.Imagem = produto.Imagem;
 
                 if (ProdutoDAO.AlterandoProduto(aux, nomeProdutoCadastrado))
