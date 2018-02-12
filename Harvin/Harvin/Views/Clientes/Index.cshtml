@@ -1,100 +1,94 @@
 ﻿@model IEnumerable<Harvin.Models.Cliente>
-
 @{
     ViewBag.Title = "Clientes";
-    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
 }
+<p>Clientes Cadastrados no sistema. Clique em um cartão para ter acesso a suas respectivas informações</p>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (!item.Inativo)
+        {
+            <div class="col s6 m3">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@item.Imagem">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator white-text text-darken-4">@item.Nome @item.Sobrenome</span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
 
-<h2>Clientes</h2>
+                        <b>Nome Completo</b>
+                        <br />
+                        @item.Nome @item.Sobrenome
+                        <br />
+                        <br />
 
-<p>
-    @Html.ActionLink("Cadastrar Novo Cliente", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sobrenome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cpf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DataDeNascimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Senha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Endereco)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Complemento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cidade)
-        </th>
-        <th></th>
-    </tr>
+                        <b>CPF</b>
+                        <br />
+                        @item.Cpf
+                        <br />
+                        <br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sobrenome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cpf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataDeNascimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Senha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Endereco)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complemento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cidade)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { Id=item.Id }) |
-            @Html.ActionLink("Detalhes", "Details", new { Id=item.Id }) |
-            @Html.ActionLink("Inativar", "Delete", new { Id=item.Id })
-        </td>
-    </tr>
-}
+                        <b>Telefone</b>
+                        <br />
+                        @item.Telefone
+                        <br />
+                        <br />
 
-</table>
+                        <b>Data de Nascimento</b>
+                        <br />
+                        @item.DataDeNascimento
+                        <br />
+                        <br />
+
+                        <b>Endereço</b>
+                        <br />
+                        @item.Endereco
+                        <br />
+                        <br />
+
+                        <b>CEP</b>
+                        <br />
+                        @item.Cep
+                        <br />
+                        <br />
+
+                        <b>Bairro</b>
+                        <br />
+                        @item.Bairro
+                        <br />
+                        <br />
+
+                        <b>Cidade</b>
+                        <br />
+                        @item.Cidade
+                        <br />
+                        <br />
+
+                        <b>E-mail</b>
+                        <br />
+
+                        @item.Email
+                        <br />
+                        <br />
+
+                        <a href="@Url.Action("Edit", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Inativar", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cliente" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Todos" href="@Url.Action("Todos")"><i class="material-icons">do_not_disturb_off</i></a></li>
+    </ul>
+</div>

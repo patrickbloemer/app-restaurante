@@ -1,0 +1,153 @@
+﻿@model Harvin.Models.Cliente
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+
+<div class="cadastro">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+
+            <!--INFORMAÇÕES BÁSICAS-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Informações Básicas</p>
+                <hr />
+            </div>
+
+            <!--Nome-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Nome, new { @class = "valIdate" })
+                <label for="icon_prefix">Nome</label>
+            </div>
+
+            <!--Sobrenome-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Sobrenome, new { @class = "valIdate" })
+                <label for="icon_prefix">Sobrenome</label>
+            </div>
+
+            <!--Cpf-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Cpf, new { @class = "valIdate" })
+                <label for="icon_prefix">Cpf</label>
+            </div>
+
+            <!--Telefone-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Telefone, new { @class = "valIdate" })
+                <label for="icon_prefix">Telefone</label>
+            </div>
+
+            <!--Data de Nascimento-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.DataDeNascimento, new { @class = "valIdate" })
+                <label for="icon_prefix">Data de Nascimento</label>
+            </div>
+
+
+            <!--INFORMAÇÕES DE ENDREÇO-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Informações de Endereço</p>
+                <hr />
+            </div>
+
+            <!--Cep-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Cep, new { @class = "valIdate" })
+                <label for="icon_prefix">Cep</label>
+            </div>
+
+            <!--Endereço-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Endereco, new { @class = "valIdate" })
+                <label for="icon_prefix">Endereço</label>
+            </div>
+
+            <!--Complemento-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Complemento, new { @class = "valIdate" })
+                <label for="icon_prefix">Complemento</label>
+            </div>
+
+            <!--Bairro-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Bairro, new { @class = "valIdate" })
+                <label for="icon_prefix">Bairro</label>
+            </div>
+
+            <!--Cidade-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Cidade, new { @class = "valIdate" })
+                <label for="icon_prefix">Cidade</label>
+            </div>
+
+
+
+            <!--INFORMAÇÕES DE ACESSO-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Informações de Acesso</p>
+                <hr />
+            </div>
+
+            <!--E-Mail-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Email, new { @class = "valIdate" })
+                <label for="icon_prefix">E-Mail</label>
+            </div>
+
+            <!--Senha-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Senha, new { @class = "valIdate" })
+                <label for="icon_prefix">Senha</label>
+            </div>
+
+            <!--INFORMAÇÕES VISUAIS-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Informações Visuais</p>
+                <hr />
+            </div>
+
+            <!--LINK Imagem-->
+            <div class="input-field col s12">
+                @Html.EditorFor(model => model.Imagem, new { @class = "valIdate" })
+                <label for="icon_prefix">URL Imagem</label>
+            </div>
+
+            <!--FINALIZAR EDIÇÃO-->
+            <div class="col s12 form_block" style="margin-top: 50px;">
+                <p>Finalizar Edição</p>
+                <hr />
+            </div>
+
+            <!--EDITAR-->
+            <div class="input-field col s12" style="text-align: left;">
+                <input type="submit" value="Confirmar" class="btn green" />
+                <a href="@Url.Action("Logoff")" class="btn red">Cancelar</a>
+            </div>
+
+
+        </div>
+    }
+</div>
+
+<!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red modal-trigger pulse" href="#modal1">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div Id="modal1" class="modal" style="text-transform: none!important;">
+    <div class="modal-content">
+        <h5>Ajuda - Edição de Cliente</h5>
+        <p>Abaixo uma explicação de cada campo</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>

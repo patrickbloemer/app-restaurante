@@ -1,0 +1,139 @@
+﻿@model Harvin.Models.Cliente
+@{
+    ViewBag.Title = "Criar Conta";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - Harvin</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+    <link href="~/Content/materialize.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico" />
+</head>
+<body>
+    <!--BODY-->
+    <div class="cabecalho">
+        <h5>@ViewBag.Title</h5>
+        <hr>
+    </div>
+
+    <div class="cadastro">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <!--INFORMAÇÕES BÁSICAS-->
+                <div class="col s12 form_block" style="margin-top: 50px;">
+                    <p>Informações Básicas</p>
+                    <hr />
+                </div>
+                <!--NOME-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Nome, new { @class = "validate" })
+                    <label for="icon_prefix">Nome</label>
+                </div>
+                <!--SOBRENOME-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Sobrenome, new { @class = "validate" })
+                    <label for="icon_prefix">Sobrenome</label>
+                </div>
+                <!--CPF-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Cpf, new { @class = "validate" })
+                    <label for="icon_prefix">CPF</label>
+                </div>
+                <!--TELEFONE-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Telefone, new { @class = "validate" })
+                    <label for="icon_prefix">Telefone</label>
+                </div>
+                <!--Data de Nascimento-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.DataDeNascimento, new { @class = "validate" })
+                    <label>Data de Nascimento</label>
+                </div>
+                <!--INFORMAÇÕES DE ENDREÇO-->
+                <div class="col s12 form_block" style="margin-top: 50px;">
+                    <p>Informações de Endereço</p>
+                    <hr />
+                </div>
+                <!--CEP-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Cep, new { @class = "validate" })
+                    <label for="icon_prefix">CEP</label>
+                </div>
+                <!--Endereço-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Endereco, new { @class = "validate" })
+                    <label for="icon_prefix">Endereço</label>
+                </div>
+                <!--Complemento-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Complemento, new { @class = "validate" })
+                    <label for="icon_prefix">Complemento</label>
+                </div>
+                <!--BAIRRO-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Bairro, new { @class = "validate" })
+                    <label for="icon_prefix">Bairro</label>
+                </div>
+                <!--Cidade-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Cidade, new { @class = "validate" })
+                    <label for="icon_prefix">Cidade</label>
+                </div>
+
+                <!--INFORMAÇÕES DE ACESSO-->
+                <div class="col s12 form_block" style="margin-top: 50px;">
+                    <p>Informações de Acesso</p>
+                    <hr />
+                </div>
+                <!--E-Mail-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Email, new { @class = "validate" })
+                    <label for="icon_prefix">E-Mail</label>
+                </div>
+                <!--Senha-->
+                <div class="input-field col s12 m6">
+                    @Html.EditorFor(model => model.Senha, new { @class = "validate" })
+                    <label for="icon_prefix">Senha</label>
+                </div>
+
+
+                <!--INFORMAÇÕES VISUAIS-->
+                <div class="col s12 form_block" style="margin-top: 50px;">
+                    <p>Informações Visuais</p>
+                    <hr />
+                </div>
+                <!--LINK IMAGEM-->
+                <div class="input-field col s12">
+                    @Html.EditorFor(model => model.Imagem, new { @class = "validate" })
+                    <label for="icon_prefix">URL Imagem</label>
+                </div>
+                <!--FINALIZAR CADASTRO-->
+                <div class="col s12 form_block" style="margin-top: 50px;">
+                    <p>Finalizar Cadastro</p>
+                    <hr />
+                </div>
+                <!--CADASTRAR-->
+                <div class="input-field col s12" style="text-align: left;">
+                    <input type="submit" value="Cadastrar" class="btn green" />
+                    <a href="@Url.Action("Index")" class="btn red">Cancelar</a>
+                </div>
+
+            </div>
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/materialize.js"></script>
+</body>
+</html>

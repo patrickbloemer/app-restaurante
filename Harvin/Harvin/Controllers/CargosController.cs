@@ -17,12 +17,12 @@ namespace Harvin.Controllers
 
         // GET: Cargo
         public ActionResult Index() {
-            return View(db.Cargos.ToList());
+            return View(CargoDAO.RetornaCargo());
         }
 
         // GET: Cargo
         public ActionResult Todos() {
-            return View(db.Cargos.ToList());
+            return View(CargoDAO.RetornaCargo());
         }
 
         // GET: Cargo/Details/5
@@ -32,7 +32,7 @@ namespace Harvin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cargo cargo = db.Cargos.Find(id);
+            Cargo cargo = CargoDAO.BuscaCargoPorId(id);
             if (cargo == null)
             {
                 return HttpNotFound();
@@ -59,7 +59,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "cargoId,nome,descricao")] Cargo cargo)
+        public ActionResult Create([Bind(Include = "Id,nome,descricao")] Cargo cargo)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace Harvin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cargo cargo = db.Cargos.Find(id);
+            Cargo cargo = CargoDAO.BuscaCargoPorId(id);
             if (cargo == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "cargoId,nome,descricao")] Cargo cargo)
+        public ActionResult Edit([Bind(Include = "Id,nome,descricao")] Cargo cargo)
         {
             if (ModelState.IsValid)
             {
@@ -124,7 +124,7 @@ namespace Harvin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cargo cargo = db.Cargos.Find(id);
+            Cargo cargo = CargoDAO.BuscaCargoPorId(id);
             if (cargo == null)
             {
                 return HttpNotFound();
@@ -137,20 +137,20 @@ namespace Harvin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cargo cargo = db.Cargos.Find(id);
+            Cargo cargo = CargoDAO.BuscaCargoPorId(id);
             db.Cargos.Remove(cargo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
 
         //INATIVAR CARGO
@@ -159,7 +159,7 @@ namespace Harvin.Controllers
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cargo cargo = db.Cargos.Find(id);
+            Cargo cargo = CargoDAO.BuscaCargoPorId(id);
             if (cargo == null) {
                 return HttpNotFound();
             }
@@ -171,11 +171,13 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "cargoId")] Cargo cargo) {
+        public ActionResult Inativar([Bind(Include = "Id")] Cargo cargo) {
 
             Cargo aux = CargoDAO.BuscaCargoPorId(cargo.Id);
 
-            if (CargoDAO.VerificaSeExisteFuncionariosEmCargo(aux))
+            var funcionarios = db.Funcionarios.Include(f => f.Cargo);
+
+            if (CargoDAO.VerificaSeExisteFuncionariosEmCargo(aux, funcionarios))
             {
                 ModelState.AddModelError("", "Não é possível inativar este cargo, pois existem funcionários cadastrados.");
             }
@@ -199,7 +201,7 @@ namespace Harvin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Cargo cargo = db.Cargos.Find(id);
+            Cargo cargo = CargoDAO.BuscaCargoPorId(id);
 
             if (cargo == null)
             {
@@ -214,7 +216,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Ativar([Bind(Include = "cargoId")] Cargo cargo)
+        public ActionResult Ativar([Bind(Include = "Id")] Cargo cargo)
         {
             Cargo aux = CargoDAO.BuscaCargoPorId(cargo.Id);
             aux.Inativo = false;

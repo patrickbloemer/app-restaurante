@@ -53,5 +53,54 @@ namespace Harvin.DAO
 
             return retorno;
         }
+
+        // Primeiro Funcionário
+        public static bool primeiroFuncionario()
+        {
+            try
+            {
+                Funcionario fun = new Funcionario();
+
+                fun.Id = 1;
+                fun.Cargo = CargoDAO.BuscaCargoPorId(1);
+                fun.Nome = "Administrador";
+                fun.Sobrenome = "Administrador";
+                fun.Cpf = "Administrador";
+                fun.Telefone = "Administrador";
+                fun.DataDeNascimento = DateTime.Now.Date;
+                fun.Cep = "Administrador";
+                fun.Endereco = "Administrador";
+                fun.Complemento = "Administrador";
+                fun.Bairro = "Administrador";
+                fun.Cidade = "Administrador";
+                fun.Imagem = "Administrador";
+                fun.Email = "Administrador";
+                fun.Senha = "Administrador";
+                fun.Inativo = false;
+                fun.Home = true;
+                fun.Bi = true;
+                fun.Relatorios = true;
+                fun.ConsultarFuncionarios = true;
+                fun.ManipularFuncionarios = true;
+                fun.ManipularCargos = true;
+                fun.ConsultarCargos = true;
+                fun.ConsultarCategorias = true;
+                fun.ManipularCategorias = true;
+                fun.ManipularProdutos = true;
+                fun.ConsultarPedidos = true;
+                fun.ManipularPedidos = true;
+                fun.ConsultarReservas = true;
+                fun.ManipularReservas = true;
+
+
+                entities.Funcionarios.Add(fun);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

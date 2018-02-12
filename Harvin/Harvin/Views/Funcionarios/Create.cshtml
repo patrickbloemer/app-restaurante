@@ -128,15 +128,11 @@
             <!--Cargo-->
             <div class="input-field col s12 m6">
                 <div style="margin: 20px; text-align: left!important;">
-                    <a href="@Url.Action("Create", "Cargo")" class="btn-floating tooltipped" data-position="right" data-delay="50" data-tooltip="Nova categoria" target="_blank"><i class="material-icons">add</i></a>
+                    <a href="@Url.Action("Create", "Cargo")" class="btn-floating tooltipped" data-position="right" data-delay="50" data-tooltip="Novo Cargo" target="_blank"><i class="material-icons">add</i></a>
                 </div>
-                @Html.DropDownList("CargoId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("id", null, htmlAttributes: new { @class = "form-control" })
                 <label for="icon_prefix">Cargo</label>
             </div>
-
-
-
-
 
 
             <!--INFORMAÇÕES DE ACESSO-->
@@ -153,32 +149,57 @@
                     <label for="icon_prefix">Home</label>
                 </div>
                 <div class="input-field col s3 m2">
-                    @Html.EditorFor(model => model.VerificarConsumo, new { @class = "valIdate" })
-                    <label for="icon_prefix">Verificar Consumo</label>
-                </div>
-                <div class="input-field col s3 m2">
-                    @Html.EditorFor(model => model.RealizarPedido, new { @class = "valIdate" })
-                    <label for="icon_prefix">RealizarPedIdo</label>
-                </div>
-                <div class="input-field col s3 m2">
-                    @Html.EditorFor(model => model.PedidosPendentes, new { @class = "valIdate" })
-                    <label for="icon_prefix">PedIdos Pendentes</label>
-                </div>
-                <div class="input-field col s3 m2">
-                    @Html.EditorFor(model => model.Clientes, new { @class = "valIdate" })
-                    <label for="icon_prefix">Clientes</label>
-                </div>
-                <div class="input-field col s3 m2">
-                    @Html.EditorFor(model => model.ReservarMesa, new { @class = "valIdate" })
-                    <label for="icon_prefix">Reserva de Mesa</label>
-                </div>
-                <div class="input-field col s3 m2">
-                    @Html.EditorFor(model => model.Configuracoes, new { @class = "valIdate" })
-                    <label for="icon_prefix">Configurações</label>
+                    @Html.EditorFor(model => model.Bi, new { @class = "valIdate" })
+                    <label for="icon_prefix">BI</label>
                 </div>
                 <div class="input-field col s3 m2">
                     @Html.EditorFor(model => model.Relatorios, new { @class = "valIdate" })
                     <label for="icon_prefix">Relatórios</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ConsultarFuncionarios, new { @class = "valIdate" })
+                    <label for="icon_prefix">Consultar Funcionários</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ManipularFuncionarios, new { @class = "valIdate" })
+                    <label for="icon_prefix">Manipular Funcionários</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ManipularCargos, new { @class = "valIdate" })
+                    <label for="icon_prefix">Manipular Cargos</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ConsultarCargos, new { @class = "valIdate" })
+                    <label for="icon_prefix">Consultar Cargos</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ConsultarCategorias, new { @class = "valIdate" })
+                    <label for="icon_prefix">Consultar Categorias</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ManipularCategorias, new { @class = "valIdate" })
+                    <label for="icon_prefix">Manipular Categorias</label>
+                </div>
+
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ManipularProdutos, new { @class = "valIdate" })
+                    <label for="icon_prefix">Manipular Produtos</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ConsultarPedidos, new { @class = "valIdate" })
+                    <label for="icon_prefix">Consultar Pedidos</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ManipularPedidos, new { @class = "valIdate" })
+                    <label for="icon_prefix">Manipular Pedidos</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ConsultarReservas, new { @class = "valIdate" })
+                    <label for="icon_prefix">Consultar Reserva</label>
+                </div>
+                <div class="input-field col s3 m2">
+                    @Html.EditorFor(model => model.ManipularReservas, new { @class = "valIdate" })
+                    <label for="icon_prefix">Manipular Reserva</label>
                 </div>
             </div>
 

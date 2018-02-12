@@ -53,7 +53,7 @@ namespace Harvin.Controllers
             }
             else
             {
-                ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome");
+                ViewBag.Id = new SelectList(db.Cargos, "Id", "nome");
                 return View();
             }
         }
@@ -63,8 +63,8 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,cargoId,home,verificarConsumo,realizarPedido,pedidosPendentes,clientes,reservarMesa,configuracoes,relatorios,nome,sobrenome,cpf,dataDeNascimento,cep,endereco,complemento,bairro,cidade,email,telefone,senha, imagem")] Funcionario funcionario)
-        {
+        public ActionResult Create([Bind(Include = "Id,Nome,Sobrenome,Cpf,Telefone,DataDeNascimento,Cep,Endereco,Complemento,Bairro,Cidade,Imagem,CargoId,Email,Senha,Inativo,Home,Bi,Relatorios,ConsultarFuncionarios,ManipularFuncionarios,ManipularCargos,ConsultarCargos,ConsultarCategorias,ManipularCategorias,ManipularProdutos,ConsultarPedidos,ManipularPedidos,ConsultarReservas,ManipularReservas")] Funcionario funcionario)
+            {
 
             if (FuncionarioDAO.BuscaFuncionarioPorCPF(funcionario) == null && FuncionarioDAO.BuscaFuncionarioPorEmail(funcionario) == null)
             {
@@ -85,7 +85,7 @@ namespace Harvin.Controllers
 
             }
 
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.Cargo.Id);
+            ViewBag.Id = new SelectList(db.Cargos, "Id", "nome", funcionario.Cargo.Id);
             return View(funcionario);
         }
 
@@ -101,7 +101,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.Cargo.Id);
+            ViewBag.Id = new SelectList(db.Cargos, "Id", "nome", funcionario.Cargo.Id);
             return View(funcionario);
         }
 
@@ -110,7 +110,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,cargoId,home,verificarConsumo,realizarPedido,pedidosPendentes,clientes,reservarMesa,configuracoes,relatorios,nome,sobrenome,cpf,dataDeNascimento,cep,endereco,complemento,bairro,cidade,email,telefone,senha, imagem")] Funcionario funcionario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Sobrenome,Cpf,Telefone,DataDeNascimento,Cep,Endereco,Complemento,Bairro,Cidade,Imagem,id,Email,Senha,Inativo,Home,Bi,Relatorios,ConsultarFuncionarios,ManipularFuncionarios,ManipularCargos,ConsultarCargos,ConsultarCategorias,ManipularCategorias,ManipularProdutos,ConsultarPedidos,ManipularPedidos,ConsultarReservas,ManipularReservas")] Funcionario funcionario)
         {
             if (ModelState.IsValid)
             {
@@ -118,7 +118,7 @@ namespace Harvin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.cargoId = new SelectList(db.Cargos, "cargoId", "nome", funcionario.Cargo.Id);
+            ViewBag.Id = new SelectList(db.Cargos, "Id", "nome", funcionario.Cargo.Id);
             return View(funcionario);
         }
 
@@ -174,6 +174,21 @@ namespace Harvin.Controllers
             string mensagem;
             mensagem = ViewBag.Mensagem;
             ViewBag.Mensagem = mensagem;
+
+            List<Funcionario> funs = FuncionarioDAO.RetornaFuncionarios();
+
+            if (funs.Count == 0)
+            {
+                if (CargoDAO.PrimeiroCargo())
+                {
+                    if (FuncionarioDAO.primeiroFuncionario())
+                    {
+                        return View();
+                    }
+                }
+
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 

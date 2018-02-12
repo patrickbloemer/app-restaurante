@@ -20,5 +20,11 @@ namespace Harvin.DAO
         {
             return entities.Clientes.FirstOrDefault(x => x.Email.Equals(cliente.Email));
         }
+
+        // Busca Cliente por Id
+        public static Cliente BuscarClientePorId(int? id)
+        {
+            return entities.Clientes.Find(id);
+        }
     }
 }

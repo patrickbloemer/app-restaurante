@@ -1,0 +1,41 @@
+﻿@model Harvin.Models.Reserva
+@{
+    ViewBag.Title = "Reservar Mesa";
+    Layout = "~/Views/Shared/_LayoutCliente.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <!--INFORMAÇÕES BÁSICAS-->
+        <div class="col s12 form_block" style="margin-top: 50px;">
+            <p>Informações Básicas</p>
+            <hr />
+        </div>
+        <!--Data-->
+        <div class="input-field col s12 m6">
+            <input type="text" class="datepicker">
+            <label for="icon_prefix">Data</label>
+        </div>
+        <!--HORÁRIO-->
+        <div class="input-field col s12 m6">
+            <input type="text" class="timepicker">
+            <label for="icon_prefix">Horário</label>
+        </div>
+        <!--NÚMERO DE PESSOAS-->
+        <div class="input-field col s12 m6">
+            @Html.EditorFor(model => model.QuantidadeClientes, new { @class = "validate" })
+            <label for="icon_prefix">Quantidade de Pessoas</label>
+        </div>
+        <!--FINALIZAR CADASTRO-->
+        <div class="col s12 form_block" style="margin-top: 50px;">
+            <p>Finalizar Cadastro</p>
+            <hr />
+        </div>
+
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

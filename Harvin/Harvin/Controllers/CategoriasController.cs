@@ -51,7 +51,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoriaId,nome,descricao, imagem")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "Id,nome,descricao, imagem")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaId,nome,descricao,imagem")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "Id,nome,descricao,imagem")] Categoria categoria)
         {
                 Categoria aux = new Categoria();
                 aux = CategoriaDAO.BuscarCategoriaPorId(categoria.Id);
@@ -161,7 +161,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "CategoriaId")] Categoria categoria) {
+        public ActionResult Inativar([Bind(Include = "Id")] Categoria categoria) {
 
             Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.Id);
 
@@ -203,7 +203,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Ativar([Bind(Include = "CategoriaId")] Categoria categoria)
+        public ActionResult Ativar([Bind(Include = "Id")] Categoria categoria)
         {
             Categoria aux = CategoriaDAO.BuscarCategoriaPorId(categoria.Id);
             aux.Inativo = false;

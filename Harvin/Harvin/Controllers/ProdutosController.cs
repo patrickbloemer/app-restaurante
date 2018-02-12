@@ -39,7 +39,7 @@ namespace Harvin.Controllers
         // GET: Produtos/Create
         public ActionResult Create()
         {
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome");
+            ViewBag.Id = new SelectList(db.Categorias, "Id", "nome");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentarios, imagem")] Produto produto)
+        public ActionResult Create([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentario, imagem")] Produto produto)
         {
                 produto.Categoria = CategoriaDAO.BuscarCategoriaPorId(produto.Categoria.Id);
                 if (ProdutoDAO.CadastrarProduto(produto))
@@ -70,7 +70,7 @@ namespace Harvin.Controllers
 
             
 
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
+            ViewBag.Id = new SelectList(db.Categorias, "Id", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -86,7 +86,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
+            ViewBag.Id = new SelectList(db.Categorias, "Id", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -95,7 +95,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentarios, imagem")] Produto produto)
+        public ActionResult Edit([Bind(Include = "id,nome,valorUnitario,quantidadeMinimaEstoque,quantidadeMaximaEstoque,quantidadeAtualEstoque,descricao,estocavel,categoriaId,comentario, imagem")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -130,7 +130,7 @@ namespace Harvin.Controllers
 
 
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
+            ViewBag.Id = new SelectList(db.Categorias, "Id", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -156,7 +156,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
+            ViewBag.Id = new SelectList(db.Categorias, "Id", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -165,7 +165,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Inativar([Bind(Include = "id, comentarios")] Produto produto)
+        public ActionResult Inativar([Bind(Include = "id, comentario")] Produto produto)
         {
             Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.Id);
             aux.Inativo = true;
@@ -187,7 +187,7 @@ namespace Harvin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.categoriaId = new SelectList(db.Categorias, "CategoriaId", "nome", produto.Categoria.Id);
+            ViewBag.Id = new SelectList(db.Categorias, "Id", "nome", produto.Categoria.Id);
             return View(produto);
         }
 
@@ -196,7 +196,7 @@ namespace Harvin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Ativar([Bind(Include = "id, comentarios")] Produto produto)
+        public ActionResult Ativar([Bind(Include = "id, comentario")] Produto produto)
         {
             Produto aux = ProdutoDAO.BuscaProdutoPorId(produto.Id);
             aux.Inativo = false;

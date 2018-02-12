@@ -1,0 +1,112 @@
+﻿@model Harvin.Models.Cliente
+@{
+    ViewBag.Title = "Inativar Cliente";
+}
+<div>
+    <h4>@Html.DisplayFor(model => model.Nome)</h4>
+    <h6 class="red-text"><i class="material-icons">delete</i> <br />Você realmente deseja inativar este cliente?</h6>
+    <p>Esta ação pode ser desfeita mais tarde. </p>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sobrenome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataDeNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataDeNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Complemento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Complemento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Imagem)
+        </dd>
+        <dt>
+            <img src="@Html.DisplayNameFor(model => model.Imagem)" style="width: 100px;" />
+        </dt>
+
+    </dl>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.HiddenFor(model => model.Id)
+    </div>
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Inativar" class="btn red darken-4" /> |
+        <a href="@Url.Action("Index")" class="red btn">Cancelar</a>
+    </div>
+}
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cliente" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating orange tooltipped" data-position="left" data-delay="0" data-tooltip="Todos" href="@Url.Action("Todos")"><i class="material-icons">do_not_disturb_off</i></a></li>
+        <li><a class="btn-floating red tooltipped" data-position="left" data-delay="0" data-tooltip="Ativos" href="@Url.Action("Index")"><i class="material-icons">do_not_disturb_on</i></a></li>
+    </ul>
+</div>

@@ -7,8 +7,15 @@ using System.Web.Mvc;
 namespace Harvin.Controllers
 {
     public class InicialController : Controller {
-        // GET: Inicial
+        
+        // GET: Inicial/Index
         public ActionResult Index() {
+            return View();
+        }
+
+        // GET: Inicial/Home
+        public ActionResult Home()
+        {
             return View();
         }
 

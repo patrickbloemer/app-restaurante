@@ -37,7 +37,7 @@
             @Html.DisplayNameFor(model => model.Imagem)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Comentarios)
+            @Html.DisplayNameFor(model => model.Comentario)
         </th>
         <th></th>
     </tr>
@@ -77,7 +77,7 @@
                     <img src="@item.Imagem" style="wIdth: 45px!important; height: 45px!important;" />
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Comentarios)
+                    @Html.DisplayFor(modelItem => item.Comentario)
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { Id = item.Id }) |

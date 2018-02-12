@@ -290,16 +290,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Cargos\Create.cshtml" />
-    <Content Include="Views\Cargos\Details.cshtml" />
-    <Content Include="Views\Cargos\Edit.cshtml" />
-    <Content Include="Views\Cargos\Index.cshtml" />
+    <Content Include="Views\Cargo\Create.cshtml" />
+    <Content Include="Views\Cargo\Details.cshtml" />
+    <Content Include="Views\Cargo\Edit.cshtml" />
+    <Content Include="Views\Cargo\Index.cshtml" />
     <Content Include="Views\Categorias\Create.cshtml" />
     <Content Include="Views\Categorias\Edit.cshtml" />
     <Content Include="Views\Categorias\Index.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
-    <Content Include="Views\Clientes\Delete.cshtml" />
-    <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Deliveries\Create.cshtml" />
@@ -347,8 +345,8 @@
     <Content Include="Views\Pedidos\Finalizar.cshtml" />
     <Content Include="Views\Produtos\Inativar.cshtml" />
     <Content Include="Views\Produtos\Lista.cshtml" />
-    <Content Include="Views\Cargos\Inativar.cshtml" />
-    <Content Include="Views\Cargos\Todos.cshtml" />
+    <Content Include="Views\Cargo\Inativar.cshtml" />
+    <Content Include="Views\Cargo\Todos.cshtml" />
     <Content Include="Views\Categorias\Todos.cshtml" />
     <Content Include="Views\Categorias\Inativar.cshtml" />
     <Content Include="Views\FormasDePagamento\Inativar.cshtml" />
@@ -357,11 +355,18 @@
     <Content Include="scripts\vegas\vegas.min.css.map" />
     <Content Include="scripts\vegas\vegas.min.js.map" />
     <Content Include="Views\Home\Pizzaria.cshtml" />
-    <Content Include="Views\Cargos\Ativar.cshtml" />
+    <Content Include="Views\Cargo\Ativar.cshtml" />
     <Content Include="Views\Categorias\Ativar.cshtml" />
     <Content Include="Views\Funcionarios\Ativar.cshtml" />
     <Content Include="Views\Produtos\Ativar.cshtml" />
     <Content Include="Views\Shared\_LayoutCliente.cshtml" />
+    <Content Include="Views\Inicial\Home.cshtml" />
+    <Content Include="Views\Reservas\Reservar.cshtml" />
+    <Content Include="Views\Clientes\Inativar.cshtml" />
+    <Content Include="Views\Clientes\Ativar.cshtml" />
+    <Content Include="Views\Clientes\CriarConta.cshtml" />
+    <Content Include="Views\Clientes\Todos.cshtml" />
+    <Content Include="Views\Clientes\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

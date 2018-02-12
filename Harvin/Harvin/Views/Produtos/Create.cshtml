@@ -39,8 +39,8 @@
 
             <!--COMENTÁRIOS-->
             <div class="input-field col s12 m6">
-                @Html.TextAreaFor(model => model.Comentarios, new { @class = "materialize-textarea" })
-                <label for="icon_prefix">Comentários</label>
+                @Html.TextAreaFor(model => model.Comentario, new { @class = "materialize-textarea" })
+                <label for="icon_prefix">Comentário</label>
             </div>
 
 
@@ -113,7 +113,7 @@
                 <div style="margin: 20px; text-align: left!important;">
                     <a href="@Url.Action("Create", "Categorias")" class="btn-floating tooltipped" data-position="right" data-delay="50" data-tooltip="Nova Categoria" target="_blank"><i class="material-icons">add</i></a>
                 </div>
-                @Html.DropDownList("CategoriaId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Id", null, htmlAttributes: new { @class = "form-control" })
                 <label for="icon_prefix">Categoria</label>
             </div>
 

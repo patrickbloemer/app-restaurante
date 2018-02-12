@@ -27,11 +27,10 @@
                     <div class="container">
                         <div class="row">
                             <h4>Harvin - Cliente</h4>
-                            <p class="center red-text">O Login para Clientes está temporariamente indisponível.</p>
                             <div class="row">
                                 <div class="input-field col s12">
                                     @Html.EditorFor(model => model.Cpf, new { @class = "valIdate" })
-                                    <label for="icon_prefix" style="color: white;">E-mail</label>
+                                    <label for="icon_prefix" style="color: white;">Cpf</label>
                                 </div>
                                 <div class="input-field col s12">
                                     @Html.EditorFor(model => model.Senha, new { @class = "valIdate" })
@@ -44,7 +43,9 @@
                                 <i class="material-icons right">send</i>
                             </button>
                             <br><br>
-                            <a href="#" class="white-text" class="z-depth-5">Esqueceu seu login?</a>
+                            <a href="#" class="white-text z-depth-5">Esqueceu seu login?</a>
+                            <br />
+                            <a href="@Url.Action("CriarConta","Clientes")">Cadastrar-se</a>
                         </div>
                     </div>
                 }

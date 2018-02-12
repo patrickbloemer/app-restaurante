@@ -1,0 +1,166 @@
+﻿@model IEnumerable<Harvin.Models.Cliente>
+@{
+    ViewBag.Title = "Clientes";
+}
+<p>Clientes cadastrados no sistema, incluindo os inativos.</p>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        if (!item.Inativo)
+        {
+            <div class="col s6 m3">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@item.Imagem">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator white-text text-darken-4">@item.Nome @item.Sobrenome</span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
+
+                        <b>Nome Completo</b>
+                        <br />
+                        @item.Nome @item.Sobrenome
+                        <br />
+                        <br />
+
+                        <b>CPF</b>
+                        <br />
+                        @item.Cpf
+                        <br />
+                        <br />
+
+                        <b>Telefone</b>
+                        <br />
+                        @item.Telefone
+                        <br />
+                        <br />
+
+                        <b>Data de Nascimento</b>
+                        <br />
+                        @item.DataDeNascimento
+                        <br />
+                        <br />
+
+                        <b>Endereço</b>
+                        <br />
+                        @item.Endereco
+                        <br />
+                        <br />
+
+                        <b>CEP</b>
+                        <br />
+                        @item.Cep
+                        <br />
+                        <br />
+
+                        <b>Bairro</b>
+                        <br />
+                        @item.Bairro
+                        <br />
+                        <br />
+
+                        <b>Cidade</b>
+                        <br />
+                        @item.Cidade
+                        <br />
+                        <br />
+
+                        <b>E-mail</b>
+                        <br />
+                        @item.Email
+                        <br />
+                        <br />
+
+                        <a href="@Url.Action("Edit", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Inativar", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="col s6 m4">
+                <div class="card red">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="@item.Imagem">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator white-text text-darken-4">@item.Nome @item.Sobrenome</span>
+                    </div>
+                    <div class="card-reveal red white-text">
+                        <span class="card-title white-text text-darken-4"><i class="material-icons">close</i></span>
+
+                        <b>Nome Completo</b>
+                        <br />
+                        @item.Nome @item.Sobrenome
+                        <br />
+                        <br />
+
+                        <b>CPF</b>
+                        <br />
+                        @item.Cpf
+                        <br />
+                        <br />
+
+                        <b>Telefone</b>
+                        <br />
+                        @item.Telefone
+                        <br />
+                        <br />
+
+                        <b>Data de Nascimento</b>
+                        <br />
+                        @item.DataDeNascimento
+                        <br />
+                        <br />
+
+                        <b>Endereço</b>
+                        <br />
+                        @item.Endereco
+                        <br />
+                        <br />
+
+                        <b>CEP</b>
+                        <br />
+                        @item.Cep
+                        <br />
+                        <br />
+
+                        <b>Bairro</b>
+                        <br />
+                        @item.Bairro
+                        <br />
+                        <br />
+
+                        <b>Cidade</b>
+                        <br />
+                        @item.Cidade
+                        <br />
+                        <br />
+
+                        <b>E-mail</b>
+                        <br />
+                        @item.Email
+                        <br />
+                        <br />
+
+                        <a href="@Url.Action("Edit", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
+                        <a href="@Url.Action("Ativar", new { id=item.Id})" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">restore</i></a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cliente" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating red tooltipped" data-position="left" data-delay="0" data-tooltip="Ativos" href="@Url.Action("Index")"><i class="material-icons">do_not_disturb_on</i></a></li>
+    </ul>
+</div>

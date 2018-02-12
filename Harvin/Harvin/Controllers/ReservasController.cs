@@ -59,6 +59,30 @@ namespace Harvin.Controllers
             return View(reserva);
         }
 
+        // GET: Reservas/Reser
+        public ActionResult Reservar()
+        {
+            var model = new Reserva();
+            return View(model);
+        }
+
+        // POST: Reservas/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Reservar([Bind(Include = "reservaId,data,horario,quantidadeClientes")] Reserva reserva)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Reservas.Add(reserva);
+                db.SaveChanges();
+                return RedirectToAction("Home", "Inicial");
+            }
+
+            return View(reserva);
+        }
+
         // GET: Reservas/Edit/5
         public ActionResult Edit(int? id)
         {

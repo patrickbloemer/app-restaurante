@@ -23,7 +23,7 @@ namespace Harvin.DAO
         }
 
         // Busca Cargo por ID
-        public static Cargo BuscaCargoPorId(int id)
+        public static Cargo BuscaCargoPorId(int? id)
         {
             return entities.Cargos.Find(id);
         }
@@ -40,9 +40,9 @@ namespace Harvin.DAO
         }
 
         // Verifica Funcionários em Cargo
-        public static bool VerificaSeExisteFuncionariosEmCargo(Cargo cargo)
+        public static bool VerificaSeExisteFuncionariosEmCargo(Cargo cargo, IQueryable<Funcionario> funcionarios)
         {
-            List<Funcionario> funcionarios = FuncionarioDAO.RetornaFuncionarios();
+            
             foreach (var item in funcionarios)
             {
                 if(item.Cargo.Id == cargo.Id)
@@ -88,6 +88,28 @@ namespace Harvin.DAO
                 }
             }
             catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        // Primeiro Cargo 
+        public static bool PrimeiroCargo()
+        {
+            try
+            {
+                Cargo cargo = new Cargo();
+
+                cargo.Id = 1;
+                cargo.Nome = "Admin";
+                cargo.Descricao = "Admin";
+                cargo.Inativo = false;
+
+                entities.Cargos.Add(cargo);
+                entities.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
             {
                 return false;
             }

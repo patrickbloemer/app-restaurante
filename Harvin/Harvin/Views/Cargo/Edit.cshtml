@@ -1,0 +1,63 @@
+﻿@model Harvin.Models.Cargo
+
+@{
+    ViewBag.Title = "Editar Cargo";
+}
+
+<div class="cadastro">
+    <i class="material-icons red-text">help</i><span class="grey-text">Cargo selecionado para edição: @Model.Nome</span>
+
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="row">
+
+            <div class="col s12 form_block">
+                <p>Informações básicas</p>
+                <hr />
+            </div>
+
+            <!--ID-->
+            <div>
+                @Html.HiddenFor(model => model.Id)
+            </div>
+
+            <!--NOME-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Nome, new { @class = "validate" })
+                <label for="icon_prefix">Nome</label>
+            </div>
+
+            <!--VALOR UNITÁRIO-->
+            <div class="input-field col s12 m6">
+                @Html.EditorFor(model => model.Descricao, new { @class = "validate" })
+                <label for="icon_prefix">Descrição</label>
+            </div>
+
+            <div class="input-field col s12">
+                <input type="submit" name="Confirmar" value="Confirmar" class="btn green" />
+                <a href="@Url.Action("Index")" class="btn red">Cancelar</a>
+            </div>
+
+        </div>
+    }
+</div>
+
+<!-- Modal Trigger -->
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red modal-trigger pulse" href="#modal1">
+        <i class="large material-icons">help</i>
+    </a>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="text-transform: none!important;">
+    <div class="modal-content">
+        <h5>Ajuda - Edição de cargo</h5>
+        <p>Abaixo uma explicação de cada campo</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+

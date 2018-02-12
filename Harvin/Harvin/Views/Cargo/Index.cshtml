@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Harvin.Models.Cargo>
+
+@{
+    ViewBag.Title = "Cargo";
+}
+
+<p>Cargo de Funcionários cadastrados no sistema. Clique em "<i class="material-icons blue-text">info</i>" para ter acesso as suas informações individuais.</p>
+
+<hr />
+
+
+<table class="table table striped centered responsive-table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            Opções
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (!item.Inativo) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+
+                <a href="@Url.Action("Edit", "Cargo", new { id=item.Id})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Editar"><i class="material-icons green-text">edit</i></a>
+                <a href="@Url.Action("Details", "Cargo", new { id=item.Id})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Detalhes"><i class="material-icons blue-text">info</i></a>
+                <a href="@Url.Action("Inativar", "Cargo", new { id=item.Id})" class="tooltipped" data-position="bottom" data-delay="0" data-tooltip="Inativar"><i class="material-icons red-text">delete</i></a>
+            </td>
+        </tr>
+    }
+}
+
+</table>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Funcionarios Cadastrados" href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">assignment_ind</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Adicionar Inativos a Lista" href="@Url.Action("Todos", "Cargo")"><i class="material-icons">do_not_disturb_on</i></a></li>
+    </ul>
+</div>

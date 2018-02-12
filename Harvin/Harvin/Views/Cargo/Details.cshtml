@@ -1,0 +1,71 @@
+﻿@model Harvin.Models.Cargo
+@{
+    ViewBag.Title = "Detalhes do Cargo";
+
+    Harvin.Models.Cargo cargo = Model;
+    List<Harvin.Models.Funcionario> funcionarios = Harvin.DAO.CargoDAO.RetornaFuncionariosCadastradosNoCargo(cargo);
+
+}
+<div>
+    <h4>@Html.DisplayFor(model => model.Nome)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+    </dl>
+</div>
+
+@if (funcionarios.Count > 0)
+{
+    <table class="table table striped centered responsive-table">
+        <tr>
+
+            <th>
+                @Html.DisplayName("Funcionário")
+            </th>
+
+            <th>
+                @Html.DisplayName("CPF")
+            </th>
+
+        </tr>
+        @foreach (var item in funcionarios)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+
+            </tr>
+        }
+    </table>
+}
+<hr />
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn green" }) |
+    @Html.ActionLink("Retornar para Lista", "Index", "", new { @class = "btn orange" })
+</p>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+        <i class="material-icons">more_vert</i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green tooltipped" data-position="left" data-delay="0" data-tooltip="Novo Cargo" href="@Url.Action("Create")"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="0" data-tooltip="Funcionarios Cadastrados" href="@Url.Action("Index", "Funcionarios")"><i class="material-icons">assignment_ind</i></a></li>
+    </ul>
+</div>
